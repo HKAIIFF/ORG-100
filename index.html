@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>香港人工智能國際電影節頒獎典禮2026</title>
+    <title>HKAIIFF 頒獎典禮 2026 - 香港AI國際電影節</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Orbitron:wght@700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #3498db;
@@ -19,7 +18,7 @@
         }
         
         body {
-            font-family: 'Noto Sans TC', 'Inter', sans-serif;
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
             background-color: #0a0a0a;
             color: #ffffff;
             overflow-x: hidden;
@@ -123,6 +122,7 @@
             display: flex;
             align-items: center;
             min-height: 100vh;
+            padding-top: 80px; /* 新增：為導航欄留出空間 */
         }
         
         .hero:before {
@@ -383,6 +383,25 @@
         }
         
         @media (max-width: 768px) {
+            /* 移動設備優化 */
+            .hero {
+                min-height: 80vh;
+                padding-top: 70px; /* 為移動設備導航欄留出空間 */
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem !important; /* 調整主標題大小 */
+                margin-top: 20px; /* 增加頂部間距 */
+            }
+            
+            .navbar {
+                padding: 0.5rem 1rem; /* 調整導航欄內邊距 */
+            }
+            
+            .navbar .logo-font {
+                font-size: 1.5rem; /* 調整標誌大小 */
+            }
+            
             .timeline-item::before {
                 left: 20px;
             }
@@ -404,9 +423,73 @@
                 font-size: 2rem;
             }
             
-            .hero {
-                min-height: 80vh;
+            /* 調整按鈕大小 */
+            .btn-primary, .btn-gold {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.9rem;
             }
+            
+            /* 調整卡片內邊距 */
+            .card, .award-card, .judge-card {
+                padding: 1rem;
+            }
+            
+            /* 調整導航菜單 */
+            .navbar .hidden {
+                display: none;
+            }
+            
+            /* 移動設備菜單按鈕 */
+            .mobile-menu-button {
+                display: block !important;
+            }
+            
+            /* 移動設備菜單 */
+            .mobile-menu {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: rgba(10, 10, 10, 0.98);
+                z-index: 999;
+                padding: 1rem;
+                transform: translateY(-150%);
+                transition: transform 0.3s ease;
+            }
+            
+            .mobile-menu.active {
+                transform: translateY(0);
+            }
+            
+            .mobile-menu a {
+                display: block;
+                padding: 0.75rem 0;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+        }
+        
+        /* 移動設備菜單按鈕樣式 */
+        .mobile-menu-button {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* 新增样式 */
+        .navbar.scrolled {
+            background-color: rgba(0, 0, 0, 0.95);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .countdown-box {
+            transition: transform 0.3s ease;
+        }
+        
+        .countdown-box:hover {
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -419,8 +502,8 @@
     </div>
     
     <div class="ai-element" style="bottom: 150px; right: 15%;">
-        提名影片: 921 部 <br>
-        獎項類別: 18 個 <br>
+        提名: 847 部電影 <br>
+        類別: 15 個獎項 <br>
         // 全球認可
     </div>
 
@@ -437,18 +520,36 @@
                 <div class="logo-font text-2xl md:text-3xl">HKAIIFF</div>
                 <div class="logo-sub text-xs">頒獎典禮</div>
             </a>
+            
+            <!-- 桌面導航 -->
             <div class="hidden md:flex space-x-8">
                 <a href="#awards" class="hover:text-blue-400 transition">獎項</a>
                 <a href="#schedule" class="hover:text-blue-400 transition">日程</a>
-                <a href="#nominees" class="hover:text-blue-400 transition">提名作品</a>
-                <a href="#judges" class="hover:text-blue-400 transition">評審團</a>
+                <a href="#nominees" class="hover:text-blue-400 transition">提名</a>
+                <a href="#judges" class="hover:text-blue-400 transition">評委</a>
                 <a href="#live" class="hover:text-blue-400 transition">直播</a>
-                <a href="#voting" class="hover:text-blue-400 transition">觀眾投票</a>
+                <a href="#voting" class="hover:text-blue-400 transition">投票</a>
             </div>
+            
             <div class="flex items-center space-x-4">
-                <a href="#tickets" class="btn-gold px-6 py-2 rounded-full text-sm font-bold">購買門票</a>
+                <a href="#tickets" class="btn-gold px-6 py-2 rounded-full text-sm font-bold">購票</a>
                 <a href="#watch" class="btn-primary px-6 py-2 rounded-full text-sm">觀看直播</a>
+                
+                <!-- 移動設備菜單按鈕 -->
+                <button class="mobile-menu-button md:hidden" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
+        </div>
+        
+        <!-- 移動設備菜單 -->
+        <div class="mobile-menu md:hidden" id="mobileMenu">
+            <a href="#awards" class="hover:text-blue-400 transition">獎項</a>
+            <a href="#schedule" class="hover:text-blue-400 transition">日程</a>
+            <a href="#nominees" class="hover:text-blue-400 transition">提名</a>
+            <a href="#judges" class="hover:text-blue-400 transition">評委</a>
+            <a href="#live" class="hover:text-blue-400 transition">直播</a>
+            <a href="#voting" class="hover:text-blue-400 transition">投票</a>
         </div>
     </nav>
 
@@ -466,10 +567,10 @@
             <div class="max-w-6xl mx-auto text-center">
                 <div class="mb-8">
                     <h1 class="text-5xl md:text-8xl font-bold mb-4 gradient-text">
-                        香港AI國際電影節頒獎典禮2026
+                        HKAIIFF 頒獎典禮 2026
                     </h1>
                     <p class="text-xl md:text-3xl text-gray-300 mb-2">
-                        全球首屈一指的人工智能原生電影節
+                        全球首屈一指的AI原生電影節
                     </p>
                     <p class="text-lg md:text-xl text-gray-400">
                         慶祝創新 • 表彰卓越 • 塑造未來
@@ -480,21 +581,21 @@
                 <div class="mb-12">
                     <div class="countdown-card max-w-4xl mx-auto">
                         <h2 class="text-2xl md:text-3xl font-bold mb-6 text-gold">頒獎典禮倒計時</h2>
-                        <div class="grid grid-cols-4 gap-4 md:gap-8">
-                            <div>
-                                <div class="countdown-number">112</div>
+                        <div class="grid grid-cols-4 gap-4 md:gap-8" id="countdown">
+                            <div class="countdown-box">
+                                <div class="countdown-number" id="days">00</div>
                                 <div class="text-gray-400 uppercase tracking-wider">天</div>
                             </div>
-                            <div>
-                                <div class="countdown-number">19</div>
+                            <div class="countdown-box">
+                                <div class="countdown-number" id="hours">00</div>
                                 <div class="text-gray-400 uppercase tracking-wider">小時</div>
                             </div>
-                            <div>
-                                <div class="countdown-number">45</div>
+                            <div class="countdown-box">
+                                <div class="countdown-number" id="minutes">00</div>
                                 <div class="text-gray-400 uppercase tracking-wider">分鐘</div>
                             </div>
-                            <div>
-                                <div class="countdown-number">22</div>
+                            <div class="countdown-box">
+                                <div class="countdown-number" id="seconds">00</div>
                                 <div class="text-gray-400 uppercase tracking-wider">秒</div>
                             </div>
                         </div>
@@ -508,19 +609,19 @@
                 <!-- Key Stats -->
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
                     <div class="bg-black bg-opacity-50 rounded-lg p-4">
-                        <div class="text-2xl md:text-3xl font-bold text-gold">$350萬</div>
-                        <div class="text-sm text-gray-400">總獎金</div>
+                        <div class="text-2xl md:text-3xl font-bold text-gold">$3M</div>
+                        <div class="text-sm text-gray-400">總獎金池</div>
                     </div>
                     <div class="bg-black bg-opacity-50 rounded-lg p-4">
-                        <div class="text-2xl md:text-3xl font-bold text-gold">921</div>
-                        <div class="text-sm text-gray-400">參賽影片</div>
+                        <div class="text-2xl md:text-3xl font-bold text-gold">847</div>
+                        <div class="text-sm text-gray-400">電影提交</div>
                     </div>
                     <div class="bg-black bg-opacity-50 rounded-lg p-4">
-                        <div class="text-2xl md:text-3xl font-bold text-gold">68</div>
-                        <div class="text-sm text-gray-400">國家/地區</div>
+                        <div class="text-2xl md:text-3xl font-bold text-gold">62</div>
+                        <div class="text-sm text-gray-400">國家</div>
                     </div>
                     <div class="bg-black bg-opacity-50 rounded-lg p-4">
-                        <div class="text-2xl md:text-3xl font-bold text-gold">18</div>
+                        <div class="text-2xl md:text-3xl font-bold text-gold">15</div>
                         <div class="text-sm text-gray-400">獎項類別</div>
                     </div>
                 </div>
@@ -547,7 +648,7 @@
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-6xl font-bold mb-6 gradient-text">獎項類別</h2>
                 <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    表彰人工智能原生電影製作的各個卓越方面
+                    表彰AI原生電影製作各個方面的卓越成就，從技術創新到藝術成就
                 </p>
             </div>
 
@@ -562,10 +663,10 @@
                             <i class="fas fa-trophy"></i>
                         </div>
                         <h3 class="text-2xl font-bold mb-4 text-gold">獨角獸金獎</h3>
-                        <p class="text-lg mb-4 text-gray-300">最佳人工智能原生電影</p>
-                        <div class="text-3xl font-bold text-gold mb-2">$125萬</div>
+                        <p class="text-lg mb-4 text-gray-300">最佳AI原生電影</p>
+                        <div class="text-3xl font-bold text-gold mb-2">$1,000,000</div>
                         <p class="text-sm text-gray-400">
-                            最高榮譽，表彰在敘事和創新方面表現最為出色的人工智能原生電影
+                            最高榮譽，表彰在敘事、技術創新和藝術視野方面表現最為出色的AI原生電影。
                         </p>
                     </div>
                     
@@ -575,9 +676,9 @@
                         </div>
                         <h3 class="text-2xl font-bold mb-4 text-silver">最佳AI導演</h3>
                         <p class="text-lg mb-4 text-gray-300">創意領導力</p>
-                        <div class="text-3xl font-bold text-silver mb-2">$25萬</div>
+                        <div class="text-3xl font-bold text-silver mb-2">$200,000</div>
                         <p class="text-sm text-gray-400">
-                            表彰能夠熟練協調AI工具與人類創意的遠見導演
+                            表彰那些熟練運用AI工具和人類創造力來講述引人入勝故事的富有遠見的導演。
                         </p>
                     </div>
                     
@@ -587,9 +688,9 @@
                         </div>
                         <h3 class="text-2xl font-bold mb-4 text-bronze">最佳AI編劇</h3>
                         <p class="text-lg mb-4 text-gray-300">敘事卓越</p>
-                        <div class="text-3xl font-bold text-bronze mb-2">$18萬</div>
+                        <div class="text-3xl font-bold text-bronze mb-2">$150,000</div>
                         <p class="text-sm text-gray-400">
-                            表彰將AI生成內容與人類敘事洞察完美結合的卓越故事創作
+                            表彰將AI生成內容與人類敘事洞察無縫融合的卓越故事講述。
                         </p>
                     </div>
                 </div>
@@ -604,22 +705,22 @@
                     <div class="award-card p-6 text-center">
                         <div class="text-3xl mb-4 text-accent"><i class="fas fa-palette"></i></div>
                         <h4 class="text-lg font-bold mb-2">最佳AI視覺設計</h4>
-                        <div class="text-xl font-bold text-accent">$12萬</div>
+                        <div class="text-xl font-bold text-accent">$100,000</div>
                     </div>
                     <div class="award-card p-6 text-center">
                         <div class="text-3xl mb-4 text-accent"><i class="fas fa-user-android"></i></div>
-                        <h4 class="text-lg font-bold mb-2">最佳AI數碼角色</h4>
-                        <div class="text-xl font-bold text-accent">$11萬</div>
+                        <h4 class="text-lg font-bold mb-2">最佳AI數字角色</h4>
+                        <div class="text-xl font-bold text-accent">$100,000</div>
                     </div>
                     <div class="award-card p-6 text-center">
                         <div class="text-3xl mb-4 text-accent"><i class="fas fa-music"></i></div>
                         <h4 class="text-lg font-bold mb-2">最佳AI音效設計</h4>
-                        <div class="text-xl font-bold text-accent">$8.5萬</div>
+                        <div class="text-xl font-bold text-accent">$75,000</div>
                     </div>
                     <div class="award-card p-6 text-center">
                         <div class="text-3xl mb-4 text-accent"><i class="fas fa-cube"></i></div>
                         <h4 class="text-lg font-bold mb-2">最佳AI技術創新</h4>
-                        <div class="text-xl font-bold text-accent">$16萬</div>
+                        <div class="text-xl font-bold text-accent">$150,000</div>
                     </div>
                 </div>
             </div>
@@ -628,29 +729,29 @@
             <div class="grid md:grid-cols-2 gap-12">
                 <div>
                     <h3 class="text-2xl font-bold mb-8 text-primary">
-                        <i class="fas fa-gamepad mr-2"></i>互動與沉浸體驗
+                        <i class="fas fa-gamepad mr-2"></i>互動與沉浸式
                     </h3>
                     <div class="space-y-4">
                         <div class="award-card p-4 flex justify-between items-center">
                             <div>
                                 <h4 class="font-bold">最佳AI互動體驗</h4>
-                                <p class="text-sm text-gray-400">革命性觀眾參與</p>
+                                <p class="text-sm text-gray-400">革命性的觀眾參與</p>
                             </div>
-                            <div class="text-lg font-bold text-primary">$13.5萬</div>
+                            <div class="text-lg font-bold text-primary">$125,000</div>
                         </div>
                         <div class="award-card p-4 flex justify-between items-center">
                             <div>
                                 <h4 class="font-bold">Web3電影創新</h4>
                                 <p class="text-sm text-gray-400">區塊鏈整合卓越</p>
                             </div>
-                            <div class="text-lg font-bold text-primary">$11萬</div>
+                            <div class="text-lg font-bold text-primary">$100,000</div>
                         </div>
                         <div class="award-card p-4 flex justify-between items-center">
                             <div>
                                 <h4 class="font-bold">AI動畫成就</h4>
                                 <p class="text-sm text-gray-400">動畫敘事大師</p>
                             </div>
-                            <div class="text-lg font-bold text-primary">$8.5萬</div>
+                            <div class="text-lg font-bold text-primary">$75,000</div>
                         </div>
                     </div>
                 </div>
@@ -662,31 +763,31 @@
                     <div class="space-y-4">
                         <div class="award-card p-4 flex justify-between items-center">
                             <div>
-                                <h4 class="font-bold">AI社會影響力獎</h4>
+                                <h4 class="font-bold">AI社會影響獎</h4>
                                 <p class="text-sm text-gray-400">推動積極變革的電影</p>
                             </div>
-                            <div class="text-lg font-bold text-secondary">$11萬</div>
+                            <div class="text-lg font-bold text-secondary">$100,000</div>
                         </div>
                         <div class="award-card p-4 flex justify-between items-center">
                             <div>
-                                <h4 class="font-bold">新晉AI電影製作人</h4>
+                                <h4 class="font-bold">新銳AI電影人</h4>
                                 <p class="text-sm text-gray-400">突破性人才認可</p>
                             </div>
-                            <div class="text-lg font-bold text-secondary">$6萬</div>
+                            <div class="text-lg font-bold text-secondary">$50,000</div>
                         </div>
                         <div class="award-card p-4 flex justify-between items-center">
                             <div>
                                 <h4 class="font-bold">觀眾選擇獎</h4>
-                                <p class="text-sm text-gray-400">社區票選最愛</p>
+                                <p class="text-sm text-gray-400">社區投票最愛</p>
                             </div>
-                            <div class="text-lg font-bold text-secondary">$8.5萬</div>
+                            <div class="text-lg font-bold text-secondary">$75,000</div>
                         </div>
                         <div class="award-card p-4 flex justify-between items-center">
                             <div>
                                 <h4 class="font-bold">AI實驗性視野</h4>
                                 <p class="text-sm text-gray-400">突破創意邊界</p>
                             </div>
-                            <div class="text-lg font-bold text-secondary">$7萬</div>
+                            <div class="text-lg font-bold text-secondary">$60,000</div>
                         </div>
                     </div>
                 </div>
@@ -700,7 +801,7 @@
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-6xl font-bold mb-6 gradient-text">典禮日程</h2>
                 <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    全天慶祝活動包括首映、表演和主要頒獎典禮
+                    一整天的慶祝活動，包括首映、表演和主要頒獎典禮
                 </p>
                 <div class="mt-8 bg-black bg-opacity-50 rounded-lg p-6 max-w-2xl mx-auto">
                     <h3 class="text-2xl font-bold text-gold mb-2">2026年5月1日</h3>
@@ -715,9 +816,9 @@
                     <div class="timeline-content timeline-left">
                         <div class="flex items-center mb-3">
                             <div class="text-2xl font-bold text-gold mr-3">08:00</div>
-                            <div class="text-lg font-semibold">報到與歡迎儀式</div>
+                            <div class="text-lg font-semibold">註冊與歡迎</div>
                         </div>
-                        <p class="text-gray-300 mb-2">VIP和媒體報到開始。提名者和行業專業人士的歡迎早餐。</p>
+                        <p class="text-gray-300 mb-2">VIP和媒體註冊開放。為提名者和行業專業人士提供歡迎早餐。</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="bg-blue-500 bg-opacity-20 text-blue-400 text-xs px-2 py-1 rounded">媒體</span>
                             <span class="bg-purple-500 bg-opacity-20 text-purple-400 text-xs px-2 py-1 rounded">VIP</span>
@@ -731,7 +832,7 @@
                             <div class="text-2xl font-bold text-gold mr-3">10:00</div>
                             <div class="text-lg font-semibold">AI創新展示</div>
                         </div>
-                        <p class="text-gray-300 mb-2">尖端AI電影技術和工具的獨家預覽。領先技術合作夥伴的互動演示。</p>
+                        <p class="text-gray-300 mb-2">獨家預覽前沿AI電影技術和工具。由領先技術合作夥伴提供的互動演示。</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="bg-green-500 bg-opacity-20 text-green-400 text-xs px-2 py-1 rounded">技術</span>
                             <span class="bg-yellow-500 bg-opacity-20 text-yellow-400 text-xs px-2 py-1 rounded">互動</span>
@@ -743,9 +844,9 @@
                     <div class="timeline-content timeline-left">
                         <div class="flex items-center mb-3">
                             <div class="text-2xl font-bold text-gold mr-3">12:00</div>
-                            <div class="text-lg font-semibold">提名影片放映</div>
+                            <div class="text-lg font-semibold">提名電影放映</div>
                         </div>
-                        <p class="text-gray-300 mb-2">在多個影院放映入圍影片。與電影製作人見面的問答環節。</p>
+                        <p class="text-gray-300 mb-2">在多個影院特別放映入圍電影。與電影製作人進行問答環節。</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="bg-red-500 bg-opacity-20 text-red-400 text-xs px-2 py-1 rounded">放映</span>
                             <span class="bg-orange-500 bg-opacity-20 text-orange-400 text-xs px-2 py-1 rounded">問答</span>
@@ -760,9 +861,9 @@
                             <div class="text-2xl font-bold text-gold mr-3">14:30</div>
                             <div class="text-lg font-semibold">行業峰會</div>
                         </div>
-                        <p class="text-gray-300 mb-2">「電影中AI的未來」 - 行業領袖、投資者和遠見創作者的專題討論。</p>
+                        <p class="text-gray-300 mb-2">"電影中AI的未來" - 與行業領袖、投資者和富有遠見的創作者進行小組討論。</p>
                         <div class="flex flex-wrap gap-2">
-                            <span class="bg-indigo-500 bg-opacity-20 text-indigo-400 text-xs px-2 py-1 rounded">專題討論</span>
+                            <span class="bg-indigo-500 bg-opacity-20 text-indigo-400 text-xs px-2 py-1 rounded">小組</span>
                             <span class="bg-pink-500 bg-opacity-20 text-pink-400 text-xs px-2 py-1 rounded">行業</span>
                         </div>
                     </div>
@@ -772,11 +873,11 @@
                     <div class="timeline-content timeline-left">
                         <div class="flex items-center mb-3">
                             <div class="text-2xl font-bold text-gold mr-3">16:00</div>
-                            <div class="text-lg font-semibold">紅地毯入場</div>
+                            <div class="text-lg font-semibold">紅毯入場</div>
                         </div>
-                        <p class="text-gray-300 mb-2">星光熠熠的紅地毯，提名者、評審和名人嘉賓出席。現場採訪和拍照機會。</p>
+                        <p class="text-gray-300 mb-2">星光熠熠的紅毯，提名者、評委和名人嘉賓出席。現場採訪和拍照機會。</p>
                         <div class="flex flex-wrap gap-2">
-                            <span class="bg-red-600 bg-opacity-20 text-red-400 text-xs px-2 py-1 rounded">紅地毯</span>
+                            <span class="bg-red-600 bg-opacity-20 text-red-400 text-xs px-2 py-1 rounded">紅毯</span>
                             <span class="bg-purple-600 bg-opacity-20 text-purple-400 text-xs px-2 py-1 rounded">現場報導</span>
                         </div>
                     </div>
@@ -787,12 +888,12 @@
                     <div class="timeline-content timeline-right bg-gradient-to-r from-gold via-yellow-400 to-gold text-black">
                         <div class="flex items-center mb-3">
                             <div class="text-3xl font-bold mr-3">19:00</div>
-                            <div class="text-xl font-bold">主頒獎典禮</div>
+                            <div class="text-xl font-bold">主要頒獎典禮</div>
                         </div>
-                        <p class="mb-2 font-medium">重要活動包括現場表演、獎項頒發和125萬美元獨角獸金獎的公布。</p>
+                        <p class="mb-2 font-medium">盛大的活動，包括現場表演、頒獎和100萬美元獨角獸金獎的宣布。</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="bg-black bg-opacity-20 text-black text-xs px-2 py-1 rounded font-semibold">現場直播</span>
-                            <span class="bg-black bg-opacity-20 text-black text-xs px-2 py-1 rounded font-semibold">獎項</span>
+                            <span class="bg-black bg-opacity-20 text-black text-xs px-2 py-1 rounded font-semibold">頒獎</span>
                         </div>
                     </div>
                 </div>
@@ -803,9 +904,9 @@
                             <div class="text-2xl font-bold text-gold mr-3">22:00</div>
                             <div class="text-lg font-semibold">慶祝派對</div>
                         </div>
-                        <p class="text-gray-300 mb-2">與獲獎者、行業領袖和國際嘉賓的獨家交流招待會。現場DJ和娛樂表演。</p>
+                        <p class="text-gray-300 mb-2">與獲獎者、行業領袖和國際嘉賓的獨家社交招待會。現場DJ和娛樂表演。</p>
                         <div class="flex flex-wrap gap-2">
-                            <span class="bg-teal-500 bg-opacity-20 text-teal-400 text-xs px-2 py-1 rounded">交流</span>
+                            <span class="bg-teal-500 bg-opacity-20 text-teal-400 text-xs px-2 py-1 rounded">社交</span>
                             <span class="bg-cyan-500 bg-opacity-20 text-cyan-400 text-xs px-2 py-1 rounded">慶祝</span>
                         </div>
                     </div>
@@ -818,9 +919,9 @@
     <section id="judges" class="py-20 bg-black bg-opacity-30">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-6xl font-bold mb-6 gradient-text">傑出評審團</h2>
+                <h2 class="text-4xl md:text-6xl font-bold mb-6 gradient-text">傑出評委團</h2>
                 <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    電影、技術和人工智能創新領域的世界知名專家
+                    世界知名的電影、技術和AI創新專家，負責評審所有類別的參賽作品
                 </p>
             </div>
 
@@ -829,13 +930,13 @@
                 <div class="grid md:grid-cols-3 gap-8 mb-12">
                     <div class="text-center">
                         <div class="text-4xl mb-4 text-gold"><i class="fas fa-film"></i></div>
-                        <h3 class="text-xl font-bold mb-2">電影業資深人士</h3>
+                        <h3 class="text-xl font-bold mb-2">電影行業資深人士</h3>
                         <p class="text-gray-400">奧斯卡獎得主、知名導演和行業先驅</p>
                     </div>
                     <div class="text-center">
                         <div class="text-4xl mb-4 text-accent"><i class="fas fa-brain"></i></div>
                         <h3 class="text-xl font-bold mb-2">AI技術專家</h3>
-                        <p class="text-gray-400">領先研究人員、工程師和AI公司高管</p>
+                        <p class="text-gray-400">領先的研究人員、工程師和AI公司高管</p>
                     </div>
                     <div class="text-center">
                         <div class="text-4xl mb-4 text-primary"><i class="fas fa-palette"></i></div>
@@ -848,37 +949,37 @@
             <!-- Featured Judges -->
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div class="judge-card">
-                    <img src="https://images.unsplash.com/photo-1534030347209-467a5b0ad3e6?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300&q=80" alt="陳智明" class="judge-avatar">
-                    <h3 class="text-xl font-bold mb-2">陳智明</h3>
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="評委 Christopher Chen" class="judge-avatar">
+                    <h3 class="text-xl font-bold mb-2">陳志明</h3>
                     <p class="text-accent font-medium mb-2">奧斯卡獎得主</p>
-                    <p class="text-sm text-gray-400">《數碼夢想》導演，AI輔助電影製作先驅</p>
+                    <p class="text-sm text-gray-400">《數字夢想》和《算法之心》的導演。AI輔助電影製作的先驅。</p>
                 </div>
                 
                 <div class="judge-card">
-                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300&q=80" alt="莎拉·馬丁內斯博士" class="judge-avatar">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="評委 Dr. Sarah Martinez" class="judge-avatar">
                     <h3 class="text-xl font-bold mb-2">莎拉·馬丁內斯博士</h3>
                     <p class="text-accent font-medium mb-2">AI研究總監</p>
-                    <p class="text-sm text-gray-400">麻省理工學院計算機視覺研究負責人，生成式AI專家</p>
+                    <p class="text-sm text-gray-400">麻省理工學院領先的計算機視覺研究員。生成AI和神經網絡專家。</p>
                 </div>
                 
                 <div class="judge-card">
-                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300&q=80" alt="中村健二" class="judge-avatar">
+                    <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="評委 Kenji Nakamura" class="judge-avatar">
                     <h3 class="text-xl font-bold mb-2">中村健二</h3>
                     <p class="text-accent font-medium mb-2">動畫大師</p>
-                    <p class="text-sm text-gray-400">傳奇動畫師和導演，連接傳統藝術與AI</p>
+                    <p class="text-sm text-gray-400">傳奇動畫師和導演。將傳統藝術與AI生成內容相結合。</p>
                 </div>
                 
                 <div class="judge-card">
-                    <img src="https://images.unsplash.com/photo-1491349174775-aaafddd81942?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300&q=80" alt="艾瑪·湯普森" class="judge-avatar">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="評委 Emma Thompson" class="judge-avatar">
                     <h3 class="text-xl font-bold mb-2">艾瑪·湯普森</h3>
                     <p class="text-accent font-medium mb-2">科技企業家</p>
-                    <p class="text-sm text-gray-400">CreativeAI Labs創始人，福布斯30位30歲以下科技精英</p>
+                    <p class="text-sm text-gray-400">CreativeAI Labs創始人。《福布斯》30位30歲以下科技與創新人物。</p>
                 </div>
             </div>
 
             <!-- Evaluation Process -->
             <div class="mt-16 card p-8">
-                <h3 class="text-2xl font-bold mb-6 text-center">評審標準</h3>
+                <h3 class="text-2xl font-bold mb-6 text-center">評審流程</h3>
                 <div class="grid md:grid-cols-4 gap-6">
                     <div class="text-center">
                         <div class="w-16 h-16 bg-blue-500 bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -892,7 +993,7 @@
                             <span class="text-2xl font-bold text-purple-400">30%</span>
                         </div>
                         <h4 class="font-bold mb-2">藝術卓越</h4>
-                        <p class="text-sm text-gray-400">敘事、美學、情感影響力</p>
+                        <p class="text-sm text-gray-400">敘事、美學、情感影響</p>
                     </div>
                     <div class="text-center">
                         <div class="w-16 h-16 bg-green-500 bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -917,28 +1018,28 @@
     <section id="voting" class="py-20">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-6xl font-bold mb-6 gradient-text">觀眾投票</h2>
+                <h2 class="text-4xl md:text-6xl font-bold mb-6 gradient-text">社區投票</h2>
                 <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    成為決策的一部分！使用HKAIIF代幣投票選出觀眾選擇獎
+                    參與決策！全球社區可以使用HKAIF代幣投票選出觀眾選擇獎
                 </p>
             </div>
 
             <!-- Voting Stats -->
             <div class="grid md:grid-cols-4 gap-6 mb-12">
                 <div class="text-center bg-black bg-opacity-50 rounded-lg p-6">
-                    <div class="text-3xl font-bold text-accent mb-2">156,892</div>
+                    <div class="text-3xl font-bold text-accent mb-2">142,567</div>
                     <div class="text-gray-400">總投票數</div>
                 </div>
                 <div class="text-center bg-black bg-opacity-50 rounded-lg p-6">
-                    <div class="text-3xl font-bold text-accent mb-2">32,756</div>
+                    <div class="text-3xl font-bold text-accent mb-2">28,943</div>
                     <div class="text-gray-400">參與錢包數</div>
                 </div>
                 <div class="text-center bg-black bg-opacity-50 rounded-lg p-6">
-                    <div class="text-3xl font-bold text-accent mb-2">$8.5萬</div>
+                    <div class="text-3xl font-bold text-accent mb-2">$75K</div>
                     <div class="text-gray-400">獎金池</div>
                 </div>
                 <div class="text-center bg-black bg-opacity-50 rounded-lg p-6">
-                    <div class="text-3xl font-bold text-accent mb-2">28天</div>
+                    <div class="text-3xl font-bold text-accent mb-2">3 天</div>
                     <div class="text-gray-400">剩餘時間</div>
                 </div>
             </div>
@@ -950,11 +1051,11 @@
                     <div class="voting-card">
                         <div class="flex items-center justify-between mb-4">
                             <div class="flex items-center">
-                                <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=280&q=80" alt="神經連結" class="w-20 h-28 object-cover rounded-lg mr-4">
+                                <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="電影《神經連結》海報" class="w-20 h-28 object-cover rounded-lg mr-4">
                                 <div>
                                     <h4 class="text-xl font-bold mb-1">《神經連結》</h4>
-                                    <p class="text-gray-400 mb-1">導演：陳艾力 | 95分鐘 | 科幻驚悚</p>
-                                    <p class="text-sm text-gray-500">在AI時代對意識的震撼探索</p>
+                                    <p class="text-gray-400 mb-1">導演：陳艾力 | 95分鐘 | 科幻驚悚片</p>
+                                    <p class="text-sm text-gray-500">在AI時代對意識的令人費解的探索</p>
                                 </div>
                             </div>
                             <div class="text-right">
@@ -977,11 +1078,11 @@
                     <div class="voting-card">
                         <div class="flex items-center justify-between mb-4">
                             <div class="flex items-center">
-                                <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=280&q=80" alt="數碼夢想" class="w-20 h-28 object-cover rounded-lg mr-4">
+                                <img src="https://images.unsplash.com/photo-1535016120720-40c646be5580?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="電影《數字夢想》海報" class="w-20 h-28 object-cover rounded-lg mr-4">
                                 <div>
-                                    <h4 class="text-xl font-bold mb-1">《數碼夢想》</h4>
-                                    <p class="text-gray-400 mb-1">導演：瑪麗亞·羅德里格斯 | 87分鐘 | 動畫劇情</p>
-                                    <p class="text-sm text-gray-500">AI發現情感與創造力的暖心故事</p>
+                                    <h4 class="text-xl font-bold mb-1">《數字夢想》</h4>
+                                    <p class="text-gray-400 mb-1">導演：瑪麗亞·羅德里格斯 | 87分鐘 | 動畫劇情片</p>
+                                    <p class="text-sm text-gray-500">AI發現情感和創造力的暖心故事</p>
                                 </div>
                             </div>
                             <div class="text-right">
@@ -1004,10 +1105,10 @@
                     <div class="voting-card">
                         <div class="flex items-center justify-between mb-4">
                             <div class="flex items-center">
-                                <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=280&q=80" alt="最後的算法" class="w-20 h-28 object-cover rounded-lg mr-4">
+                                <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="電影《最後的算法》海報" class="w-20 h-28 object-cover rounded-lg mr-4">
                                 <div>
                                     <h4 class="text-xl font-bold mb-1">《最後的算法》</h4>
-                                    <p class="text-gray-400 mb-1">導演：詹姆斯·帕克 | 102分鐘 | 動作/冒險</p>
+                                    <p class="text-gray-400 mb-1">導演：詹姆斯·帕克 | 102分鐘 | 動作/冒險片</p>
                                     <p class="text-sm text-gray-500">人類對抗失控AI系統的最後一戰</p>
                                 </div>
                             </div>
@@ -1038,21 +1139,157 @@
                                 <i class="fas fa-wallet text-2xl text-accent"></i>
                             </div>
                             <h4 class="font-bold mb-2">連接錢包</h4>
-                            <p class="text-sm text-gray-400">連接包含HKAIIF代幣的Web3錢包</p>
+                            <p class="text-sm text-gray-400">連接包含HKAIF代幣的Web3錢包</p>
                         </div>
                         <div class="text-center">
                             <div class="w-16 h-16 bg-accent bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
                                 <i class="fas fa-vote-yea text-2xl text-accent"></i>
                             </div>
-                            <h4 class="font-bold mb-2">投出你的票</h4>
-                            <p class="text-sm text-gray-400">使用HKAIIF代幣投票 - 代幣越多投票權越大</p>
+                            <h4 class="font-bold mb-2">投下你的票</h4>
+                            <p class="text-sm text-gray-400">使用HKAIF代幣投票 - 代幣越多，投票權越大</p>
                         </div>
                         <div class="text-center">
                             <div class="w-16 h-16 bg-accent bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
                                 <i class="fas fa-trophy text-2xl text-accent"></i>
                             </div>
-                            <h4 class="font-bold mb-2">獲取獎勵</h4>
-                            <p class="text-sm text-gray-400">獲得投票獎勵和參與證明的NFT證書</p>
+                            <h4 class="font-bold mb-2">獲得獎勵</h4>
+                            <p class="text-sm text-gray-400">參與投票可獲得獎勵和NFT證書</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Stream Section -->
+    <section id="live" class="py-20 bg-black bg-opacity-30">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-bold mb-6 gradient-text">全球直播</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    通過我們的多語言互動直播，在世界任何地方體驗頒獎典禮
+                </p>
+            </div>
+
+            <!-- Streaming Platforms -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="card p-6 text-center">
+                    <div class="text-4xl mb-4 text-red-500"><i class="fab fa-youtube"></i></div>
+                    <h3 class="font-bold mb-2">YouTube</h3>
+                    <p class="text-sm text-gray-400">4K HDR 直播</p>
+                    <div class="text-accent font-bold">免費</div>
+                </div>
+                <div class="card p-6 text-center">
+                    <div class="text-4xl mb-4 text-purple-500"><i class="fab fa-twitch"></i></div>
+                    <h3 class="font-bold mb-2">Twitch</h3>
+                    <p class="text-sm text-gray-400">互動聊天</p>
+                    <div class="text-accent font-bold">免費</div>
+                </div>
+                <div class="card p-6 text-center">
+                    <div class="text-4xl mb-4 text-blue-500"><i class="fab fa-twitter"></i></div>
+                    <h3 class="font-bold mb-2">Twitter/X</h3>
+                    <p class="text-sm text-gray-400">社交整合</p>
+                    <div class="text-accent font-bold">免費</div>
+                </div>
+                <div class="card p-6 text-center">
+                    <div class="text-4xl mb-4 text-accent"><i class="fas fa-cube"></i></div>
+                    <h3 class="font-bold mb-2">元宇宙</h3>
+                    <p class="text-sm text-gray-400">VR體驗</p>
+                    <div class="text-gold font-bold">高級</div>
+                </div>
+            </div>
+
+            <!-- Stream Features -->
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="card p-8">
+                        <h3 class="text-2xl font-bold mb-6 text-accent">
+                            <i class="fas fa-language mr-3"></i>多語言支持
+                        </h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="flex items-center">
+                                <img src="https://flagcdn.com/w40/gb.png" alt="English" class="w-6 mr-2">
+                                <span>English</span>
+                            </div>
+                            <div class="flex items-center">
+                                <img src="https://flagcdn.com/w40/cn.png" alt="Chinese" class="w-6 mr-2">
+                                <span>中文</span>
+                            </div>
+                            <div class="flex items-center">
+                                <img src="https://flagcdn.com/w40/jp.png" alt="Japanese" class="w-6 mr-2">
+                                <span>日本語</span>
+                            </div>
+                            <div class="flex items-center">
+                                <img src="https://flagcdn.com/w40/es.png" alt="Spanish" class="w-6 mr-2">
+                                <span>Español</span>
+                            </div>
+                            <div class="flex items-center">
+                                <img src="https://flagcdn.com/w40/fr.png" alt="French" class="w-6 mr-2">
+                                <span>Français</span>
+                            </div>
+                            <div class="flex items-center">
+                                <img src="https://flagcdn.com/w40/de.png" alt="German" class="w-6 mr-2">
+                                <span>Deutsch</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card p-8">
+                        <h3 class="text-2xl font-bold mb-6 text-primary">
+                            <i class="fas fa-users mr-3"></i>互動功能
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-blue-500 bg-opacity-20 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="fas fa-comments text-blue-400"></i>
+                                </div>
+                                <span>與全球觀眾實時聊天</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-green-500 bg-opacity-20 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="fas fa-poll text-green-400"></i>
+                                </div>
+                                <span>實時預測與投票</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-purple-500 bg-opacity-20 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="fas fa-camera text-purple-400"></i>
+                                </div>
+                                <span>多機位角度</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-red-500 bg-opacity-20 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="fas fa-gift text-red-400"></i>
+                                </div>
+                                <span>NFT空投</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-yellow-500 bg-opacity-20 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="fas fa-star text-yellow-400"></i>
+                                </div>
+                                <span>獨家幕後花絮</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Watch Live CTA -->
+                <div class="mt-12 text-center">
+                    <div class="card p-8 bg-gradient-to-r from-gold via-yellow-400 to-gold text-black">
+                        <h3 class="text-3xl font-bold mb-4">
+                            <i class="fas fa-broadcast-tower mr-3"></i>正在直播 - 不要錯過！
+                        </h3>
+                        <p class="text-lg mb-6">頒獎典禮正在向全球超過200萬觀眾直播</p>
+                        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center">
+                            <a href="#" class="bg-black text-white px-8 py-3 rounded-full font-bold hover:bg-gray-800 transition">
+                                <i class="fas fa-play mr-2"></i>在YouTube觀看
+                            </a>
+                            <a href="#" class="bg-purple-600 text-white px-8 py-3 rounded-full font-bold hover:bg-purple-700 transition">
+                                <i class="fab fa-twitch mr-2"></i>在Twitch觀看
+                            </a>
+                            <a href="#" class="bg-transparent border-2 border-black text-black px-8 py-3 rounded-full font-bold hover:bg-black hover:text-white transition">
+                                <i class="fas fa-vr-cardboard mr-2"></i>VR體驗
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -1064,16 +1301,16 @@
     <section id="nominees" class="py-20">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-6xl font-bold mb-6 gradient-text">精選提名作品</h2>
+                <h2 class="text-4xl md:text-6xl font-bold mb-6 gradient-text">提名作品展示</h2>
                 <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    探索角逐AI原生電影最高榮譽的開創性影片
+                    發現角逐AI原生電影最高榮譽的開創性電影
                 </p>
             </div>
 
             <!-- Filter Categories -->
             <div class="flex flex-wrap justify-center gap-4 mb-12">
                 <button class="bg-gold text-black px-4 py-2 rounded-full font-medium">所有類別</button>
-                <button class="bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-full font-medium">最佳影片</button>
+                <button class="bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-full font-medium">最佳電影</button>
                 <button class="bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-full font-medium">技術創新</button>
                 <button class="bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-full font-medium">動畫</button>
                 <button class="bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-full font-medium">互動</button>
@@ -1085,7 +1322,7 @@
                 <!-- Nominee 1 -->
                 <div class="card overflow-hidden">
                     <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="神經連結" class="w-full h-64 object-cover">
+                        <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="神經連結" class="w-full h-64 object-cover">
                         <div class="absolute top-4 left-4">
                             <span class="bg-gold text-black px-3 py-1 rounded-full text-sm font-bold">獨角獸金獎提名</span>
                         </div>
@@ -1097,15 +1334,15 @@
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold mb-2">神經連結</h3>
-                        <p class="text-gray-400 mb-3">導演：陳艾力 • 95分鐘 • 科幻驚悚</p>
-                        <p class="text-sm text-gray-300 mb-4">在AI時代對意識的震撼探索，採用開創性的神經渲染技術。</p>
+                        <p class="text-gray-400 mb-3">導演：陳艾力 • 95分鐘 • 科幻驚悚片</p>
+                        <p class="text-sm text-gray-300 mb-4">在AI時代對意識的令人費解的探索，展示了突破性的神經渲染技術。</p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="bg-blue-500 bg-opacity-20 text-blue-400 text-xs px-2 py-1 rounded">AI角色</span>
                             <span class="bg-purple-500 bg-opacity-20 text-purple-400 text-xs px-2 py-1 rounded">神經網絡</span>
                             <span class="bg-green-500 bg-opacity-20 text-green-400 text-xs px-2 py-1 rounded">VR元素</span>
                         </div>
                         <div class="text-sm text-gray-400">
-                            <strong>提名類別：</strong> 最佳影片、最佳AI導演、最佳技術創新
+                            <strong>提名類別：</strong> 最佳電影、最佳AI導演、最佳技術創新
                         </div>
                     </div>
                 </div>
@@ -1113,7 +1350,7 @@
                 <!-- Nominee 2 -->
                 <div class="card overflow-hidden">
                     <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="數碼夢想" class="w-full h-64 object-cover">
+                        <img src="https://images.unsplash.com/photo-1535016120720-40c646be5580?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="數字夢想" class="w-full h-64 object-cover">
                         <div class="absolute top-4 left-4">
                             <span class="bg-silver text-black px-3 py-1 rounded-full text-sm font-bold">動畫卓越</span>
                         </div>
@@ -1124,9 +1361,9 @@
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">數碼夢想</h3>
-                        <p class="text-gray-400 mb-3">導演：瑪麗亞·羅德里格斯 • 87分鐘 • 動畫劇情</p>
-                        <p class="text-sm text-gray-300 mb-4">AI通過革命性程序動畫發現情感和創造力的暖心故事。</p>
+                        <h3 class="text-xl font-bold mb-2">數字夢想</h3>
+                        <p class="text-gray-400 mb-3">導演：瑪麗亞·羅德里格斯 • 87分鐘 • 動畫劇情片</p>
+                        <p class="text-sm text-gray-300 mb-4">通過革命性的程序動畫，講述AI發現情感和創造力的暖心故事。</p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="bg-pink-500 bg-opacity-20 text-pink-400 text-xs px-2 py-1 rounded">動畫</span>
                             <span class="bg-yellow-500 bg-opacity-20 text-yellow-400 text-xs px-2 py-1 rounded">情感AI</span>
@@ -1141,7 +1378,7 @@
                 <!-- Nominee 3 -->
                 <div class="card overflow-hidden">
                     <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="最後的算法" class="w-full h-64 object-cover">
+                        <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="最後的算法" class="w-full h-64 object-cover">
                         <div class="absolute top-4 left-4">
                             <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold">動作創新</span>
                         </div>
@@ -1153,25 +1390,109 @@
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold mb-2">最後的算法</h3>
-                        <p class="text-gray-400 mb-3">導演：詹姆斯·帕克 • 102分鐘 • 動作/冒險</p>
-                        <p class="text-sm text-gray-300 mb-4">人類對抗失控AI系統的最後一戰，採用尖端AI動作編排技術。</p>
+                        <p class="text-gray-400 mb-3">導演：詹姆斯·帕克 • 102分鐘 • 動作/冒險片</p>
+                        <p class="text-sm text-gray-300 mb-4">人類對抗失控AI系統的最後一戰，展示了由AI設計的尖端動作編排。</p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="bg-red-500 bg-opacity-20 text-red-400 text-xs px-2 py-1 rounded">動作</span>
                             <span class="bg-orange-500 bg-opacity-20 text-orange-400 text-xs px-2 py-1 rounded">AI vs 人類</span>
                             <span class="bg-gray-500 bg-opacity-20 text-gray-400 text-xs px-2 py-1 rounded">反烏托邦</span>
                         </div>
                         <div class="text-sm text-gray-400">
-                            <strong>提名類別：</strong> 最佳視覺設計、最佳音效設計、社會影響力
+                            <strong>提名類別：</strong> 最佳視覺設計、最佳音效設計、社會影響
                         </div>
                     </div>
                 </div>
 
-                <!-- View All Nominees -->
-                <div class="text-center mt-12 col-span-full">
-                    <a href="#" class="btn-primary px-8 py-3 rounded-full text-lg font-bold">
-                        查看全部921部提名作品
-                    </a>
+                <!-- Nominee 4 -->
+                <div class="card overflow-hidden">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="量子之心" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-bold">浪漫革命</span>
+                        </div>
+                        <div class="absolute bottom-4 right-4">
+                            <button class="bg-black bg-opacity-70 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-opacity-90 transition">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">量子之心</h3>
+                        <p class="text-gray-400 mb-3">導演：莎拉·金 • 78分鐘 • 浪漫劇情片</p>
+                        <p class="text-sm text-gray-300 mb-4">跨越多個維度的愛情故事，展示了創新的AI生成情感敘事。</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-pink-500 bg-opacity-20 text-pink-400 text-xs px-2 py-1 rounded">浪漫</span>
+                            <span class="bg-blue-500 bg-opacity-20 text-blue-400 text-xs px-2 py-1 rounded">量子</span>
+                            <span class="bg-purple-500 bg-opacity-20 text-purple-400 text-xs px-2 py-1 rounded">多元宇宙</span>
+                        </div>
+                        <div class="text-sm text-gray-400">
+                            <strong>提名類別：</strong> 最佳AI編劇、新銳電影人、實驗性視野
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Nominee 5 -->
+                <div class="card overflow-hidden">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="代碼交響曲" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-bold">互動先鋒</span>
+                        </div>
+                        <div class="absolute bottom-4 right-4">
+                            <button class="bg-black bg-opacity-70 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-opacity-90 transition">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">代碼交響曲</h3>
+                        <p class="text-gray-400 mb-3">導演：麥可·張 • 60分鐘 • 互動紀錄片</p>
+                        <p class="text-sm text-gray-300 mb-4">一次沉浸式的AI演變之旅，觀眾可以通過選擇塑造敘事。</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-green-500 bg-opacity-20 text-green-400 text-xs px-2 py-1 rounded">互動</span>
+                            <span class="bg-blue-500 bg-opacity-20 text-blue-400 text-xs px-2 py-1 rounded">紀錄片</span>
+                            <span class="bg-yellow-500 bg-opacity-20 text-yellow-400 text-xs px-2 py-1 rounded">教育</span>
+                        </div>
+                        <div class="text-sm text-gray-400">
+                            <strong>提名類別：</strong> 最佳互動體驗、技術創新、社會影響
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nominee 6 -->
+                <div class="card overflow-hidden">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1519810755548-39cd217da494?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="霓虹陰影" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-cyan-500 text-black px-3 py-1 rounded-full text-sm font-bold">視覺傑作</span>
+                        </div>
+                        <div class="absolute bottom-4 right-4">
+                            <button class="bg-black bg-opacity-70 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-opacity-90 transition">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">霓虹陰影</h3>
+                        <p class="text-gray-400 mb-3">導演：艾琳娜·沃爾科夫 • 91分鐘 • 賽博朋克黑色電影</p>
+                        <p class="text-sm text-gray-300 mb-4">一部設定在2087年的黑色驚悚片，展示了革命性的AI生成城市景觀和燈光效果。</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-cyan-500 bg-opacity-20 text-cyan-400 text-xs px-2 py-1 rounded">賽博朋克</span>
+                            <span class="bg-gray-500 bg-opacity-20 text-gray-400 text-xs px-2 py-1 rounded">黑色電影</span>
+                            <span class="bg-purple-500 bg-opacity-20 text-purple-400 text-xs px-2 py-1 rounded">AI城市</span>
+                        </div>
+                        <div class="text-sm text-gray-400">
+                            <strong>提名類別：</strong> 最佳視覺設計、最佳數字角色、Web3創新
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View All Nominees -->
+            <div class="text-center mt-12">
+                <a href="#" class="btn-primary px-8 py-3 rounded-full text-lg font-bold">
+                    查看全部847部提名作品
+                </a>
             </div>
         </div>
     </section>
@@ -1182,7 +1503,7 @@
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-6xl font-bold mb-6 gradient-text">香港見</h2>
                 <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    在香港會議展覽中心親身體驗這場盛會
+                    在香港會議展覽中心親身體驗這一神奇時刻
                 </p>
             </div>
 
@@ -1202,19 +1523,19 @@
                             </div>
                             <div class="flex items-center">
                                 <i class="fas fa-clock text-accent mr-3 w-6"></i>
-                                <span>香港時間下午6:00開放入場</span>
+                                <span>香港時間下午6:00開門</span>
                             </div>
                             <div class="flex items-center">
                                 <i class="fas fa-users text-accent mr-3 w-6"></i>
-                                <span>容量：8,000位嘉賓</span>
+                                <span>容量：8,000名嘉賓</span>
                             </div>
                         </div>
                         <p class="text-gray-300 mt-6">
-                            著名的香港會議展覽中心為這一歷史性活動提供了完美背景，配備最先進的視聽技術和世界級設施。
+                            著名的香港會議展覽中心為這一歷史性活動提供了完美的背景，配備了最先進的視聽技術和世界一流的設施。
                         </p>
                     </div>
                     <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80" alt="香港會議展覽中心" class="w-full rounded-2xl">
+                        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="HKCEC" class="w-full rounded-2xl">
                         <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent rounded-2xl"></div>
                     </div>
                 </div>
@@ -1230,7 +1551,7 @@
                     <div class="text-center mb-6">
                         <div class="text-4xl mb-4 text-gold"><i class="fas fa-crown"></i></div>
                         <h3 class="text-2xl font-bold mb-2">VIP體驗</h3>
-                        <div class="text-4xl font-bold text-gold mb-2">$2,750</div>
+                        <div class="text-4xl font-bold text-gold mb-2">$2,500</div>
                         <p class="text-gray-400">美元/人</p>
                     </div>
                     <div class="space-y-3 mb-8">
@@ -1240,7 +1561,7 @@
                         </div>
                         <div class="flex items-center">
                             <i class="fas fa-check text-green-400 mr-3"></i>
-                            <span>紅地毯行走機會</span>
+                            <span>紅毯行走機會</span>
                         </div>
                         <div class="flex items-center">
                             <i class="fas fa-check text-green-400 mr-3"></i>
@@ -1248,7 +1569,7 @@
                         </div>
                         <div class="flex items-center">
                             <i class="fas fa-check text-green-400 mr-3"></i>
-                            <span>獨家派對入場券</span>
+                            <span>獨家派對入場</span>
                         </div>
                         <div class="flex items-center">
                             <i class="fas fa-check text-green-400 mr-3"></i>
@@ -1260,31 +1581,31 @@
                         </div>
                         <div class="flex items-center">
                             <i class="fas fa-check text-green-400 mr-3"></i>
-                            <span>後台參觀權限</span>
+                            <span>後台參觀</span>
                         </div>
                     </div>
                     <button class="btn-gold w-full py-3 rounded-lg font-bold text-lg">
                         選擇VIP套裝
                     </button>
-                    <p class="text-center text-sm text-gray-400 mt-3">僅剩200張</p>
+                    <p class="text-center text-sm text-gray-400 mt-3">僅剩200張門票</p>
                 </div>
 
                 <!-- Premium Package -->
                 <div class="card p-8">
                     <div class="text-center mb-6">
                         <div class="text-4xl mb-4 text-silver"><i class="fas fa-star"></i></div>
-                        <h3 class="text-2xl font-bold mb-2">優質座位</h3>
-                        <div class="text-4xl font-bold text-silver mb-2">$850</div>
+                        <h3 class="text-2xl font-bold mb-2">高級座位</h3>
+                        <div class="text-4xl font-bold text-silver mb-2">$800</div>
                         <p class="text-gray-400">美元/人</p>
                     </div>
                     <div class="space-y-3 mb-8">
                         <div class="flex items-center">
                             <i class="fas fa-check text-green-400 mr-3"></i>
-                            <span>預留優質座位</span>
+                            <span>預留高級座位</span>
                         </div>
                         <div class="flex items-center">
                             <i class="fas fa-check text-green-400 mr-3"></i>
-                            <span>歡迎招待會入場券</span>
+                            <span>歡迎招待會入場</span>
                         </div>
                         <div class="flex items-center">
                             <i class="fas fa-check text-green-400 mr-3"></i>
@@ -1292,19 +1613,19 @@
                         </div>
                         <div class="flex items-center">
                             <i class="fas fa-check text-green-400 mr-3"></i>
-                            <span>官方節目冊及禮品袋</span>
+                            <span>官方節目單與禮品袋</span>
                         </div>
                         <div class="flex items-center">
                             <i class="fas fa-check text-green-400 mr-3"></i>
-                            <span>數碼證書NFT</span>
+                            <span>數字證書NFT</span>
                         </div>
                         <div class="flex items-center">
                             <i class="fas fa-check text-green-400 mr-3"></i>
-                            <span>優先入場權</span>
+                            <span>優先入場</span>
                         </div>
                     </div>
                     <button class="btn-primary w-full py-3 rounded-lg font-bold text-lg">
-                        選擇優質套裝
+                        選擇高級套裝
                     </button>
                     <p class="text-center text-sm text-gray-400 mt-3">1,200張門票</p>
                 </div>
@@ -1313,8 +1634,8 @@
                 <div class="card p-8">
                     <div class="text-center mb-6">
                         <div class="text-4xl mb-4 text-bronze"><i class="fas fa-ticket-alt"></i></div>
-                        <h3 class="text-2xl font-bold mb-2">普通入場券</h3>
-                        <div class="text-4xl font-bold text-bronze mb-2">$350</div>
+                        <h3 class="text-2xl font-bold mb-2">普通入場</h3>
+                        <div class="text-4xl font-bold text-bronze mb-2">$300</div>
                         <p class="text-gray-400">美元/人</p>
                     </div>
                     <div class="space-y-3 mb-8">
@@ -1328,11 +1649,11 @@
                         </div>
                         <div class="flex items-center">
                             <i class="fas fa-check text-green-400 mr-3"></i>
-                            <span>官方節目冊</span>
+                            <span>官方節目單</span>
                         </div>
                         <div class="flex items-center">
                             <i class="fas fa-check text-green-400 mr-3"></i>
-                            <span>小賣部使用權</span>
+                            <span>小食區入場</span>
                         </div>
                         <div class="flex items-center">
                             <i class="fas fa-check text-green-400 mr-3"></i>
@@ -1340,11 +1661,11 @@
                         </div>
                         <div class="flex items-center">
                             <i class="fas fa-times text-gray-500 mr-3"></i>
-                            <span class="text-gray-500">派對入場券</span>
+                            <span class="text-gray-500">派對入場</span>
                         </div>
                     </div>
-                    <button class="bg-gray-700 hover:bg-gray-600 w-full py-3 rounded-lg font-bold text-lg">
-                        選擇普通套裝
+                    <button class="btn-primary w-full py-3 rounded-lg font-bold text-lg">
+                        選擇普通門票
                     </button>
                     <p class="text-center text-sm text-gray-400 mt-3">6,600張門票</p>
                 </div>
@@ -1366,11 +1687,11 @@
                     <div class="flex items-center space-x-2">
                         <i class="fab fa-bitcoin text-3xl text-orange-500"></i>
                         <i class="fab fa-ethereum text-3xl text-purple-500"></i>
-                        <span class="text-accent font-bold">HKAIIF</span>
+                        <span class="text-accent font-bold">HKAIF</span>
                     </div>
                 </div>
                 <p class="text-gray-400 max-w-2xl mx-auto">
-                    可使用傳統方式或加密貨幣支付。HKAIIF代幣持有者可享受所有門票類別15%的折扣。
+                    可使用傳統方式或加密貨幣支付。HKAIF代幣持有者可享受所有門票類別15%的折扣。
                 </p>
             </div>
         </div>
@@ -1382,7 +1703,7 @@
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-6xl font-bold mb-6 gradient-text">獨家功能</h2>
                 <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    革命性體驗，打造史上技術最先進的頒獎典禮
+                    革命性的體驗，使這成為有史以來技術最先進的頒獎典禮
                 </p>
             </div>
 
@@ -1396,9 +1717,9 @@
                     </div>
                     <h3 class="text-2xl font-bold mb-4">實時AI翻譯</h3>
                     <p class="text-gray-300 mb-4">
-                        先進AI提供50多種語言的即時翻譯，保留文化背景和情感表達。
+                        先進的AI提供50多種語言的即時翻譯，保留文化背景和情感。
                     </p>
-                    <div class="text-accent font-semibold">支持50+種語言</div>
+                    <div class="text-accent font-semibold">50+種語言直播</div>
                 </div>
 
                 <!-- Holographic Performances -->
@@ -1410,7 +1731,7 @@
                     </div>
                     <h3 class="text-2xl font-bold mb-4">全息表演</h3>
                     <p class="text-gray-300 mb-4">
-                        全球首個頒獎典禮展示AI生成的全息表演者和數碼藝術家。
+                        世界上第一個以AI生成全息表演者和數字藝術家為特色的頒獎典禮。
                     </p>
                     <div class="text-primary font-semibold">新一代娛樂</div>
                 </div>
@@ -1424,7 +1745,7 @@
                     </div>
                     <h3 class="text-2xl font-bold mb-4">區塊鏈投票</h3>
                     <p class="text-gray-300 mb-4">
-                        透明、不可篡改的投票系統，每一票都記錄在區塊鏈上供後世查閱。
+                        透明、不可篡改的投票系統，每一票都記錄在區塊鏈上以供後世查閱。
                     </p>
                     <div class="text-gold font-semibold">100%透明</div>
                 </div>
@@ -1450,11 +1771,11 @@
                             <i class="fas fa-gem"></i>
                         </div>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4">獨家NFT發行</h3>
+                    <h3 class="text-2xl font-bold mb-4">獨家NFT空投</h3>
                     <p class="text-gray-300 mb-4">
-                        紀念歷史時刻的限量版NFT，僅限現場參與者和直播觀眾。
+                        限量版NFT紀念歷史性時刻，僅限現場參與者和直播觀眾。
                     </p>
-                    <div class="text-pink-400 font-semibold">收藏級時刻</div>
+                    <div class="text-pink-400 font-semibold">收藏性時刻</div>
                 </div>
 
                 <!-- AI Host -->
@@ -1464,9 +1785,9 @@
                             <i class="fas fa-robot"></i>
                         </div>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4">AI共同主持</h3>
+                    <h3 class="text-2xl font-bold mb-4">AI共同主持人</h3>
                     <p class="text-gray-300 mb-4">
-                        革命性AI個性與人類主持人自然互動，共同主持典禮。
+                        革命性的AI個性與人類主持人自然互動，共同主持典禮。
                     </p>
                     <div class="text-cyan-400 font-semibold">人機協作</div>
                 </div>
@@ -1490,7 +1811,7 @@
                 <div class="grid md:grid-cols-3 gap-8">
                     <div class="card p-8 text-center">
                         <div class="text-4xl mb-4 text-blue-500"><i class="fab fa-microsoft"></i></div>
-                        <h4 class="text-xl font-bold mb-2">微軟AI</h4>
+                        <h4 class="text-xl font-bold mb-2">Microsoft AI</h4>
                         <p class="text-gray-400">推動AI創新</p>
                     </div>
                     <div class="card p-8 text-center">
@@ -1500,7 +1821,7 @@
                     </div>
                     <div class="card p-8 text-center">
                         <div class="text-4xl mb-4 text-purple-500"><i class="fab fa-ethereum"></i></div>
-                        <h4 class="text-xl font-bold mb-2">以太坊基金會</h4>
+                        <h4 class="text-xl font-bold mb-2">Ethereum Foundation</h4>
                         <p class="text-gray-400">區塊鏈基礎設施</p>
                     </div>
                 </div>
@@ -1512,11 +1833,11 @@
                 <div class="grid md:grid-cols-4 gap-6">
                     <div class="card p-6 text-center">
                         <div class="text-3xl mb-3 text-red-500"><i class="fab fa-google"></i></div>
-                        <h5 class="font-bold">谷歌雲AI</h5>
+                        <h5 class="font-bold">Google Cloud AI</h5>
                     </div>
                     <div class="card p-6 text-center">
                         <div class="text-3xl mb-3 text-orange-500"><i class="fab fa-aws"></i></div>
-                        <h5 class="font-bold">亞馬遜網絡服務</h5>
+                        <h5 class="font-bold">Amazon Web Services</h5>
                     </div>
                     <div class="card p-6 text-center">
                         <div class="text-3xl mb-3 text-blue-400"><i class="fab fa-docker"></i></div>
@@ -1535,10 +1856,10 @@
                 <div class="flex flex-wrap justify-center items-center gap-8 opacity-70">
                     <div class="text-2xl font-bold">CNN</div>
                     <div class="text-2xl font-bold">BBC</div>
-                    <div class="text-2xl font-bold">路透社</div>
-                    <div class="text-2xl font-bold">綜藝</div>
-                    <div class="text-2xl font-bold">好萊塢報導</div>
-                    <div class="text-2xl font-bold">連線</div>
+                    <div class="text-2xl font-bold">REUTERS</div>
+                    <div class="text-2xl font-bold">VARIETY</div>
+                    <div class="text-2xl font-bold">THE HOLLYWOOD REPORTER</div>
+                    <div class="text-2xl font-bold">WIRED</div>
                     <div class="text-2xl font-bold">TechCrunch</div>
                 </div>
             </div>
@@ -1551,7 +1872,7 @@
             <div class="card p-12 text-center bg-gradient-to-r from-primary via-accent to-secondary">
                 <h2 class="text-4xl font-bold mb-6 text-black">保持聯繫</h2>
                 <p class="text-xl mb-8 text-black opacity-80">
-                    獲取獨家更新、幕後內容和未來活動的優先參與權
+                    獲取獨家更新、幕後內容和未來活動的早期訪問權限
                 </p>
                 <div class="max-w-md mx-auto mb-8">
                     <div class="flex">
@@ -1583,7 +1904,7 @@
                         <div class="logo-sub text-xs">頒獎典禮</div>
                     </a>
                     <p class="text-gray-400 mb-6">
-                        全球首屈一指的AI原生電影卓越、創新和創意慶典。
+                        全球首屈一指的AI原生電影卓越、創新和創造力的慶典。
                     </p>
                     <div class="flex space-x-4">
                         <a href="#" class="text-gray-400 hover:text-accent text-xl"><i class="fab fa-twitter"></i></a>
@@ -1594,12 +1915,13 @@
                 </div>
                 
                 <div>
-                    <h3 class="text-lg font-semibold mb-6">活動資訊</h3>
+                    <h3 class="text-lg font-semibold mb-6">活動信息</h3>
                     <ul class="space-y-3 text-gray-400">
                         <li><a href="#schedule" class="hover:text-white">活動日程</a></li>
                         <li><a href="#tickets" class="hover:text-white">門票與價格</a></li>
-                        <li><a href="#" class="hover:text-white">場地資訊</a></li>
-                        <li><a href="#" class="hover:text-white">交通與住宿</a></li>
+                        <li><a href="#" class="hover:text-white">場地信息</a></li>
+                        <li><a href="#" class="hover:text-white">旅行與酒店</a></li>
+                        <li><a href="#" class="hover:text-white">COVID-19指南</a></li>
                         <li><a href="#" class="hover:text-white">無障礙設施</a></li>
                     </ul>
                 </div>
@@ -1609,8 +1931,9 @@
                     <ul class="space-y-3 text-gray-400">
                         <li><a href="#awards" class="hover:text-white">獎項類別</a></li>
                         <li><a href="#nominees" class="hover:text-white">提名作品</a></li>
-                        <li><a href="#judges" class="hover:text-white">評審團</a></li>
-                        <li><a href="#voting" class="hover:text-white">觀眾投票</a></li>
+                        <li><a href="#judges" class="hover:text-white">評委團</a></li>
+                        <li><a href="#voting" class="hover:text-white">社區投票</a></li>
+                        <li><a href="#" class="hover:text-white">提交指南</a></li>
                         <li><a href="#" class="hover:text-white">歷屆獲獎者</a></li>
                     </ul>
                 </div>
@@ -1618,11 +1941,12 @@
                 <div>
                     <h3 class="text-lg font-semibold mb-6">支持</h3>
                     <ul class="space-y-3 text-gray-400">
-                        <li><a href="#" class="hover:text-white">聯絡我們</a></li>
-                        <li><a href="#" class="hover:text-white">新聞資料</a></li>
+                        <li><a href="#" class="hover:text-white">聯繫我們</a></li>
+                        <li><a href="#" class="hover:text-white">新聞資料包</a></li>
                         <li><a href="#" class="hover:text-white">贊助</a></li>
                         <li><a href="#" class="hover:text-white">合作夥伴</a></li>
                         <li><a href="#" class="hover:text-white">常見問題</a></li>
+                        <li><a href="#" class="hover:text-white">幫助中心</a></li>
                     </ul>
                 </div>
             </div>
@@ -1630,7 +1954,7 @@
             <div class="border-t border-gray-800 pt-8">
                 <div class="flex flex-col md:flex-row justify-between items-center">
                     <div class="text-gray-500 text-sm mb-4 md:mb-0">
-                        © 2026 香港人工智能國際電影節。保留所有權利。
+                        © 2026 香港AI國際電影節。保留所有權利。
                     </div>
                     <div class="flex flex-wrap gap-6 text-sm">
                         <a href="#" class="text-gray-500 hover:text-accent">隱私政策</a>
@@ -1651,152 +1975,136 @@
         </a>
         
         <!-- Scroll to Top -->
-        <button onclick="scrollToTop()" class="bg-accent hover:bg-green-400 text-black w-16 h-16 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110">
+        <button class="bg-accent hover:bg-green-400 text-black w-16 h-16 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110" id="scrollToTop">
             <i class="fas fa-arrow-up text-xl"></i>
         </button>
     </div>
 
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50">
+        <div class="text-center">
+            <div class="text-6xl mb-4 text-accent animate-spin">
+                <i class="fas fa-cog"></i>
+            </div>
+            <div class="text-xl text-white">正在加載體驗...</div>
+        </div>
+    </div>
+
     <script>
-        // Countdown Timer
+        // 倒计时功能
         function updateCountdown() {
             const ceremonyDate = new Date('2026-05-01T19:00:00+08:00').getTime();
             const now = new Date().getTime();
-            const distance = ceremonyDate - now;
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.querySelectorAll('.countdown-number').forEach((el, index) => {
-                switch(index) {
-                    case 0: el.textContent = String(days).padStart(2, '0'); break;
-                    case 1: el.textContent = String(hours).padStart(2, '0'); break;
-                    case 2: el.textContent = String(minutes).padStart(2, '0'); break;
-                    case 3: el.textContent = String(seconds).padStart(2, '0'); break;
-                }
-            });
-
-            if (distance < 0) {
-                document.querySelector('.countdown-card h2').textContent = '典禮正在進行中！';
-                document.querySelectorAll('.countdown-number').forEach(el => el.textContent = '00');
+            const timeLeft = ceremonyDate - now;
+            
+            if (timeLeft > 0) {
+                // 计算天、小时、分钟、秒
+                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                
+                // 更新DOM元素
+                document.getElementById('days').innerText = days.toString().padStart(2, '0');
+                document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
+            } else {
+                // 活动已开始
+                document.getElementById('days').innerText = '00';
+                document.getElementById('hours').innerText = '00';
+                document.getElementById('minutes').innerText = '00';
+                document.getElementById('seconds').innerText = '00';
+                
+                // 更新倒计时标题
+                document.querySelector('.countdown-card h2').innerText = "頒獎典禮已開始！";
             }
         }
-
-        // Scroll to top function
-        function scrollToTop() {
+        
+        // 初始化倒计时
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+        
+        // 移动菜单切换
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+        
+        // 滚动到顶部功能
+        const scrollToTop = document.getElementById('scrollToTop');
+        scrollToTop.addEventListener('click', () => {
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
-        }
-
-        // Smooth scrolling for navigation links
-        function smoothScroll() {
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
-        }
-
-        // Sparkle animation
-        function createSparkles() {
-            const sparkleCount = 20;
-            const body = document.body;
-            
-            for (let i = 0; i < sparkleCount; i++) {
-                setTimeout(() => {
-                    const sparkle = document.createElement('div');
-                    sparkle.className = 'sparkle';
-                    sparkle.style.left = Math.random() * 100 + 'vw';
-                    sparkle.style.top = Math.random() * 100 + 'vh';
-                    sparkle.style.animationDelay = Math.random() * 2 + 's';
-                    body.appendChild(sparkle);
-                    
-                    setTimeout(() => {
-                        sparkle.remove();
-                    }, 2000);
-                }, i * 100);
+        });
+        
+        // 滚动时导航栏效果
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
             }
-        }
-
-        // Initialize everything when DOM is loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            // Start countdown
-            updateCountdown();
-            setInterval(updateCountdown, 1000);
             
-            // Initialize smooth scrolling
-            smoothScroll();
-            
-            // Create periodic sparkles
-            createSparkles();
-            setInterval(createSparkles, 10000);
-            
-            // Add scroll effects
-            window.addEventListener('scroll', () => {
-                const scrolled = window.pageYOffset;
-                const parallax = document.querySelector('.hero-bg');
-                if (parallax) {
-                    const speed = scrolled * 0.5;
-                    parallax.style.transform = `translateY(${speed}px)`;
+            // 显示/隐藏回到顶部按钮
+            if (window.scrollY > 500) {
+                scrollToTop.style.display = 'flex';
+            } else {
+                scrollToTop.style.display = 'none';
+            }
+        });
+        
+        // 平滑滚动到锚点
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // 关闭移动菜单
+                    mobileMenu.classList.remove('active');
                 }
             });
-
-            // Voting button interactions
-            document.querySelectorAll('.voting-card button').forEach(button => {
-                button.addEventListener('click', function() {
-                    if (this.textContent.includes('立即投票')) {
-                        this.textContent = '已投票！';
-                        this.classList.remove('btn-gold', 'btn-primary');
-                        this.classList.add('bg-green-500', 'hover:bg-green-600');
-                        
-                        // Show success message
-                        setTimeout(() => {
-                            alert('感謝您的投票！您的HKAIIF代幣已被鎖定。');
-                        }, 300);
-                    }
-                });
+        });
+        
+        // 模拟加载页面效果
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loadingOverlay').style.display = 'none';
+            }, 1500);
+        });
+        
+        // 卡片悬停效果增强
+        const cards = document.querySelectorAll('.card, .award-card, .voting-card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px)';
             });
-
-            // Ticket selection interactions
-            document.querySelectorAll('[class*="btn-"][class*="選擇"]').forEach(button => {
-                button.addEventListener('click', function() {
-                    const ticketType = this.textContent.replace('選擇', '');
-                    
-                    alert(`正在跳轉至${ticketType}的安全結帳頁面...`);
-                });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
             });
-
-            // Add entrance animations
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, observerOptions);
-
-            // Observe cards for animation
-            document.querySelectorAll('.card, .timeline-item, .judge-card').forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(50px)';
-                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(el);
+        });
+        
+        // 倒计时框悬停效果
+        const countdownBoxes = document.querySelectorAll('.countdown-box');
+        countdownBoxes.forEach(box => {
+            box.addEventListener('mouseenter', () => {
+                box.style.transform = 'scale(1.05)';
+            });
+            
+            box.addEventListener('mouseleave', () => {
+                box.style.transform = 'scale(1)';
             });
         });
     </script>
