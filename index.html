@@ -1,0 +1,1802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HKAIIFF Awards Ceremony 2026 - Hong Kong AI International Film Festival</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3498db;
+            --secondary: #8e44ad;
+            --accent: #00ff9d;
+            --gold: #ffd700;
+            --silver: #c0c0c0;
+            --bronze: #cd7f32;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(52, 152, 219, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(142, 68, 173, 0.1) 0%, transparent 20%);
+        }
+        
+        .logo-font {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 800;
+            letter-spacing: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+            display: inline-block;
+            text-shadow: 0 0 15px rgba(0, 255, 157, 0.3);
+            animation: logoGlow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes logoGlow {
+            0% { text-shadow: 0 0 10px rgba(0, 255, 157, 0.3); }
+            100% { text-shadow: 0 0 25px rgba(0, 255, 157, 0.6), 0 0 35px rgba(52, 152, 219, 0.4); }
+        }
+        
+        .logo-sub {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--accent);
+            opacity: 0.8;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, var(--primary), var(--accent), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+        
+        .gold-gradient {
+            background: linear-gradient(135deg, #ffd700, #ffed4e, #d4af37);
+        }
+        
+        .card {
+            background-color: rgba(26, 32, 44, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 255, 157, 0.2);
+            border-color: rgba(0, 255, 157, 0.3);
+        }
+        
+        .navbar {
+            background-color: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 255, 157, 0.1);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            transition: all 0.3s ease;
+            border: none;
+            font-weight: 600;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(52, 152, 219, 0.4);
+        }
+        
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold), #ffed4e);
+            color: #000;
+            transition: all 0.3s ease;
+            border: none;
+            font-weight: 600;
+        }
+        
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.4);
+        }
+        
+        .hero {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .hero:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.8) 100%);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.8;
+            animation: bgPan 30s infinite linear;
+        }
+        
+        @keyframes bgPan {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+        
+        .countdown-card {
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px solid var(--gold);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+        }
+        
+        .countdown-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--gold), #ffed4e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .award-card {
+            position: relative;
+            background: rgba(26, 32, 44, 0.9);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .award-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .award-card:hover::before {
+            left: 100%;
+        }
+        
+        .award-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.3);
+        }
+        
+        .trophy-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .trophy-gold {
+            color: var(--gold);
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+        
+        .trophy-silver {
+            color: var(--silver);
+            text-shadow: 0 0 20px rgba(192, 192, 192, 0.5);
+        }
+        
+        .trophy-bronze {
+            color: var(--bronze);
+            text-shadow: 0 0 20px rgba(205, 127, 50, 0.5);
+        }
+        
+        .schedule-timeline {
+            position: relative;
+        }
+        
+        .schedule-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--accent), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin: 2rem 0;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 4px solid #0a0a0a;
+            z-index: 2;
+        }
+        
+        .timeline-content {
+            width: 45%;
+            padding: 1.5rem;
+            background: rgba(26, 32, 44, 0.7);
+            border-radius: 16px;
+            border: 1px solid rgba(0, 255, 157, 0.2);
+        }
+        
+        .timeline-left {
+            margin-left: 0;
+        }
+        
+        .timeline-right {
+            margin-left: 55%;
+        }
+        
+        .judge-card {
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 20px;
+            background: rgba(26, 32, 44, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .judge-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 15px 30px rgba(0, 255, 157, 0.2);
+        }
+        
+        .judge-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            border: 4px solid var(--accent);
+            box-shadow: 0 0 20px rgba(0, 255, 157, 0.3);
+        }
+        
+        .floating {
+            animation: floating 6s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 50%;
+            animation: sparkle 2s linear infinite;
+        }
+        
+        @keyframes sparkle {
+            0% { opacity: 0; transform: scale(0) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1) rotate(180deg); }
+            100% { opacity: 0; transform: scale(0) rotate(360deg); }
+        }
+        
+        .data-stream {
+            position: absolute;
+            height: 100px;
+            width: 2px;
+            background: linear-gradient(to bottom, transparent, var(--accent), var(--secondary), transparent);
+            z-index: 0;
+            animation: dataStream 2s linear infinite;
+            opacity: 0.3;
+        }
+        
+        @keyframes dataStream {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100vh); }
+        }
+        
+        .ai-element {
+            position: absolute;
+            background-color: rgba(52, 152, 219, 0.1);
+            border: 1px solid rgba(52, 152, 219, 0.3);
+            backdrop-filter: blur(5px);
+            padding: 10px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 12px;
+            color: var(--accent);
+            z-index: 3;
+            pointer-events: none;
+            box-shadow: 0 0 15px rgba(0, 255, 157, 0.1);
+        }
+        
+        .voting-card {
+            background: rgba(26, 32, 44, 0.9);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .voting-card:hover {
+            border-color: var(--gold);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background: #333;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--gold), #ffed4e);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline-item::before {
+                left: 20px;
+            }
+            
+            .schedule-timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 60px);
+                margin-left: 60px;
+            }
+            
+            .timeline-right {
+                margin-left: 60px;
+            }
+            
+            .countdown-number {
+                font-size: 2rem;
+            }
+            
+            .hero {
+                min-height: 80vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- AI Elements -->
+    <div class="ai-element" style="top: 120px; left: 10%;">
+        EVENT_ID: HKAIIFF-2026 <br>
+        STATUS: LIVE <br>
+        // Awards Ceremony Active
+    </div>
+    
+    <div class="ai-element" style="bottom: 150px; right: 15%;">
+        NOMINEES: 921 FILMS <br>
+        CATEGORIES: 18 AWARDS <br>
+        // Global Recognition
+    </div>
+
+    <!-- Data streams -->
+    <div class="data-stream" style="left: 20%; animation-delay: 0s;"></div>
+    <div class="data-stream" style="left: 40%; animation-delay: 0.5s;"></div>
+    <div class="data-stream" style="left: 60%; animation-delay: 1s;"></div>
+    <div class="data-stream" style="left: 80%; animation-delay: 1.5s;"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar fixed w-full z-50 px-4 py-3">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="flex flex-col">
+                <div class="logo-font text-2xl md:text-3xl">HKAIIFF</div>
+                <div class="logo-sub text-xs">AWARDS CEREMONY</div>
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#awards" class="hover:text-blue-400 transition">Awards</a>
+                <a href="#schedule" class="hover:text-blue-400 transition">Schedule</a>
+                <a href="#nominees" class="hover:text-blue-400 transition">Nominees</a>
+                <a href="#judges" class="hover:text-blue-400 transition">Judges</a>
+                <a href="#live" class="hover:text-blue-400 transition">Live Stream</a>
+                <a href="#voting" class="hover:text-blue-400 transition">Community Vote</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="#tickets" class="btn-gold px-6 py-2 rounded-full text-sm font-bold">Get Tickets</a>
+                <a href="#watch" class="btn-primary px-6 py-2 rounded-full text-sm">Watch Live</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1489599639991-dce5e0c94d39?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')"></div>
+        
+        <!-- Floating sparkles -->
+        <div class="sparkle" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+        <div class="sparkle" style="top: 30%; right: 15%; animation-delay: 0.5s;"></div>
+        <div class="sparkle" style="bottom: 40%; left: 20%; animation-delay: 1s;"></div>
+        <div class="sparkle" style="top: 60%; right: 25%; animation-delay: 1.5s;"></div>
+        
+        <div class="container mx-auto px-4 hero-content">
+            <div class="max-w-6xl mx-auto text-center">
+                <div class="mb-8">
+                    <h1 class="text-5xl md:text-8xl font-bold mb-4 gradient-text">
+                        HKAIIFF AWARDS 2026
+                    </h1>
+                    <p class="text-xl md:text-3xl text-gray-300 mb-2">
+                        The World's Premier AI-Native Film Festival
+                    </p>
+                    <p class="text-lg md:text-xl text-gray-400">
+                        Celebrating Innovation • Recognizing Excellence • Shaping the Future
+                    </p>
+                </div>
+                
+                <!-- Countdown Timer -->
+                <div class="mb-12">
+                    <div class="countdown-card max-w-4xl mx-auto">
+                        <h2 class="text-2xl md:text-3xl font-bold mb-6 text-gold">LIVE CEREMONY COUNTDOWN</h2>
+                        <div class="grid grid-cols-4 gap-4 md:gap-8">
+                            <div>
+                                <div class="countdown-number">112</div>
+                                <div class="text-gray-400 uppercase tracking-wider">Days</div>
+                            </div>
+                            <div>
+                                <div class="countdown-number">19</div>
+                                <div class="text-gray-400 uppercase tracking-wider">Hours</div>
+                            </div>
+                            <div>
+                                <div class="countdown-number">45</div>
+                                <div class="text-gray-400 uppercase tracking-wider">Minutes</div>
+                            </div>
+                            <div>
+                                <div class="countdown-number">22</div>
+                                <div class="text-gray-400 uppercase tracking-wider">Seconds</div>
+                            </div>
+                        </div>
+                        <div class="mt-6 text-lg text-gray-300">
+                            <i class="fas fa-calendar-alt mr-2"></i>
+                            May 1, 2026 • Hong Kong Convention and Exhibition Centre
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Stats -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                    <div class="bg-black bg-opacity-50 rounded-lg p-4">
+                        <div class="text-2xl md:text-3xl font-bold text-gold">$3.5M</div>
+                        <div class="text-sm text-gray-400">Total Prize Pool</div>
+                    </div>
+                    <div class="bg-black bg-opacity-50 rounded-lg p-4">
+                        <div class="text-2xl md:text-3xl font-bold text-gold">921</div>
+                        <div class="text-sm text-gray-400">Film Submissions</div>
+                    </div>
+                    <div class="bg-black bg-opacity-50 rounded-lg p-4">
+                        <div class="text-2xl md:text-3xl font-bold text-gold">68</div>
+                        <div class="text-sm text-gray-400">Countries</div>
+                    </div>
+                    <div class="bg-black bg-opacity-50 rounded-lg p-4">
+                        <div class="text-2xl md:text-3xl font-bold text-gold">18</div>
+                        <div class="text-sm text-gray-400">Award Categories</div>
+                    </div>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 justify-center">
+                    <a href="#live" class="btn-gold px-8 py-4 rounded-full text-lg font-bold">
+                        <i class="fas fa-play mr-2"></i>Watch Live Stream
+                    </a>
+                    <a href="#voting" class="btn-primary px-8 py-4 rounded-full text-lg font-bold">
+                        <i class="fas fa-vote-yea mr-2"></i>Cast Your Vote
+                    </a>
+                    <a href="#tickets" class="bg-transparent border-2 border-white px-8 py-4 rounded-full text-lg font-bold hover:bg-white hover:text-black transition">
+                        <i class="fas fa-ticket-alt mr-2"></i>Get Tickets
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Award Categories Section -->
+    <section id="awards" class="py-20 bg-black bg-opacity-30">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-bold mb-6 gradient-text">Award Categories</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Recognizing excellence across all aspects of AI-native film production
+                </p>
+            </div>
+
+            <!-- Main Competition Awards -->
+            <div class="mb-16">
+                <h3 class="text-3xl font-bold text-center mb-12 text-gold">
+                    <i class="fas fa-crown mr-3"></i>Main Competition Awards
+                </h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="award-card p-8 text-center">
+                        <div class="trophy-icon trophy-gold">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-gold">Unicorn Gold Award</h3>
+                        <p class="text-lg mb-4 text-gray-300">Best AI-Native Film</p>
+                        <div class="text-3xl font-bold text-gold mb-2">$1,250,000</div>
+                        <p class="text-sm text-gray-400">
+                            The highest honor recognizing the most outstanding AI-native film that demonstrates excellence in storytelling and innovation.
+                        </p>
+                    </div>
+                    
+                    <div class="award-card p-8 text-center">
+                        <div class="trophy-icon trophy-silver">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-silver">Best AI Director</h3>
+                        <p class="text-lg mb-4 text-gray-300">Creative Leadership</p>
+                        <div class="text-3xl font-bold text-silver mb-2">$250,000</div>
+                        <p class="text-sm text-gray-400">
+                            Recognizing visionary directors who masterfully orchestrate AI tools and human creativity.
+                        </p>
+                    </div>
+                    
+                    <div class="award-card p-8 text-center">
+                        <div class="trophy-icon trophy-bronze">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-bronze">Best AI Screenwriter</h3>
+                        <p class="text-lg mb-4 text-gray-300">Narrative Excellence</p>
+                        <div class="text-3xl font-bold text-bronze mb-2">$180,000</div>
+                        <p class="text-sm text-gray-400">
+                            Honoring exceptional storytelling that blends AI-generated content with human narrative insight.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Innovation Awards -->
+            <div class="mb-16">
+                <h3 class="text-3xl font-bold text-center mb-12 text-accent">
+                    <i class="fas fa-cogs mr-3"></i>Technical Innovation Awards
+                </h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="award-card p-6 text-center">
+                        <div class="text-3xl mb-4 text-accent"><i class="fas fa-palette"></i></div>
+                        <h4 class="text-lg font-bold mb-2">Best AI Visual Design</h4>
+                        <div class="text-xl font-bold text-accent">$120,000</div>
+                    </div>
+                    <div class="award-card p-6 text-center">
+                        <div class="text-3xl mb-4 text-accent"><i class="fas fa-user-android"></i></div>
+                        <h4 class="text-lg font-bold mb-2">Best AI Digital Character</h4>
+                        <div class="text-xl font-bold text-accent">$110,000</div>
+                    </div>
+                    <div class="award-card p-6 text-center">
+                        <div class="text-3xl mb-4 text-accent"><i class="fas fa-music"></i></div>
+                        <h4 class="text-lg font-bold mb-2">Best AI Sound Design</h4>
+                        <div class="text-xl font-bold text-accent">$85,000</div>
+                    </div>
+                    <div class="award-card p-6 text-center">
+                        <div class="text-3xl mb-4 text-accent"><i class="fas fa-cube"></i></div>
+                        <h4 class="text-lg font-bold mb-2">Best AI Technical Innovation</h4>
+                        <div class="text-xl font-bold text-accent">$160,000</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Specialized Categories -->
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-8 text-primary">
+                        <i class="fas fa-gamepad mr-2"></i>Interactive & Immersive
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="award-card p-4 flex justify-between items-center">
+                            <div>
+                                <h4 class="font-bold">Best AI Interactive Experience</h4>
+                                <p class="text-sm text-gray-400">Revolutionary audience engagement</p>
+                            </div>
+                            <div class="text-lg font-bold text-primary">$135,000</div>
+                        </div>
+                        <div class="award-card p-4 flex justify-between items-center">
+                            <div>
+                                <h4 class="font-bold">Web3 Film Innovation</h4>
+                                <p class="text-sm text-gray-400">Blockchain integration excellence</p>
+                            </div>
+                            <div class="text-lg font-bold text-primary">$110,000</div>
+                        </div>
+                        <div class="award-card p-4 flex justify-between items-center">
+                            <div>
+                                <h4 class="font-bold">AI Animation Achievement</h4>
+                                <p class="text-sm text-gray-400">Animated storytelling mastery</p>
+                            </div>
+                            <div class="text-lg font-bold text-primary">$85,000</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-bold mb-8 text-secondary">
+                        <i class="fas fa-heart mr-2"></i>Impact & Recognition
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="award-card p-4 flex justify-between items-center">
+                            <div>
+                                <h4 class="font-bold">AI Social Impact Award</h4>
+                                <p class="text-sm text-gray-400">Films driving positive change</p>
+                            </div>
+                            <div class="text-lg font-bold text-secondary">$110,000</div>
+                        </div>
+                        <div class="award-card p-4 flex justify-between items-center">
+                            <div>
+                                <h4 class="font-bold">Emerging AI Filmmaker</h4>
+                                <p class="text-sm text-gray-400">Breakthrough talent recognition</p>
+                            </div>
+                            <div class="text-lg font-bold text-secondary">$60,000</div>
+                        </div>
+                        <div class="award-card p-4 flex justify-between items-center">
+                            <div>
+                                <h4 class="font-bold">Audience Choice Award</h4>
+                                <p class="text-sm text-gray-400">Community voted favorite</p>
+                            </div>
+                            <div class="text-lg font-bold text-secondary">$85,000</div>
+                        </div>
+                        <div class="award-card p-4 flex justify-between items-center">
+                            <div>
+                                <h4 class="font-bold">AI Experimental Vision</h4>
+                                <p class="text-sm text-gray-400">Pushing creative boundaries</p>
+                            </div>
+                            <div class="text-lg font-bold text-secondary">$70,000</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Schedule Section -->
+    <section id="schedule" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-bold mb-6 gradient-text">Ceremony Schedule</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    A full day of celebration featuring premieres, performances, and the main awards ceremony
+                </p>
+                <div class="mt-8 bg-black bg-opacity-50 rounded-lg p-6 max-w-2xl mx-auto">
+                    <h3 class="text-2xl font-bold text-gold mb-2">May 1, 2026</h3>
+                    <p class="text-lg text-gray-300">Hong Kong Convention and Exhibition Centre</p>
+                    <p class="text-gray-400">1 Expo Drive, Wan Chai, Hong Kong</p>
+                </div>
+            </div>
+
+            <div class="schedule-timeline max-w-6xl mx-auto">
+                <!-- Morning Events -->
+                <div class="timeline-item">
+                    <div class="timeline-content timeline-left">
+                        <div class="flex items-center mb-3">
+                            <div class="text-2xl font-bold text-gold mr-3">08:00</div>
+                            <div class="text-lg font-semibold">Registration & Welcome</div>
+                        </div>
+                        <p class="text-gray-300 mb-2">VIP and media registration opens. Welcome breakfast for nominees and industry professionals.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-blue-500 bg-opacity-20 text-blue-400 text-xs px-2 py-1 rounded">Media</span>
+                            <span class="bg-purple-500 bg-opacity-20 text-purple-400 text-xs px-2 py-1 rounded">VIP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content timeline-right">
+                        <div class="flex items-center mb-3">
+                            <div class="text-2xl font-bold text-gold mr-3">10:00</div>
+                            <div class="text-lg font-semibold">AI Innovation Showcase</div>
+                        </div>
+                        <p class="text-gray-300 mb-2">Exclusive preview of cutting-edge AI film technologies and tools. Interactive demonstrations by leading tech partners.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-green-500 bg-opacity-20 text-green-400 text-xs px-2 py-1 rounded">Technology</span>
+                            <span class="bg-yellow-500 bg-opacity-20 text-yellow-400 text-xs px-2 py-1 rounded">Interactive</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content timeline-left">
+                        <div class="flex items-center mb-3">
+                            <div class="text-2xl font-bold text-gold mr-3">12:00</div>
+                            <div class="text-lg font-semibold">Nominee Film Screenings</div>
+                        </div>
+                        <p class="text-gray-300 mb-2">Special screenings of shortlisted films across multiple theaters. Meet the filmmakers Q&A sessions.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-red-500 bg-opacity-20 text-red-400 text-xs px-2 py-1 rounded">Screenings</span>
+                            <span class="bg-orange-500 bg-opacity-20 text-orange-400 text-xs px-2 py-1 rounded">Q&A</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Afternoon Events -->
+                <div class="timeline-item">
+                    <div class="timeline-content timeline-right">
+                        <div class="flex items-center mb-3">
+                            <div class="text-2xl font-bold text-gold mr-3">14:30</div>
+                            <div class="text-lg font-semibold">Industry Summit</div>
+                        </div>
+                        <p class="text-gray-300 mb-2">"The Future of AI in Cinema" - Panel discussions with industry leaders, investors, and visionary creators.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-indigo-500 bg-opacity-20 text-indigo-400 text-xs px-2 py-1 rounded">Panel</span>
+                            <span class="bg-pink-500 bg-opacity-20 text-pink-400 text-xs px-2 py-1 rounded">Industry</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content timeline-left">
+                        <div class="flex items-center mb-3">
+                            <div class="text-2xl font-bold text-gold mr-3">16:00</div>
+                            <div class="text-lg font-semibold">Red Carpet Arrivals</div>
+                        </div>
+                        <p class="text-gray-300 mb-2">Star-studded red carpet with nominees, judges, and celebrity guests. Live interviews and photo opportunities.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-red-600 bg-opacity-20 text-red-400 text-xs px-2 py-1 rounded">Red Carpet</span>
+                            <span class="bg-purple-600 bg-opacity-20 text-purple-400 text-xs px-2 py-1 rounded">Live Coverage</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Evening Ceremony -->
+                <div class="timeline-item">
+                    <div class="timeline-content timeline-right bg-gradient-to-r from-gold via-yellow-400 to-gold text-black">
+                        <div class="flex items-center mb-3">
+                            <div class="text-3xl font-bold mr-3">19:00</div>
+                            <div class="text-xl font-bold">MAIN AWARDS CEREMONY</div>
+                        </div>
+                        <p class="mb-2 font-medium">The premier event featuring live performances, award presentations, and the $1.25M Unicorn Gold Award announcement.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-black bg-opacity-20 text-black text-xs px-2 py-1 rounded font-semibold">Live Broadcast</span>
+                            <span class="bg-black bg-opacity-20 text-black text-xs px-2 py-1 rounded font-semibold">Awards</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content timeline-left">
+                        <div class="flex items-center mb-3">
+                            <div class="text-2xl font-bold text-gold mr-3">22:00</div>
+                            <div class="text-lg font-semibold">After-Party Celebration</div>
+                        </div>
+                        <p class="text-gray-300 mb-2">Exclusive networking reception with winners, industry leaders, and international guests. Live DJ and entertainment.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-teal-500 bg-opacity-20 text-teal-400 text-xs px-2 py-1 rounded">Networking</span>
+                            <span class="bg-cyan-500 bg-opacity-20 text-cyan-400 text-xs px-2 py-1 rounded">Celebration</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Judges Panel Section -->
+    <section id="judges" class="py-20 bg-black bg-opacity-30">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-bold mb-6 gradient-text">Distinguished Judges Panel</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    World-renowned experts in film, technology, and AI innovation
+                </p>
+            </div>
+
+            <!-- Jury Categories -->
+            <div class="mb-16">
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div class="text-center">
+                        <div class="text-4xl mb-4 text-gold"><i class="fas fa-film"></i></div>
+                        <h3 class="text-xl font-bold mb-2">Film Industry Veterans</h3>
+                        <p class="text-gray-400">Academy Award winners, renowned directors, and industry pioneers</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl mb-4 text-accent"><i class="fas fa-brain"></i></div>
+                        <h3 class="text-xl font-bold mb-2">AI Technology Experts</h3>
+                        <p class="text-gray-400">Leading researchers, engineers, and AI company executives</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl mb-4 text-primary"><i class="fas fa-palette"></i></div>
+                        <h3 class="text-xl font-bold mb-2">Creative Visionaries</h3>
+                        <p class="text-gray-400">Artists, storytellers, and innovation advocates</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Judges -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="judge-card">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Judge" class="judge-avatar">
+                    <h3 class="text-xl font-bold mb-2">Christopher Chen</h3>
+                    <p class="text-accent font-medium mb-2">Academy Award Winner</p>
+                    <p class="text-sm text-gray-400">Director of "Digital Dreams" and pioneer in AI-assisted filmmaking.</p>
+                </div>
+                
+                <div class="judge-card">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Judge" class="judge-avatar">
+                    <h3 class="text-xl font-bold mb-2">Dr. Sarah Martinez</h3>
+                    <p class="text-accent font-medium mb-2">AI Research Director</p>
+                    <p class="text-sm text-gray-400">Leading computer vision researcher at MIT. Expert in generative AI.</p>
+                </div>
+                
+                <div class="judge-card">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Judge" class="judge-avatar">
+                    <h3 class="text-xl font-bold mb-2">Kenji Nakamura</h3>
+                    <p class="text-accent font-medium mb-2">Animation Master</p>
+                    <p class="text-sm text-gray-400">Legendary animator and director bridging traditional artistry with AI.</p>
+                </div>
+                
+                <div class="judge-card">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Judge" class="judge-avatar">
+                    <h3 class="text-xl font-bold mb-2">Emma Thompson</h3>
+                    <p class="text-accent font-medium mb-2">Tech Entrepreneur</p>
+                    <p class="text-sm text-gray-400">Founder of CreativeAI Labs. Forbes 30 Under 30 in Technology.</p>
+                </div>
+            </div>
+
+            <!-- Evaluation Process -->
+            <div class="mt-16 card p-8">
+                <h3 class="text-2xl font-bold mb-6 text-center">Evaluation Process</h3>
+                <div class="grid md:grid-cols-4 gap-6">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-blue-500 bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl font-bold text-blue-400">30%</span>
+                        </div>
+                        <h4 class="font-bold mb-2">Technical Innovation</h4>
+                        <p class="text-sm text-gray-400">AI integration, complexity, execution quality</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-purple-500 bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl font-bold text-purple-400">30%</span>
+                        </div>
+                        <h4 class="font-bold mb-2">Artistic Excellence</h4>
+                        <p class="text-sm text-gray-400">Storytelling, aesthetics, emotional impact</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-green-500 bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl font-bold text-green-400">20%</span>
+                        </div>
+                        <h4 class="font-bold mb-2">Commercial Viability</h4>
+                        <p class="text-sm text-gray-400">Market potential, audience appeal</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-yellow-500 bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl font-bold text-yellow-400">20%</span>
+                        </div>
+                        <h4 class="font-bold mb-2">Cultural Impact</h4>
+                        <p class="text-sm text-gray-400">Social significance, global relevance</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Voting Section -->
+    <section id="voting" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-bold mb-6 gradient-text">Community Voting</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Be part of the decision! Vote for the Audience Choice Award using HKAIIF tokens
+                </p>
+            </div>
+
+            <!-- Voting Stats -->
+            <div class="grid md:grid-cols-4 gap-6 mb-12">
+                <div class="text-center bg-black bg-opacity-50 rounded-lg p-6">
+                    <div class="text-3xl font-bold text-accent mb-2">156,892</div>
+                    <div class="text-gray-400">Total Votes Cast</div>
+                </div>
+                <div class="text-center bg-black bg-opacity-50 rounded-lg p-6">
+                    <div class="text-3xl font-bold text-accent mb-2">32,756</div>
+                    <div class="text-gray-400">Participating Wallets</div>
+                </div>
+                <div class="text-center bg-black bg-opacity-50 rounded-lg p-6">
+                    <div class="text-3xl font-bold text-accent mb-2">$85K</div>
+                    <div class="text-gray-400">Prize Pool</div>
+                </div>
+                <div class="text-center bg-black bg-opacity-50 rounded-lg p-6">
+                    <div class="text-3xl font-bold text-accent mb-2">28 Days</div>
+                    <div class="text-gray-400">Time Remaining</div>
+                </div>
+            </div>
+
+            <!-- Top Voting Candidates -->
+            <div class="max-w-4xl mx-auto">
+                <h3 class="text-2xl font-bold mb-8 text-center">Leading Candidates - Audience Choice Award</h3>
+                <div class="space-y-6">
+                    <div class="voting-card">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center">
+                                <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Film Poster" class="w-20 h-28 object-cover rounded-lg mr-4">
+                                <div>
+                                    <h4 class="text-xl font-bold mb-1">"Neural Nexus"</h4>
+                                    <p class="text-gray-400 mb-1">Dir. Alex Chen | 95 min | Sci-Fi Thriller</p>
+                                    <p class="text-sm text-gray-500">A mind-bending exploration of consciousness in the age of AI</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-2xl font-bold text-gold">34.2%</div>
+                                <div class="text-sm text-gray-400">48,672 votes</div>
+                            </div>
+                        </div>
+                        <div class="progress-bar mb-4">
+                            <div class="progress-fill" style="width: 34.2%"></div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex space-x-2">
+                                <span class="bg-blue-500 bg-opacity-20 text-blue-400 text-xs px-2 py-1 rounded">AI Characters</span>
+                                <span class="bg-purple-500 bg-opacity-20 text-purple-400 text-xs px-2 py-1 rounded">Neural Networks</span>
+                            </div>
+                            <button class="btn-gold px-4 py-2 rounded-lg text-sm font-bold">Vote Now</button>
+                        </div>
+                    </div>
+
+                    <div class="voting-card">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center">
+                                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Film Poster" class="w-20 h-28 object-cover rounded-lg mr-4">
+                                <div>
+                                    <h4 class="text-xl font-bold mb-1">"Digital Dreams"</h4>
+                                    <p class="text-gray-400 mb-1">Dir. Maria Rodriguez | 87 min | Animated Drama</p>
+                                    <p class="text-sm text-gray-500">A heartwarming tale of AI discovering emotions and creativity</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-2xl font-bold text-silver">28.7%</div>
+                                <div class="text-sm text-gray-400">40,891 votes</div>
+                            </div>
+                        </div>
+                        <div class="progress-bar mb-4">
+                            <div class="progress-fill" style="width: 28.7%"></div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex space-x-2">
+                                <span class="bg-green-500 bg-opacity-20 text-green-400 text-xs px-2 py-1 rounded">Animation</span>
+                                <span class="bg-pink-500 bg-opacity-20 text-pink-400 text-xs px-2 py-1 rounded">Emotional AI</span>
+                            </div>
+                            <button class="btn-primary px-4 py-2 rounded-lg text-sm font-bold">Vote Now</button>
+                        </div>
+                    </div>
+
+                    <div class="voting-card">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center">
+                                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Film Poster" class="w-20 h-28 object-cover rounded-lg mr-4">
+                                <div>
+                                    <h4 class="text-xl font-bold mb-1">"The Last Algorithm"</h4>
+                                    <p class="text-gray-400 mb-1">Dir. James Park | 102 min | Action/Adventure</p>
+                                    <p class="text-sm text-gray-500">Humanity's final stand against rogue AI systems</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-2xl font-bold text-bronze">19.4%</div>
+                                <div class="text-sm text-gray-400">27,645 votes</div>
+                            </div>
+                        </div>
+                        <div class="progress-bar mb-4">
+                            <div class="progress-fill" style="width: 19.4%"></div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex space-x-2">
+                                <span class="bg-red-500 bg-opacity-20 text-red-400 text-xs px-2 py-1 rounded">Action</span>
+                                <span class="bg-orange-500 bg-opacity-20 text-orange-400 text-xs px-2 py-1 rounded">AI vs Human</span>
+                            </div>
+                            <button class="btn-primary px-4 py-2 rounded-lg text-sm font-bold">Vote Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Voting Instructions -->
+                <div class="mt-12 card p-8">
+                    <h3 class="text-2xl font-bold mb-6 text-center">How to Vote</h3>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-accent bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-wallet text-2xl text-accent"></i>
+                            </div>
+                            <h4 class="font-bold mb-2">Connect Wallet</h4>
+                            <p class="text-sm text-gray-400">Connect your Web3 wallet containing HKAIIF tokens</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-accent bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-vote-yea text-2xl text-accent"></i>
+                            </div>
+                            <h4 class="font-bold mb-2">Cast Your Vote</h4>
+                            <p class="text-sm text-gray-400">Vote using your HKAIIF tokens - more tokens = more voting power</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-accent bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-trophy text-2xl text-accent"></i>
+                            </div>
+                            <h4 class="font-bold mb-2">Earn Rewards</h4>
+                            <p class="text-sm text-gray-400">Receive voting rewards and NFT certificates for participation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nominees Showcase Section -->
+    <section id="nominees" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-bold mb-6 gradient-text">Featured Nominees</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Discover the groundbreaking films competing for the highest honors in AI-native cinema
+                </p>
+            </div>
+
+            <!-- Filter Categories -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button class="bg-gold text-black px-4 py-2 rounded-full font-medium">All Categories</button>
+                <button class="bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-full font-medium">Best Film</button>
+                <button class="bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-full font-medium">Technical Innovation</button>
+                <button class="bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-full font-medium">Animation</button>
+                <button class="bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-full font-medium">Interactive</button>
+                <button class="bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-full font-medium">Experimental</button>
+            </div>
+
+            <!-- Nominees Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Nominee 1 -->
+                <div class="card overflow-hidden">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Neural Nexus" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-gold text-black px-3 py-1 rounded-full text-sm font-bold">Unicorn Gold Nominee</span>
+                        </div>
+                        <div class="absolute bottom-4 right-4">
+                            <button class="bg-black bg-opacity-70 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-opacity-90 transition">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Neural Nexus</h3>
+                        <p class="text-gray-400 mb-3">Dir. Alex Chen • 95 min • Sci-Fi Thriller</p>
+                        <p class="text-sm text-gray-300 mb-4">A mind-bending exploration of consciousness in the age of AI, featuring groundbreaking neural rendering technology.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-500 bg-opacity-20 text-blue-400 text-xs px-2 py-1 rounded">AI Characters</span>
+                            <span class="bg-purple-500 bg-opacity-20 text-purple-400 text-xs px-2 py-1 rounded">Neural Networks</span>
+                            <span class="bg-green-500 bg-opacity-20 text-green-400 text-xs px-2 py-1 rounded">VR Elements</span>
+                        </div>
+                        <div class="text-sm text-gray-400">
+                            <strong>Nominated for:</strong> Best Film, Best AI Director, Best Technical Innovation
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nominee 2 -->
+                <div class="card overflow-hidden">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Digital Dreams" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-silver text-black px-3 py-1 rounded-full text-sm font-bold">Animation Excellence</span>
+                        </div>
+                        <div class="absolute bottom-4 right-4">
+                            <button class="bg-black bg-opacity-70 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-opacity-90 transition">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Digital Dreams</h3>
+                        <p class="text-gray-400 mb-3">Dir. Maria Rodriguez • 87 min • Animated Drama</p>
+                        <p class="text-sm text-gray-300 mb-4">A heartwarming tale of AI discovering emotions and creativity through revolutionary procedural animation.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-pink-500 bg-opacity-20 text-pink-400 text-xs px-2 py-1 rounded">Animation</span>
+                            <span class="bg-yellow-500 bg-opacity-20 text-yellow-400 text-xs px-2 py-1 rounded">Emotional AI</span>
+                            <span class="bg-teal-500 bg-opacity-20 text-teal-400 text-xs px-2 py-1 rounded">Family</span>
+                        </div>
+                        <div class="text-sm text-gray-400">
+                            <strong>Nominated for:</strong> Best Animation, Best AI Screenwriter, Audience Choice
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nominee 3 -->
+                <div class="card overflow-hidden">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="The Last Algorithm" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold">Action Innovation</span>
+                        </div>
+                        <div class="absolute bottom-4 right-4">
+                            <button class="bg-black bg-opacity-70 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-opacity-90 transition">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">The Last Algorithm</h3>
+                        <p class="text-gray-400 mb-3">Dir. James Park • 102 min • Action/Adventure</p>
+                        <p class="text-sm text-gray-300 mb-4">Humanity's final stand against rogue AI systems, featuring cutting-edge action choreography by AI.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-red-500 bg-opacity-20 text-red-400 text-xs px-2 py-1 rounded">Action</span>
+                            <span class="bg-orange-500 bg-opacity-20 text-orange-400 text-xs px-2 py-1 rounded">AI vs Human</span>
+                            <span class="bg-gray-500 bg-opacity-20 text-gray-400 text-xs px-2 py-1 rounded">Dystopian</span>
+                        </div>
+                        <div class="text-sm text-gray-400">
+                            <strong>Nominated for:</strong> Best Visual Design, Best Sound Design, Social Impact
+                        </div>
+                    </div>
+                </div>
+
+                <!-- View All Nominees -->
+                <div class="text-center mt-12 col-span-full">
+                    <a href="#" class="btn-primary px-8 py-3 rounded-full text-lg font-bold">
+                        View All 921 Nominees
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tickets & Venue Section -->
+    <section id="tickets" class="py-20 bg-black bg-opacity-30">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-bold mb-6 gradient-text">Join Us in Hong Kong</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Experience the magic live at Hong Kong Convention and Exhibition Centre
+                </p>
+            </div>
+
+            <!-- Venue Information -->
+            <div class="max-w-6xl mx-auto mb-16">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-3xl font-bold mb-6">Hong Kong Convention and Exhibition Centre</h3>
+                        <div class="space-y-4 text-lg">
+                            <div class="flex items-center">
+                                <i class="fas fa-map-marker-alt text-accent mr-3 w-6"></i>
+                                <span>1 Expo Drive, Wan Chai, Hong Kong</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-calendar-alt text-accent mr-3 w-6"></i>
+                                <span>May 1, 2026</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-clock text-accent mr-3 w-6"></i>
+                                <span>Doors open at 6:00 PM HKT</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-users text-accent mr-3 w-6"></i>
+                                <span>Capacity: 8,000 guests</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 mt-6">
+                            The prestigious HKCEC provides the perfect backdrop for this historic event, featuring state-of-the-art audio-visual technology and world-class facilities.
+                        </p>
+                    </div>
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="HKCEC" class="w-full rounded-2xl">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent rounded-2xl"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ticket Categories -->
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- VIP Package -->
+                <div class="card p-8 relative overflow-hidden border-2 border-gold">
+                    <div class="absolute top-0 right-0 bg-gold text-black px-4 py-2 rounded-bl-lg font-bold">
+                        MOST POPULAR
+                    </div>
+                    <div class="text-center mb-6">
+                        <div class="text-4xl mb-4 text-gold"><i class="fas fa-crown"></i></div>
+                        <h3 class="text-2xl font-bold mb-2">VIP Experience</h3>
+                        <div class="text-4xl font-bold text-gold mb-2">$2,750</div>
+                        <p class="text-gray-400">USD per person</p>
+                    </div>
+                    <div class="space-y-3 mb-8">
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-3"></i>
+                            <span>Premium front-row seating</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-3"></i>
+                            <span>Red carpet walk opportunity</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-3"></i>
+                            <span>Meet & greet with nominees</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-3"></i>
+                            <span>Exclusive after-party access</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-3"></i>
+                            <span>5-course gourmet dinner</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-3"></i>
+                            <span>Limited edition NFT collection</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-3"></i>
+                            <span>Backstage tour access</span>
+                        </div>
+                    </div>
+                    <button class="btn-gold w-full py-3 rounded-lg font-bold text-lg">
+                        Select VIP Package
+                    </button>
+                    <p class="text-center text-sm text-gray-400 mt-3">Only 200 tickets available</p>
+                </div>
+
+                <!-- Premium Package -->
+                <div class="card p-8">
+                    <div class="text-center mb-6">
+                        <div class="text-4xl mb-4 text-silver"><i class="fas fa-star"></i></div>
+                        <h3 class="text-2xl font-bold mb-2">Premium Seating</h3>
+                        <div class="text-4xl font-bold text-silver mb-2">$850</div>
+                        <p class="text-gray-400">USD per person</p>
+                    </div>
+                    <div class="space-y-3 mb-8">
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-3"></i>
+                            <span>Reserved premium seating</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-3"></i>
+                            <span>Welcome reception access</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-3"></i>
+                            <span>Complimentary drinks</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-3"></i>
+                            <span>Official program & gift bag</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-3"></i>
+                            <span>Digital certificate NFT</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-3"></i>
+                            <span>Priority venue access</span>
+                        </div>
+                    </div>
+                    <button class="btn-primary w-full py-3 rounded-lg font-bold text-lg">
+                        Select Premium
+                    </button>
+                    <p class="text-center text-sm text-gray-400 mt-3">1,200 tickets available</p>
+                </div>
+
+                <!-- General Admission -->
+                <div class="card p-8">
+                    <div class="text-center mb-6">
+                        <div class="text-4xl mb-4 text-bronze"><i class="fas fa-ticket-alt"></i></div>
+                        <h3 class="text-2xl font-bold mb-2">General Admission</h3>
+                        <div class="text-4xl font-bold text-bronze mb-2">$350</div>
+                        <p class="text-gray-400">USD per person</p>
+                    </div>
+                    <div class="space-y-3 mb-8">
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-3"></i>
+                            <span>General ceremony seating</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-3"></i>
+                            <span>Live ceremony experience</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-3"></i>
+                            <span>Official program</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-3"></i>
+                            <span>Concession access</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-3"></i>
+                            <span>Attendance certificate</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-times text-gray-500 mr-3"></i>
+                            <span class="text-gray-500">After-party access</span>
+                        </div>
+                    </div>
+                    <button class="bg-gray-700 hover:bg-gray-600 w-full py-3 rounded-lg font-bold text-lg">
+                        Select General
+                    </button>
+                    <p class="text-center text-sm text-gray-400 mt-3">6,600 tickets available</p>
+                </div>
+            </div>
+
+            <!-- Payment Methods -->
+            <div class="mt-16 text-center">
+                <h3 class="text-2xl font-bold mb-8">Secure Payment Methods</h3>
+                <div class="flex flex-wrap justify-center items-center gap-8 mb-8">
+                    <div class="flex items-center space-x-2">
+                        <i class="fab fa-cc-visa text-3xl text-blue-500"></i>
+                        <i class="fab fa-cc-mastercard text-3xl text-red-500"></i>
+                        <i class="fab fa-cc-amex text-3xl text-green-500"></i>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i class="fab fa-paypal text-3xl text-blue-600"></i>
+                        <i class="fab fa-alipay text-3xl text-blue-400"></i>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i class="fab fa-bitcoin text-3xl text-orange-500"></i>
+                        <i class="fab fa-ethereum text-3xl text-purple-500"></i>
+                        <span class="text-accent font-bold">HKAIIF</span>
+                    </div>
+                </div>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Pay with traditional methods or cryptocurrency. HKAIIF token holders receive 15% discount on all ticket categories.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Features Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-bold mb-6 gradient-text">Exclusive Features</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Revolutionary experiences that make this the most technologically advanced awards ceremony ever
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- AI Translation -->
+                <div class="card p-8 text-center">
+                    <div class="floating">
+                        <div class="text-5xl mb-6 text-accent">
+                            <i class="fas fa-language"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Real-Time AI Translation</h3>
+                    <p class="text-gray-300 mb-4">
+                        Advanced AI provides instant translation in 50+ languages with cultural context and emotion preservation.
+                    </p>
+                    <div class="text-accent font-semibold">Live in 50+ Languages</div>
+                </div>
+
+                <!-- Holographic Performances -->
+                <div class="card p-8 text-center">
+                    <div class="floating" style="animation-delay: 0.5s;">
+                        <div class="text-5xl mb-6 text-primary">
+                            <i class="fas fa-magic"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Holographic Performances</h3>
+                    <p class="text-gray-300 mb-4">
+                        World's first awards ceremony featuring AI-generated holographic performers and digital artists.
+                    </p>
+                    <div class="text-primary font-semibold">Next-Gen Entertainment</div>
+                </div>
+
+                <!-- Blockchain Voting -->
+                <div class="card p-8 text-center">
+                    <div class="floating" style="animation-delay: 1s;">
+                        <div class="text-5xl mb-6 text-gold">
+                            <i class="fas fa-vote-yea"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Blockchain Voting</h3>
+                    <p class="text-gray-300 mb-4">
+                        Transparent, immutable voting system where every vote is recorded on the blockchain for posterity.
+                    </p>
+                    <div class="text-gold font-semibold">100% Transparent</div>
+                </div>
+
+                <!-- AR Experience -->
+                <div class="card p-8 text-center">
+                    <div class="floating" style="animation-delay: 1.5s;">
+                        <div class="text-5xl mb-6 text-purple-400">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Augmented Reality</h3>
+                    <p class="text-gray-300 mb-4">
+                        Mobile AR app provides additional content, behind-the-scenes footage, and interactive experiences.
+                    </p>
+                    <div class="text-purple-400 font-semibold">Immersive Content</div>
+                </div>
+
+                <!-- NFT Drops -->
+                <div class="card p-8 text-center">
+                    <div class="floating" style="animation-delay: 2s;">
+                        <div class="text-5xl mb-6 text-pink-400">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Exclusive NFT Drops</h3>
+                    <p class="text-gray-300 mb-4">
+                        Limited edition NFTs commemorating historic moments, available only to live attendees and stream viewers.
+                    </p>
+                    <div class="text-pink-400 font-semibold">Collectible Moments</div>
+                </div>
+
+                <!-- AI Host -->
+                <div class="card p-8 text-center">
+                    <div class="floating" style="animation-delay: 2.5s;">
+                        <div class="text-5xl mb-6 text-cyan-400">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">AI Co-Host</h3>
+                    <p class="text-gray-300 mb-4">
+                        Revolutionary AI personality co-hosts the ceremony, interacting naturally with human presenters.
+                    </p>
+                    <div class="text-cyan-400 font-semibold">Human-AI Collaboration</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners & Sponsors -->
+    <section class="py-20 bg-black bg-opacity-30">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-bold mb-6 gradient-text">Global Partners</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Leading organizations supporting the future of AI-native cinema
+                </p>
+            </div>
+
+            <!-- Presenting Partners -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold text-center mb-8 text-gold">Presenting Partners</h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="card p-8 text-center">
+                        <div class="text-4xl mb-4 text-blue-500"><i class="fab fa-microsoft"></i></div>
+                        <h4 class="text-xl font-bold mb-2">Microsoft AI</h4>
+                        <p class="text-gray-400">Powering AI innovation</p>
+                    </div>
+                    <div class="card p-8 text-center">
+                        <div class="text-4xl mb-4 text-green-500"><i class="fas fa-film"></i></div>
+                        <h4 class="text-xl font-bold mb-2">NVIDIA Omniverse</h4>
+                        <p class="text-gray-400">Real-time collaboration platform</p>
+                    </div>
+                    <div class="card p-8 text-center">
+                        <div class="text-4xl mb-4 text-purple-500"><i class="fab fa-ethereum"></i></div>
+                        <h4 class="text-xl font-bold mb-2">Ethereum Foundation</h4>
+                        <p class="text-gray-400">Blockchain infrastructure</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technology Partners -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold text-center mb-8 text-accent">Technology Partners</h3>
+                <div class="grid md:grid-cols-4 gap-6">
+                    <div class="card p-6 text-center">
+                        <div class="text-3xl mb-3 text-red-500"><i class="fab fa-google"></i></div>
+                        <h5 class="font-bold">Google Cloud AI</h5>
+                    </div>
+                    <div class="card p-6 text-center">
+                        <div class="text-3xl mb-3 text-orange-500"><i class="fab fa-aws"></i></div>
+                        <h5 class="font-bold">Amazon Web Services</h5>
+                    </div>
+                    <div class="card p-6 text-center">
+                        <div class="text-3xl mb-3 text-blue-400"><i class="fab fa-docker"></i></div>
+                        <h5 class="font-bold">Meta Reality Labs</h5>
+                    </div>
+                    <div class="card p-6 text-center">
+                        <div class="text-3xl mb-3 text-black"><i class="fab fa-apple"></i></div>
+                        <h5 class="font-bold">Apple Vision Pro</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Media Partners -->
+            <div>
+                <h3 class="text-2xl font-bold text-center mb-8 text-primary">Media Partners</h3>
+                <div class="flex flex-wrap justify-center items-center gap-8 opacity-70">
+                    <div class="text-2xl font-bold">CNN</div>
+                    <div class="text-2xl font-bold">BBC</div>
+                    <div class="text-2xl font-bold">REUTERS</div>
+                    <div class="text-2xl font-bold">VARIETY</div>
+                    <div class="text-2xl font-bold">THE HOLLYWOOD REPORTER</div>
+                    <div class="text-2xl font-bold">WIRED</div>
+                    <div class="text-2xl font-bold">TechCrunch</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter & Social -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="card p-12 text-center bg-gradient-to-r from-primary via-accent to-secondary">
+                <h2 class="text-4xl font-bold mb-6 text-black">Stay Connected</h2>
+                <p class="text-xl mb-8 text-black opacity-80">
+                    Get exclusive updates, behind-the-scenes content, and early access to future events
+                </p>
+                <div class="max-w-md mx-auto mb-8">
+                    <div class="flex">
+                        <input type="email" placeholder="Enter your email address" class="flex-1 px-4 py-3 rounded-l-lg text-black bg-white border-none focus:outline-none">
+                        <button class="bg-black text-white px-6 py-3 rounded-r-lg font-bold hover:bg-gray-800 transition">
+                            Subscribe
+                        </button>
+                    </div>
+                </div>
+                <div class="flex justify-center space-x-6">
+                    <a href="#" class="text-black hover:text-gray-700 text-2xl"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-black hover:text-gray-700 text-2xl"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-black hover:text-gray-700 text-2xl"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="text-black hover:text-gray-700 text-2xl"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="text-black hover:text-gray-700 text-2xl"><i class="fab fa-discord"></i></a>
+                    <a href="#" class="text-black hover:text-gray-700 text-2xl"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 bg-black">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <a href="#" class="flex flex-col mb-6">
+                        <div class="logo-font text-3xl">HKAIIFF</div>
+                        <div class="logo-sub text-xs">AWARDS CEREMONY</div>
+                    </a>
+                    <p class="text-gray-400 mb-6">
+                        The world's premier celebration of AI-native film excellence, innovation, and creativity.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-accent text-xl"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-accent text-xl"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-accent text-xl"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-accent text-xl"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Event Information</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#schedule" class="hover:text-white">Event Schedule</a></li>
+                        <li><a href="#tickets" class="hover:text-white">Tickets & Pricing</a></li>
+                        <li><a href="#" class="hover:text-white">Venue Information</a></li>
+                        <li><a href="#" class="hover:text-white">Travel & Hotels</a></li>
+                        <li><a href="#" class="hover:text-white">Accessibility</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Awards</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#awards" class="hover:text-white">Award Categories</a></li>
+                        <li><a href="#nominees" class="hover:text-white">Nominees</a></li>
+                        <li><a href="#judges" class="hover:text-white">Judges Panel</a></li>
+                        <li><a href="#voting" class="hover:text-white">Community Voting</a></li>
+                        <li><a href="#" class="hover:text-white">Past Winners</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Support</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#" class="hover:text-white">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-white">Press Kit</a></li>
+                        <li><a href="#" class="hover:text-white">Sponsorship</a></li>
+                        <li><a href="#" class="hover:text-white">Partnership</a></li>
+                        <li><a href="#" class="hover:text-white">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="text-gray-500 text-sm mb-4 md:mb-0">
+                        © 2026 Hong Kong AI International Film Festival. All rights reserved.
+                    </div>
+                    <div class="flex flex-wrap gap-6 text-sm">
+                        <a href="#" class="text-gray-500 hover:text-accent">Privacy Policy</a>
+                        <a href="#" class="text-gray-500 hover:text-accent">Terms of Service</a>
+                        <a href="#" class="text-gray-500 hover:text-accent">Cookie Policy</a>
+                        <a href="#" class="text-gray-500 hover:text-accent">Legal Notice</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col space-y-4">
+        <!-- Watch Live Button -->
+        <a href="#live" class="bg-red-600 hover:bg-red-700 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110">
+            <i class="fas fa-play text-xl"></i>
+        </a>
+        
+        <!-- Scroll to Top -->
+        <button onclick="scrollToTop()" class="bg-accent hover:bg-green-400 text-black w-16 h-16 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110">
+            <i class="fas fa-arrow-up text-xl"></i>
+        </button>
+    </div>
+
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const ceremonyDate = new Date('2026-05-01T19:00:00+08:00').getTime();
+            const now = new Date().getTime();
+            const distance = ceremonyDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.querySelectorAll('.countdown-number').forEach((el, index) => {
+                switch(index) {
+                    case 0: el.textContent = String(days).padStart(2, '0'); break;
+                    case 1: el.textContent = String(hours).padStart(2, '0'); break;
+                    case 2: el.textContent = String(minutes).padStart(2, '0'); break;
+                    case 3: el.textContent = String(seconds).padStart(2, '0'); break;
+                }
+            });
+
+            if (distance < 0) {
+                document.querySelector('.countdown-card h2').textContent = 'CEREMONY LIVE NOW!';
+                document.querySelectorAll('.countdown-number').forEach(el => el.textContent = '00');
+            }
+        }
+
+        // Scroll to top function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Smooth scrolling for navigation links
+        function smoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Sparkle animation
+        function createSparkles() {
+            const sparkleCount = 20;
+            const body = document.body;
+            
+            for (let i = 0; i < sparkleCount; i++) {
+                setTimeout(() => {
+                    const sparkle = document.createElement('div');
+                    sparkle.className = 'sparkle';
+                    sparkle.style.left = Math.random() * 100 + 'vw';
+                    sparkle.style.top = Math.random() * 100 + 'vh';
+                    sparkle.style.animationDelay = Math.random() * 2 + 's';
+                    body.appendChild(sparkle);
+                    
+                    setTimeout(() => {
+                        sparkle.remove();
+                    }, 2000);
+                }, i * 100);
+            }
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Start countdown
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+            
+            // Initialize smooth scrolling
+            smoothScroll();
+            
+            // Create periodic sparkles
+            createSparkles();
+            setInterval(createSparkles, 10000);
+            
+            // Add scroll effects
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const parallax = document.querySelector('.hero-bg');
+                if (parallax) {
+                    const speed = scrolled * 0.5;
+                    parallax.style.transform = `translateY(${speed}px)`;
+                }
+            });
+
+            // Voting button interactions
+            document.querySelectorAll('.voting-card button').forEach(button => {
+                button.addEventListener('click', function() {
+                    if (this.textContent.includes('Vote Now')) {
+                        this.textContent = 'Vote Cast!';
+                        this.classList.remove('btn-gold', 'btn-primary');
+                        this.classList.add('bg-green-500', 'hover:bg-green-600');
+                        
+                        // Show success message
+                        setTimeout(() => {
+                            alert('Thank you for your vote! Your HKAIIF tokens have been staked.');
+                        }, 300);
+                    }
+                });
+            });
+
+            // Ticket selection interactions
+            document.querySelectorAll('[class*="btn-"][class*="Select"]').forEach(button => {
+                button.addEventListener('click', function() {
+                    const ticketType = this.textContent.replace('Select ', '');
+                    
+                    alert(`Redirecting to secure checkout for ${ticketType} ticket...`);
+                });
+            });
+
+            // Add entrance animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe cards for animation
+            document.querySelectorAll('.card, .timeline-item, .judge-card').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(50px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
