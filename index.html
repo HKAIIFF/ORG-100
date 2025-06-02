@@ -400,6 +400,87 @@
             gap: 1.5rem;
             margin-top: 2rem;
         }
+        
+        /* 修正颜色冲突 */
+        .ceremony-highlight {
+            background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+            border: 2px solid var(--gold);
+            color: #ffffff;
+        }
+        
+        .ceremony-highlight h2 {
+            color: var(--gold);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+        
+        .ceremony-highlight p {
+            color: #e0e0e0;
+        }
+        
+        .live-notification {
+            background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+            border: 2px solid var(--gold);
+            color: #ffffff;
+        }
+        
+        .live-notification h3 {
+            color: var(--gold);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+        
+        .newsletter-section {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #ffffff;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        }
+        
+        .newsletter-section input {
+            color: #000;
+        }
+        
+        .ceremony-visuals {
+            position: relative;
+            height: 500px;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-top: 2rem;
+        }
+        
+        .ceremony-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+        }
+        
+        .ceremony-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #bbb;
+        }
 
         @media (max-width: 768px) {
             /* 移動設備優化 */
@@ -490,6 +571,10 @@
             .status-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .ceremony-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
         
         /* 移動設備菜單按鈕樣式 */
@@ -514,6 +599,67 @@
         
         .countdown-box:hover {
             transform: scale(1.05);
+        }
+        
+        /* 新增颁奖典礼视觉元素 */
+        .ceremony-visual-container {
+            position: relative;
+            height: 600px;
+            border-radius: 16px;
+            overflow: hidden;
+            margin: 3rem 0;
+            border: 2px solid rgba(0, 255, 157, 0.2);
+            box-shadow: 0 0 40px rgba(0, 255, 157, 0.1);
+        }
+        
+        .ceremony-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.8;
+        }
+        
+        .ceremony-content {
+            position: relative;
+            z-index: 2;
+            padding: 3rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 40%, transparent 100%);
+        }
+        
+        .visual-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .visual-card {
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            height: 300px;
+            transition: transform 0.3s ease;
+        }
+        
+        .visual-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .visual-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
         }
     </style>
 </head>
@@ -913,17 +1059,17 @@
                     </div>
                 </div>
 
-                <!-- Evening Ceremony -->
+                <!-- Evening Ceremony - Fixed color contrast issue -->
                 <div class="timeline-item">
-                    <div class="timeline-content timeline-right bg-gradient-to-r from-gold via-yellow-400 to-gold text-black">
+                    <div class="timeline-content timeline-right ceremony-highlight">
                         <div class="flex items-center mb-3">
-                            <div class="text-3xl font-bold mr-3">19:00</div>
+                            <div class="text-3xl font-bold text-gold mr-3">19:00</div>
                             <div class="text-xl font-bold">主要頒獎典禮</div>
                         </div>
                         <p class="mb-2 font-medium">盛大的活動，包括現場表演、頒獎和100萬美元獨角獸金獎的宣布。</p>
                         <div class="flex flex-wrap gap-2">
-                            <span class="bg-black bg-opacity-20 text-black text-xs px-2 py-1 rounded font-semibold">現場直播</span>
-                            <span class="bg-black bg-opacity-20 text-black text-xs px-2 py-1 rounded font-semibold">頒獎</span>
+                            <span class="bg-gold bg-opacity-30 text-white text-xs px-2 py-1 rounded font-semibold">現場直播</span>
+                            <span class="bg-gold bg-opacity-30 text-white text-xs px-2 py-1 rounded font-semibold">頒獎</span>
                         </div>
                     </div>
                 </div>
@@ -939,6 +1085,62 @@
                             <span class="bg-teal-500 bg-opacity-20 text-teal-400 text-xs px-2 py-1 rounded">社交</span>
                             <span class="bg-cyan-500 bg-opacity-20 text-cyan-400 text-xs px-2 py-1 rounded">慶祝</span>
                         </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Enhanced ceremony visuals -->
+            <div class="ceremony-visual-container">
+                <div class="ceremony-layer" style="background-image: url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')"></div>
+                <div class="ceremony-content">
+                    <h2 class="text-4xl font-bold mb-4">頒獎典禮體驗</h2>
+                    <p class="text-xl mb-6 max-w-3xl">
+                        一個融合科技與藝術的夜晚，將傳統頒獎典禮與尖端AI技術完美結合，創造前所未有的沉浸式體驗。
+                    </p>
+                    
+                    <div class="ceremony-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">8000+</div>
+                            <div class="stat-label">現場嘉賓</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">200+</div>
+                            <div class="stat-label">全球媒體</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">15</div>
+                            <div class="stat-label">主要獎項</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">全息表演</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="visual-grid">
+                <div class="visual-card">
+                    <div class="w-full h-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="visual-overlay">
+                        <h3 class="font-bold">全息舞台</h3>
+                        <p class="text-sm">AI生成的沉浸式舞台設計</p>
+                    </div>
+                </div>
+                
+                <div class="visual-card">
+                    <div class="w-full h-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1551818255-e6e10975bc17?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="visual-overlay">
+                        <h3 class="font-bold">數字紅毯</h3>
+                        <p class="text-sm">互動式AR增強體驗</p>
+                    </div>
+                </div>
+                
+                <div class="visual-card">
+                    <div class="w-full h-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="visual-overlay">
+                        <h3 class="font-bold">AI主持人</h3>
+                        <p class="text-sm">虛擬與現實完美融合</p>
                     </div>
                 </div>
             </div>
@@ -1303,21 +1505,21 @@
                     </div>
                 </div>
 
-                <!-- Watch Live CTA -->
+                <!-- Watch Live CTA - Fixed color contrast issue -->
                 <div class="mt-12 text-center">
-                    <div class="card p-8 bg-gradient-to-r from-gold via-yellow-400 to-gold text-black">
+                    <div class="card p-8 live-notification">
                         <h3 class="text-3xl font-bold mb-4">
                             <i class="fas fa-broadcast-tower mr-3"></i>正在直播 - 不要錯過！
                         </h3>
                         <p class="text-lg mb-6">頒獎典禮正在向全球超過200萬觀眾直播</p>
                         <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center">
-                            <a href="#" class="bg-black text-white px-8 py-3 rounded-full font-bold hover:bg-gray-800 transition">
+                            <a href="#" class="btn-gold px-8 py-3 rounded-full font-bold hover:bg-yellow-500 transition">
                                 <i class="fas fa-play mr-2"></i>在YouTube觀看
                             </a>
-                            <a href="#" class="bg-purple-600 text-white px-8 py-3 rounded-full font-bold hover:bg-purple-700 transition">
+                            <a href="#" class="btn-primary px-8 py-3 rounded-full font-bold hover:bg-blue-600 transition">
                                 <i class="fab fa-twitch mr-2"></i>在Twitch觀看
                             </a>
-                            <a href="#" class="bg-transparent border-2 border-black text-black px-8 py-3 rounded-full font-bold hover:bg-black hover:text-white transition">
+                            <a href="#" class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-bold hover:bg-white hover:text-black transition">
                                 <i class="fas fa-vr-cardboard mr-2"></i>VR體驗
                             </a>
                         </div>
@@ -1896,29 +2098,29 @@
         </div>
     </section>
 
-    <!-- Newsletter & Social -->
+    <!-- Newsletter & Social - Fixed color contrast issue -->
     <section class="py-20">
         <div class="container mx-auto px-4">
-            <div class="card p-12 text-center bg-gradient-to-r from-primary via-accent to-secondary">
-                <h2 class="text-4xl font-bold mb-6 text-black">保持聯繫</h2>
-                <p class="text-xl mb-8 text-black opacity-80">
+            <div class="card p-12 text-center newsletter-section">
+                <h2 class="text-4xl font-bold mb-6">保持聯繫</h2>
+                <p class="text-xl mb-8">
                     獲取獨家更新、幕後內容和未來活動的早期訪問權限
                 </p>
                 <div class="max-w-md mx-auto mb-8">
                     <div class="flex">
-                        <input type="email" placeholder="輸入您的電子郵件地址" class="flex-1 px-4 py-3 rounded-l-lg text-black bg-white border-none focus:outline-none">
+                        <input type="email" placeholder="輸入您的電子郵件地址" class="flex-1 px-4 py-3 rounded-l-lg bg-white focus:outline-none">
                         <button class="bg-black text-white px-6 py-3 rounded-r-lg font-bold hover:bg-gray-800 transition">
                             訂閱
                         </button>
                     </div>
                 </div>
                 <div class="flex justify-center space-x-6">
-                    <a href="#" class="text-black hover:text-gray-700 text-2xl"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="text-black hover:text-gray-700 text-2xl"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="text-black hover:text-gray-700 text-2xl"><i class="fab fa-youtube"></i></a>
-                    <a href="#" class="text-black hover:text-gray-700 text-2xl"><i class="fab fa-tiktok"></i></a>
-                    <a href="#" class="text-black hover:text-gray-700 text-2xl"><i class="fab fa-discord"></i></a>
-                    <a href="#" class="text-black hover:text-gray-700 text-2xl"><i class="fab fa-telegram"></i></a>
+                    <a href="#" class="hover:text-gray-200 text-2xl"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="hover:text-gray-200 text-2xl"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-gray-200 text-2xl"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="hover:text-gray-200 text-2xl"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="hover:text-gray-200 text-2xl"><i class="fab fa-discord"></i></a>
+                    <a href="#" class="hover:text-gray-200 text-2xl"><i class="fab fa-telegram"></i></a>
                 </div>
             </div>
         </div>
