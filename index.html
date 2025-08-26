@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HKAIIFF 頒獎典禮 2026 - 香港AI國際電影節</title>
+    <title>未來AI戲劇節 | 重新定義人類情感與人工智慧的藝術共創</title>
+    <meta name="description" content="全球首個專注於真人演員與AI實時協作表演的國際戲劇盛會，構建新一代創意經濟基礎設施">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Orbitron:wght@700;800&display=swap" rel="stylesheet">
@@ -13,8 +14,8 @@
             --secondary: #8e44ad;
             --accent: #00ff9d;
             --gold: #ffd700;
-            --silver: #c0c0c0;
-            --bronze: #cd7f32;
+            --theater-purple: #663399;
+            --theater-red: #dc143c;
         }
         
         body {
@@ -31,7 +32,7 @@
             font-family: 'Orbitron', sans-serif;
             font-weight: 800;
             letter-spacing: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--accent), var(--secondary));
+            background: linear-gradient(90deg, var(--theater-purple), var(--accent), var(--theater-red));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -43,31 +44,14 @@
         
         @keyframes logoGlow {
             0% { text-shadow: 0 0 10px rgba(0, 255, 157, 0.3); }
-            100% { text-shadow: 0 0 25px rgba(0, 255, 157, 0.6), 0 0 35px rgba(52, 152, 219, 0.4); }
-        }
-        
-        .logo-sub {
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: var(--accent);
-            opacity: 0.8;
+            100% { text-shadow: 0 0 25px rgba(0, 255, 157, 0.6), 0 0 35px rgba(220, 20, 60, 0.4); }
         }
         
         .gradient-text {
-            background: linear-gradient(90deg, var(--primary), var(--accent), var(--secondary));
+            background: linear-gradient(90deg, var(--theater-purple), var(--accent), var(--theater-red));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-        }
-        
-        .gradient-bg {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-        }
-        
-        .gold-gradient {
-            background: linear-gradient(135deg, #ffd700, #ffed4e, #d4af37);
         }
         
         .card {
@@ -92,7 +76,7 @@
         }
         
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, var(--theater-purple), var(--theater-red));
             transition: all 0.3s ease;
             border: none;
             font-weight: 600;
@@ -100,7 +84,7 @@
         
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(52, 152, 219, 0.4);
+            box-shadow: 0 10px 20px rgba(220, 20, 60, 0.4);
         }
         
         .btn-gold {
@@ -122,7 +106,7 @@
             display: flex;
             align-items: center;
             min-height: 100vh;
-            padding-top: 80px; /* 新增：為導航欄留出空間 */
+            padding-top: 80px;
         }
         
         .hero:before {
@@ -147,8 +131,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-size: cover;
-            background-position: center;
+            background: url('https://images.unsplash.com/photo-1507924538820-ede94a04019d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
             opacity: 0.8;
             animation: bgPan 30s infinite linear;
         }
@@ -157,157 +140,6 @@
             0% { background-position: 0% 0%; }
             50% { background-position: 100% 100%; }
             100% { background-position: 0% 0%; }
-        }
-        
-        .countdown-card {
-            background: rgba(0, 0, 0, 0.9);
-            border: 2px solid var(--gold);
-            border-radius: 20px;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
-        }
-        
-        .countdown-number {
-            font-size: 3rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--gold), #ffed4e);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            font-family: 'Orbitron', sans-serif;
-        }
-        
-        .award-card {
-            position: relative;
-            background: rgba(26, 32, 44, 0.9);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .award-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
-            transition: left 0.5s;
-        }
-        
-        .award-card:hover::before {
-            left: 100%;
-        }
-        
-        .award-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.3);
-        }
-        
-        .trophy-icon {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-        }
-        
-        .trophy-gold {
-            color: var(--gold);
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-        }
-        
-        .trophy-silver {
-            color: var(--silver);
-            text-shadow: 0 0 20px rgba(192, 192, 192, 0.5);
-        }
-        
-        .trophy-bronze {
-            color: var(--bronze);
-            text-shadow: 0 0 20px rgba(205, 127, 50, 0.5);
-        }
-        
-        .schedule-timeline {
-            position: relative;
-        }
-        
-        .schedule-timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(to bottom, var(--primary), var(--accent), var(--secondary));
-            border-radius: 2px;
-        }
-        
-        .timeline-item {
-            position: relative;
-            margin: 2rem 0;
-        }
-        
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 20px;
-            height: 20px;
-            background: var(--accent);
-            border-radius: 50%;
-            border: 4px solid #0a0a0a;
-            z-index: 2;
-        }
-        
-        .timeline-content {
-            width: 45%;
-            padding: 1.5rem;
-            background: rgba(26, 32, 44, 0.7);
-            border-radius: 16px;
-            border: 1px solid rgba(0, 255, 157, 0.2);
-        }
-        
-        .timeline-left {
-            margin-left: 0;
-        }
-        
-        .timeline-right {
-            margin-left: 55%;
-        }
-        
-        .judge-card {
-            text-align: center;
-            padding: 1.5rem;
-            border-radius: 20px;
-            background: rgba(26, 32, 44, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-        
-        .judge-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-            box-shadow: 0 15px 30px rgba(0, 255, 157, 0.2);
-        }
-        
-        .judge-avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin: 0 auto 1rem;
-            border: 4px solid var(--accent);
-            box-shadow: 0 0 20px rgba(0, 255, 157, 0.3);
-            object-fit: cover;
-        }
-        
-        .floating {
-            animation: floating 6s ease-in-out infinite;
-        }
-        
-        @keyframes floating {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
         }
         
         .sparkle {
@@ -325,1043 +157,512 @@
             100% { opacity: 0; transform: scale(0) rotate(360deg); }
         }
         
-        .data-stream {
-            position: absolute;
-            height: 100px;
-            width: 2px;
-            background: linear-gradient(to bottom, transparent, var(--accent), var(--secondary), transparent);
-            z-index: 0;
-            animation: dataStream 2s linear infinite;
-            opacity: 0.3;
+        .floating {
+            animation: floating 6s ease-in-out infinite;
         }
         
-        @keyframes dataStream {
-            0% { transform: translateY(-100%); }
-            100% { transform: translateY(100vh); }
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
         }
         
-        .voting-card {
-            background: rgba(26, 32, 44, 0.9);
-            border: 2px solid rgba(255, 215, 0, 0.3);
-            border-radius: 16px;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-        }
-        
-        .voting-card:hover {
-            border-color: var(--gold);
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
-        }
-        
-        .progress-bar {
-            height: 8px;
-            background: #333;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-        
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--gold), #ffed4e);
-            border-radius: 4px;
-            transition: width 0.3s ease;
-        }
-        
-        /* 新增状态卡片样式 */
-        .status-card {
-            background: rgba(0, 0, 0, 0.7);
-            border-radius: 16px;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            border: 1px solid rgba(0, 255, 157, 0.3);
-            box-shadow: 0 0 20px rgba(0, 255, 157, 0.1);
-        }
-        
-        .status-card i {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--accent);
-        }
-        
-        .status-card h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-        
-        .status-card p {
-            color: #bbb;
-            font-size: 0.9rem;
-        }
-        
-        .status-grid {
+        .theater-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
-            margin-top: 2rem;
+            margin: 2rem 0;
         }
         
-        /* 修正颜色冲突 */
-        .ceremony-highlight {
-            background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
-            border: 2px solid var(--gold);
-            color: #ffffff;
-        }
-        
-        .ceremony-highlight h2 {
-            color: var(--gold);
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-        }
-        
-        .ceremony-highlight p {
-            color: #e0e0e0;
-        }
-        
-        .live-notification {
-            background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
-            border: 2px solid var(--gold);
-            color: #ffffff;
-        }
-        
-        .live-notification h3 {
-            color: var(--gold);
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-        }
-        
-        .newsletter-section {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: #ffffff;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
-        }
-        
-        .newsletter-section input {
-            color: #000;
-        }
-        
-        .ceremony-visuals {
-            position: relative;
-            height: 500px;
+        .theater-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
             border-radius: 16px;
-            overflow: hidden;
-            margin-top: 2rem;
-        }
-        
-        .ceremony-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 2rem;
-            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-        }
-        
-        .ceremony-stats {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-        
-        .stat-item {
-            text-align: center;
-            padding: 1rem;
-            border-radius: 12px;
-            background: rgba(255,255,255,0.1);
-        }
-        
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--accent);
-            font-family: 'Orbitron', sans-serif;
-        }
-        
-        .stat-label {
-            font-size: 0.9rem;
-            color: #bbb;
-        }
-
-        @media (max-width: 768px) {
-            /* 移動設備優化 */
-            .hero {
-                min-height: 80vh;
-                padding-top: 70px; /* 為移動設備導航欄留出空間 */
-            }
-            
-            .hero-content h1 {
-                font-size: 2.5rem !important; /* 調整主標題大小 */
-                margin-top: 20px; /* 增加頂部間距 */
-            }
-            
-            .navbar {
-                padding: 0.5rem 1rem; /* 調整導航欄內邊距 */
-            }
-            
-            .navbar .logo-font {
-                font-size: 1.5rem; /* 調整標誌大小 */
-            }
-            
-            .timeline-item::before {
-                left: 20px;
-            }
-            
-            .schedule-timeline::before {
-                left: 20px;
-            }
-            
-            .timeline-content {
-                width: calc(100% - 60px);
-                margin-left: 60px;
-            }
-            
-            .timeline-right {
-                margin-left: 60px;
-            }
-            
-            .countdown-number {
-                font-size: 2rem;
-            }
-            
-            /* 調整按鈕大小 */
-            .btn-primary, .btn-gold {
-                padding: 0.75rem 1.5rem;
-                font-size: 0.9rem;
-            }
-            
-            /* 調整卡片內邊距 */
-            .card, .award-card, .judge-card {
-                padding: 1rem;
-            }
-            
-            /* 調整導航菜單 */
-            .navbar .hidden {
-                display: none;
-            }
-            
-            /* 移動設備菜單按鈕 */
-            .mobile-menu-button {
-                display: block !important;
-            }
-            
-            /* 移動設備菜單 */
-            .mobile-menu {
-                position: fixed;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                background: rgba(10, 10, 10, 0.98);
-                z-index: 999;
-                padding: 1rem;
-                transform: translateY(-150%);
-                transition: transform 0.3s ease;
-            }
-            
-            .mobile-menu.active {
-                transform: translateY(0);
-            }
-            
-            .mobile-menu a {
-                display: block;
-                padding: 0.75rem 0;
-                border-bottom: 1px solid rgba(255,255,255,0.1);
-            }
-            
-            /* 状态卡片在移动设备上的优化 */
-            .status-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .ceremony-stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        /* 移動設備菜單按鈕樣式 */
-        .mobile-menu-button {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        
-        /* 新增样式 */
-        .navbar.scrolled {
-            background-color: rgba(0, 0, 0, 0.95);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-        }
-        
-        .countdown-box {
-            transition: transform 0.3s ease;
-        }
-        
-        .countdown-box:hover {
-            transform: scale(1.05);
-        }
-        
-        /* 新增颁奖典礼视觉元素 */
-        .ceremony-visual-container {
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
             position: relative;
-            height: 600px;
-            border-radius: 16px;
             overflow: hidden;
-            margin: 3rem 0;
-            border: 2px solid rgba(0, 255, 157, 0.2);
-            box-shadow: 0 0 40px rgba(0, 255, 157, 0.1);
         }
         
-        .ceremony-layer {
+        .theater-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 15px 25px rgba(0, 255, 157, 0.2);
+        }
+        
+        .theater-card::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            opacity: 0.8;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(45deg, var(--theater-purple), var(--accent));
         }
         
-        .ceremony-content {
-            position: relative;
-            z-index: 2;
+        .experience-demo {
+            background: linear-gradient(135deg, rgba(102, 51, 153, 0.2), rgba(220, 20, 60, 0.2));
+            border-radius: 20px;
             padding: 3rem;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            background: linear-gradient(to top, rgba(0,0,0,0.9) 40%, transparent 100%);
-        }
-        
-        .visual-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-        
-        .visual-card {
-            border-radius: 12px;
-            overflow: hidden;
+            margin: 3rem 0;
             position: relative;
-            height: 300px;
+            overflow: hidden;
+        }
+        
+        .experience-demo::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 255, 157, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .performance-showcase {
+            background: rgba(26, 32, 44, 0.9);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 2px solid rgba(0, 255, 157, 0.3);
+        }
+        
+        .ai-interaction-demo {
+            background: linear-gradient(45deg, rgba(52, 152, 219, 0.1), rgba(142, 68, 173, 0.1));
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 1rem 0;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 100vh;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 20px;
+            transform: translateX(100%);
             transition: transform 0.3s ease;
         }
         
-        .visual-card:hover {
-            transform: translateY(-10px);
+        .mobile-menu.open {
+            transform: translateX(0);
         }
         
-        .visual-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 1.5rem;
-            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 80vh;
+                padding-top: 70px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem !important;
+                margin-top: 20px;
+            }
+            
+            .navbar {
+                padding: 0.5rem 1rem;
+            }
+            
+            .logo-font {
+                font-size: 1.5rem;
+            }
+            
+            .theater-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Data streams -->
-    <div class="data-stream" style="left: 20%; animation-delay: 0s;"></div>
-    <div class="data-stream" style="left: 40%; animation-delay: 0.5s;"></div>
-    <div class="data-stream" style="left: 60%; animation-delay: 1s;"></div>
-    <div class="data-stream" style="left: 80%; animation-delay: 1.5s;"></div>
+    <!-- 裝飾性元素 -->
+    <div class="sparkle" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+    <div class="sparkle" style="top: 30%; right: 15%; animation-delay: 0.5s;"></div>
+    <div class="sparkle" style="bottom: 40%; left: 20%; animation-delay: 1s;"></div>
+    <div class="sparkle" style="top: 60%; right: 25%; animation-delay: 1.5s;"></div>
 
-    <!-- Navigation -->
+    <!-- 導航欄 -->
     <nav class="navbar fixed w-full z-50 px-4 py-3">
         <div class="container mx-auto flex justify-between items-center">
             <a href="#" class="flex flex-col">
-                <div class="logo-font text-2xl md:text-3xl">HKAIIFF</div>
-                <div class="logo-sub text-xs">頒獎典禮</div>
+                <div class="logo-font text-2xl md:text-3xl">未來AI戲劇節</div>
+                <div class="text-xs text-accent">Future AI Theater Festival</div>
             </a>
             
             <!-- 桌面導航 -->
-            <div class="hidden md:flex space-x-8">
-                <a href="#awards" class="hover:text-blue-400 transition">獎項</a>
-                <a href="#schedule" class="hover:text-blue-400 transition">日程</a>
-                <a href="#nominees" class="hover:text-blue-400 transition">提名</a>
-                <a href="#judges" class="hover:text-blue-400 transition">評委</a>
-                <a href="#live" class="hover:text-blue-400 transition">直播</a>
-                <a href="#voting" class="hover:text-blue-400 transition">投票</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="#essence" class="hover:text-blue-400 transition">藝術理念</a>
+                <a href="#theaters" class="hover:text-blue-400 transition">全球劇種</a>
+                <a href="#experience" class="hover:text-blue-400 transition">演出模式</a>
+                <a href="#innovation" class="hover:text-blue-400 transition">技術創新</a>
+                <a href="#participation" class="hover:text-blue-400 transition">參與方式</a>
+                <a href="#contact" class="hover:text-blue-400 transition">聯繫我們</a>
             </div>
             
             <div class="flex items-center space-x-4">
-                <a href="#tickets" class="btn-gold px-6 py-2 rounded-full text-sm font-bold">購票</a>
-                <a href="#watch" class="btn-primary px-6 py-2 rounded-full text-sm">觀看直播</a>
+                <a href="#participation" class="btn-gold px-6 py-2 rounded-full text-sm font-bold">立即參與</a>
+                <a href="#contact" class="btn-primary px-6 py-2 rounded-full text-sm">了解更多</a>
                 
-                <!-- 移動設備菜單按鈕 -->
+                <!-- 移動設備選單按鈕 -->
                 <button class="mobile-menu-button md:hidden" id="menuToggle">
-                    <i class="fas fa-bars"></i>
+                    <i class="fas fa-bars text-white text-xl"></i>
                 </button>
             </div>
         </div>
         
-        <!-- 移動設備菜單 -->
+        <!-- 移動設備選單 -->
         <div class="mobile-menu md:hidden" id="mobileMenu">
-            <a href="#awards" class="hover:text-blue-400 transition">獎項</a>
-            <a href="#schedule" class="hover:text-blue-400 transition">日程</a>
-            <a href="#nominees" class="hover:text-blue-400 transition">提名</a>
-            <a href="#judges" class="hover:text-blue-400 transition">評委</a>
-            <a href="#live" class="hover:text-blue-400 transition">直播</a>
-            <a href="#voting" class="hover:text-blue-400 transition">投票</a>
+            <div class="mobile-menu-close absolute top-4 right-4 cursor-pointer" id="menuClose">
+                <i class="fas fa-times text-xl"></i>
+            </div>
+            <div class="mt-12 flex flex-col space-y-6">
+                <a href="#essence" class="text-xl hover:text-blue-400 transition">藝術理念</a>
+                <a href="#theaters" class="text-xl hover:text-blue-400 transition">全球劇種</a>
+                <a href="#experience" class="text-xl hover:text-blue-400 transition">演出模式</a>
+                <a href="#innovation" class="text-xl hover:text-blue-400 transition">技術創新</a>
+                <a href="#participation" class="text-xl hover:text-blue-400 transition">參與方式</a>
+                <a href="#contact" class="text-xl hover:text-blue-400 transition">聯繫我們</a>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1489599639991-dce5e0c94d39?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')"></div>
-        
-        <!-- Floating sparkles -->
-        <div class="sparkle" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
-        <div class="sparkle" style="top: 30%; right: 15%; animation-delay: 0.5s;"></div>
-        <div class="sparkle" style="bottom: 40%; left: 20%; animation-delay: 1s;"></div>
-        <div class="sparkle" style="top: 60%; right: 25%; animation-delay: 1.5s;"></div>
+    <!-- 主視覺區域 -->
+    <section id="home" class="hero">
+        <div class="hero-bg"></div>
         
         <div class="container mx-auto px-4 hero-content">
             <div class="max-w-6xl mx-auto text-center">
                 <div class="mb-8">
-                    <h1 class="text-5xl md:text-8xl font-bold mb-4 gradient-text">
-                        HKAIIFF 頒獎典禮 2026
+                    <div class="logo-font text-6xl md:text-8xl mb-4">未來AI戲劇節</div>
+                    <h1 class="text-5xl md:text-7xl font-bold mb-4 gradient-text">
+                        重新定義人類情感與人工智慧的藝術共創
                     </h1>
                     <p class="text-xl md:text-3xl text-gray-300 mb-2">
-                        全球首屈一指的AI原生電影節
+                        全球首個專注於真人演員與AI實時協作表演的國際戲劇盛會
                     </p>
                     <p class="text-lg md:text-xl text-gray-400">
-                        慶祝創新 • 表彰卓越 • 塑造未來
+                        構建新一代創意經濟基礎設施 • 開啟人類藝術的新紀元
                     </p>
                 </div>
                 
-                <!-- 新增状态信息卡片 -->
-                <div class="status-grid">
-                    <div class="status-card text-center">
-                        <i class="fas fa-broadcast-tower"></i>
-                        <h3>頒獎典禮進行中</h3>
-                        <p>EVENT_ID: HKAIIFF-2026<br>全球直播中</p>
+                <!-- 核心亮點 -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+                    <div class="card p-6 text-center">
+                        <div class="text-4xl font-bold text-gold mb-2">3000+</div>
+                        <div class="text-sm">全球戲劇形式</div>
                     </div>
-                    <div class="status-card text-center">
-                        <i class="fas fa-film"></i>
-                        <h3>提名作品統計</h3>
-                        <p>847 部電影<br>62 個國家參與</p>
+                    <div class="card p-6 text-center">
+                        <div class="text-4xl font-bold text-accent mb-2">50</div>
+                        <div class="text-sm">全球城市佈局</div>
                     </div>
-                    <div class="status-card text-center">
-                        <i class="fas fa-trophy"></i>
-                        <h3>獎項類別</h3>
-                        <p>15 個主要獎項<br>總獎金 $3M</p>
+                    <div class="card p-6 text-center">
+                        <div class="text-4xl font-bold text-primary mb-2">4大</div>
+                        <div class="text-sm">體驗層次</div>
                     </div>
-                </div>
-                
-                <!-- Countdown Timer -->
-                <div class="mb-12">
-                    <div class="countdown-card max-w-4xl mx-auto">
-                        <h2 class="text-2xl md:text-3xl font-bold mb-6 text-gold">頒獎典禮倒計時</h2>
-                        <div class="grid grid-cols-4 gap-4 md:gap-8" id="countdown">
-                            <div class="countdown-box">
-                                <div class="countdown-number" id="days">00</div>
-                                <div class="text-gray-400 uppercase tracking-wider">天</div>
-                            </div>
-                            <div class="countdown-box">
-                                <div class="countdown-number" id="hours">00</div>
-                                <div class="text-gray-400 uppercase tracking-wider">小時</div>
-                            </div>
-                            <div class="countdown-box">
-                                <div class="countdown-number" id="minutes">00</div>
-                                <div class="text-gray-400 uppercase tracking-wider">分鐘</div>
-                            </div>
-                            <div class="countdown-box">
-                                <div class="countdown-number" id="seconds">00</div>
-                                <div class="text-gray-400 uppercase tracking-wider">秒</div>
-                            </div>
-                        </div>
-                        <div class="mt-6 text-lg text-gray-300">
-                            <i class="fas fa-calendar-alt mr-2"></i>
-                            2026年5月1日 • 香港會議展覽中心
-                        </div>
+                    <div class="card p-6 text-center">
+                        <div class="text-4xl font-bold text-secondary mb-2">∞</div>
+                        <div class="text-sm">創作可能</div>
                     </div>
                 </div>
 
-                <!-- Key Stats -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                    <div class="bg-black bg-opacity-50 rounded-lg p-4">
-                        <div class="text-2xl md:text-3xl font-bold text-gold">$3M</div>
-                        <div class="text-sm text-gray-400">總獎金池</div>
-                    </div>
-                    <div class="bg-black bg-opacity-50 rounded-lg p-4">
-                        <div class="text-2xl md:text-3xl font-bold text-gold">847</div>
-                        <div class="text-sm text-gray-400">電影提交</div>
-                    </div>
-                    <div class="bg-black bg-opacity-50 rounded-lg p-4">
-                        <div class="text-2xl md:text-3xl font-bold text-gold">62</div>
-                        <div class="text-sm text-gray-400">國家</div>
-                    </div>
-                    <div class="bg-black bg-opacity-50 rounded-lg p-4">
-                        <div class="text-2xl md:text-3xl font-bold text-gold">15</div>
-                        <div class="text-sm text-gray-400">獎項類別</div>
-                    </div>
-                </div>
-
-                <!-- CTA Buttons -->
+                <!-- 行動按鈕 -->
                 <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 justify-center">
-                    <a href="#live" class="btn-gold px-8 py-4 rounded-full text-lg font-bold">
-                        <i class="fas fa-play mr-2"></i>觀看直播
+                    <a href="#experience" class="btn-gold px-8 py-4 rounded-full text-lg font-bold">
+                        <i class="fas fa-theater-masks mr-2"></i>體驗AI戲劇
                     </a>
-                    <a href="#voting" class="btn-primary px-8 py-4 rounded-full text-lg font-bold">
-                        <i class="fas fa-vote-yea mr-2"></i>參與投票
+                    <a href="#participation" class="btn-primary px-8 py-4 rounded-full text-lg font-bold">
+                        <i class="fas fa-rocket mr-2"></i>參與創作
                     </a>
-                    <a href="#tickets" class="bg-transparent border-2 border-white px-8 py-4 rounded-full text-lg font-bold hover:bg-white hover:text-black transition">
-                        <i class="fas fa-ticket-alt mr-2"></i>購買門票
+                    <a href="#theaters" class="bg-transparent border-2 border-white px-8 py-4 rounded-full text-lg font-bold hover:bg-white hover:text-black transition">
+                        <i class="fas fa-globe mr-2"></i>探索劇種
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Award Categories Section -->
-    <section id="awards" class="py-20 bg-black bg-opacity-30">
+    <!-- AI戲劇的本質革命 -->
+    <section id="essence" class="py-20 bg-black bg-opacity-30">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-6xl font-bold mb-6 gradient-text">獎項類別</h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    表彰AI原生電影製作各個方面的卓越成就，從技術創新到藝術成就
-                </p>
-            </div>
-
-            <!-- Main Competition Awards -->
-            <div class="mb-16">
-                <h3 class="text-3xl font-bold text-center mb-12 text-gold">
-                    <i class="fas fa-crown mr-3"></i>主競賽獎項
-                </h3>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="award-card p-8 text-center">
-                        <div class="trophy-icon trophy-gold">
-                            <i class="fas fa-trophy"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4 text-gold">獨角獸金獎</h3>
-                        <p class="text-lg mb-4 text-gray-300">最佳AI原生電影</p>
-                        <div class="text-3xl font-bold text-gold mb-2">$1,000,000</div>
-                        <p class="text-sm text-gray-400">
-                            最高榮譽，表彰在敘事、技術創新和藝術視野方面表現最為出色的AI原生電影。
-                        </p>
-                    </div>
-                    
-                    <div class="award-card p-8 text-center">
-                        <div class="trophy-icon trophy-silver">
-                            <i class="fas fa-award"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4 text-silver">最佳AI導演</h3>
-                        <p class="text-lg mb-4 text-gray-300">創意領導力</p>
-                        <div class="text-3xl font-bold text-silver mb-2">$200,000</div>
-                        <p class="text-sm text-gray-400">
-                            表彰那些熟練運用AI工具和人類創造力來講述引人入勝故事的富有遠見的導演。
-                        </p>
-                    </div>
-                    
-                    <div class="award-card p-8 text-center">
-                        <div class="trophy-icon trophy-bronze">
-                            <i class="fas fa-medal"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4 text-bronze">最佳AI編劇</h3>
-                        <p class="text-lg mb-4 text-gray-300">敘事卓越</p>
-                        <div class="text-3xl font-bold text-bronze mb-2">$150,000</div>
-                        <p class="text-sm text-gray-400">
-                            表彰將AI生成內容與人類敘事洞察無縫融合的卓越故事講述。
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Technical Innovation Awards -->
-            <div class="mb-16">
-                <h3 class="text-3xl font-bold text-center mb-12 text-accent">
-                    <i class="fas fa-cogs mr-3"></i>技術創新獎項
-                </h3>
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="award-card p-6 text-center">
-                        <div class="text-3xl mb-4 text-accent"><i class="fas fa-palette"></i></div>
-                        <h4 class="text-lg font-bold mb-2">最佳AI視覺設計</h4>
-                        <div class="text-xl font-bold text-accent">$100,000</div>
-                    </div>
-                    <div class="award-card p-6 text-center">
-                        <div class="text-3xl mb-4 text-accent"><i class="fas fa-user-android"></i></div>
-                        <h4 class="text-lg font-bold mb-2">最佳AI數字角色</h4>
-                        <div class="text-xl font-bold text-accent">$100,000</div>
-                    </div>
-                    <div class="award-card p-6 text-center">
-                        <div class="text-3xl mb-4 text-accent"><i class="fas fa-music"></i></div>
-                        <h4 class="text-lg font-bold mb-2">最佳AI音效設計</h4>
-                        <div class="text-xl font-bold text-accent">$75,000</div>
-                    </div>
-                    <div class="award-card p-6 text-center">
-                        <div class="text-3xl mb-4 text-accent"><i class="fas fa-cube"></i></div>
-                        <h4 class="text-lg font-bold mb-2">最佳AI技術創新</h4>
-                        <div class="text-xl font-bold text-accent">$150,000</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Specialized Categories -->
-            <div class="grid md:grid-cols-2 gap-12">
-                <div>
-                    <h3 class="text-2xl font-bold mb-8 text-primary">
-                        <i class="fas fa-gamepad mr-2"></i>互動與沉浸式
-                    </h3>
-                    <div class="space-y-4">
-                        <div class="award-card p-4 flex justify-between items-center">
-                            <div>
-                                <h4 class="font-bold">最佳AI互動體驗</h4>
-                                <p class="text-sm text-gray-400">革命性的觀眾參與</p>
-                            </div>
-                            <div class="text-lg font-bold text-primary">$125,000</div>
-                        </div>
-                        <div class="award-card p-4 flex justify-between items-center">
-                            <div>
-                                <h4 class="font-bold">Web3電影創新</h4>
-                                <p class="text-sm text-gray-400">區塊鏈整合卓越</p>
-                            </div>
-                            <div class="text-lg font-bold text-primary">$100,000</div>
-                        </div>
-                        <div class="award-card p-4 flex justify-between items-center">
-                            <div>
-                                <h4 class="font-bold">AI動畫成就</h4>
-                                <p class="text-sm text-gray-400">動畫敘事大師</p>
-                            </div>
-                            <div class="text-lg font-bold text-primary">$75,000</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div>
-                    <h3 class="text-2xl font-bold mb-8 text-secondary">
-                        <i class="fas fa-heart mr-2"></i>影響力與認可
-                    </h3>
-                    <div class="space-y-4">
-                        <div class="award-card p-4 flex justify-between items-center">
-                            <div>
-                                <h4 class="font-bold">AI社會影響獎</h4>
-                                <p class="text-sm text-gray-400">推動積極變革的電影</p>
-                            </div>
-                            <div class="text-lg font-bold text-secondary">$100,000</div>
-                        </div>
-                        <div class="award-card p-4 flex justify-between items-center">
-                            <div>
-                                <h4 class="font-bold">新銳AI電影人</h4>
-                                <p class="text-sm text-gray-400">突破性人才認可</p>
-                            </div>
-                            <div class="text-lg font-bold text-secondary">$50,000</div>
-                        </div>
-                        <div class="award-card p-4 flex justify-between items-center">
-                            <div>
-                                <h4 class="font-bold">觀眾選擇獎</h4>
-                                <p class="text-sm text-gray-400">社區投票最愛</p>
-                            </div>
-                            <div class="text-lg font-bold text-secondary">$75,000</div>
-                        </div>
-                        <div class="award-card p-4 flex justify-between items-center">
-                            <div>
-                                <h4 class="font-bold">AI實驗性視野</h4>
-                                <p class="text-sm text-gray-400">突破創意邊界</p>
-                            </div>
-                            <div class="text-lg font-bold text-secondary">$60,000</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Event Schedule Section -->
-    <section id="schedule" class="py-20">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-6xl font-bold mb-6 gradient-text">典禮日程</h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    一整天的慶祝活動，包括首映、表演和主要頒獎典禮
-                </p>
-                <div class="mt-8 bg-black bg-opacity-50 rounded-lg p-6 max-w-2xl mx-auto">
-                    <h3 class="text-2xl font-bold text-gold mb-2">2026年5月1日</h3>
-                    <p class="text-lg text-gray-300">香港會議展覽中心</p>
-                    <p class="text-gray-400">香港灣仔博覽道1號</p>
-                </div>
-            </div>
-
-            <div class="schedule-timeline max-w-6xl mx-auto">
-                <!-- Morning Events -->
-                <div class="timeline-item">
-                    <div class="timeline-content timeline-left">
-                        <div class="flex items-center mb-3">
-                            <div class="text-2xl font-bold text-gold mr-3">08:00</div>
-                            <div class="text-lg font-semibold">註冊與歡迎</div>
-                        </div>
-                        <p class="text-gray-300 mb-2">VIP和媒體註冊開放。為提名者和行業專業人士提供歡迎早餐。</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-blue-500 bg-opacity-20 text-blue-400 text-xs px-2 py-1 rounded">媒體</span>
-                            <span class="bg-purple-500 bg-opacity-20 text-purple-400 text-xs px-2 py-1 rounded">VIP</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content timeline-right">
-                        <div class="flex items-center mb-3">
-                            <div class="text-2xl font-bold text-gold mr-3">10:00</div>
-                            <div class="text-lg font-semibold">AI創新展示</div>
-                        </div>
-                        <p class="text-gray-300 mb-2">獨家預覽前沿AI電影技術和工具。由領先技術合作夥伴提供的互動演示。</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-green-500 bg-opacity-20 text-green-400 text-xs px-2 py-1 rounded">技術</span>
-                            <span class="bg-yellow-500 bg-opacity-20 text-yellow-400 text-xs px-2 py-1 rounded">互動</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content timeline-left">
-                        <div class="flex items-center mb-3">
-                            <div class="text-2xl font-bold text-gold mr-3">12:00</div>
-                            <div class="text-lg font-semibold">提名電影放映</div>
-                        </div>
-                        <p class="text-gray-300 mb-2">在多個影院特別放映入圍電影。與電影製作人進行問答環節。</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-red-500 bg-opacity-20 text-red-400 text-xs px-2 py-1 rounded">放映</span>
-                            <span class="bg-orange-500 bg-opacity-20 text-orange-400 text-xs px-2 py-1 rounded">問答</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Afternoon Events -->
-                <div class="timeline-item">
-                    <div class="timeline-content timeline-right">
-                        <div class="flex items-center mb-3">
-                            <div class="text-2xl font-bold text-gold mr-3">14:30</div>
-                            <div class="text-lg font-semibold">行業峰會</div>
-                        </div>
-                        <p class="text-gray-300 mb-2">"電影中AI的未來" - 與行業領袖、投資者和富有遠見的創作者進行小組討論。</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-indigo-500 bg-opacity-20 text-indigo-400 text-xs px-2 py-1 rounded">小組</span>
-                            <span class="bg-pink-500 bg-opacity-20 text-pink-400 text-xs px-2 py-1 rounded">行業</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content timeline-left">
-                        <div class="flex items-center mb-3">
-                            <div class="text-2xl font-bold text-gold mr-3">16:00</div>
-                            <div class="text-lg font-semibold">紅毯入場</div>
-                        </div>
-                        <p class="text-gray-300 mb-2">星光熠熠的紅毯，提名者、評委和名人嘉賓出席。現場採訪和拍照機會。</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-red-600 bg-opacity-20 text-red-400 text-xs px-2 py-1 rounded">紅毯</span>
-                            <span class="bg-purple-600 bg-opacity-20 text-purple-400 text-xs px-2 py-1 rounded">現場報導</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Evening Ceremony - Fixed color contrast issue -->
-                <div class="timeline-item">
-                    <div class="timeline-content timeline-right ceremony-highlight">
-                        <div class="flex items-center mb-3">
-                            <div class="text-3xl font-bold text-gold mr-3">19:00</div>
-                            <div class="text-xl font-bold">主要頒獎典禮</div>
-                        </div>
-                        <p class="mb-2 font-medium">盛大的活動，包括現場表演、頒獎和100萬美元獨角獸金獎的宣布。</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-gold bg-opacity-30 text-white text-xs px-2 py-1 rounded font-semibold">現場直播</span>
-                            <span class="bg-gold bg-opacity-30 text-white text-xs px-2 py-1 rounded font-semibold">頒獎</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content timeline-left">
-                        <div class="flex items-center mb-3">
-                            <div class="text-2xl font-bold text-gold mr-3">22:00</div>
-                            <div class="text-lg font-semibold">慶祝派對</div>
-                        </div>
-                        <p class="text-gray-300 mb-2">與獲獎者、行業領袖和國際嘉賓的獨家社交招待會。現場DJ和娛樂表演。</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-teal-500 bg-opacity-20 text-teal-400 text-xs px-2 py-1 rounded">社交</span>
-                            <span class="bg-cyan-500 bg-opacity-20 text-cyan-400 text-xs px-2 py-1 rounded">慶祝</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Enhanced ceremony visuals -->
-            <div class="ceremony-visual-container">
-                <div class="ceremony-layer" style="background-image: url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')"></div>
-                <div class="ceremony-content">
-                    <h2 class="text-4xl font-bold mb-4">頒獎典禮體驗</h2>
-                    <p class="text-xl mb-6 max-w-3xl">
-                        一個融合科技與藝術的夜晚，將傳統頒獎典禮與尖端AI技術完美結合，創造前所未有的沉浸式體驗。
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-6xl font-bold mb-8 gradient-text">AI戲劇的藝術革命</h2>
+                    <p class="text-xl text-gray-300 leading-relaxed mb-8">
+                        當AI可以完美模擬人類時，真實人類的不完美情感變得更加珍貴。
+                        每一個演員的呼吸、每一滴眼淚、每一次心跳，都是無法複製的生命印記。
                     </p>
+                </div>
+                
+                <!-- 核心理念對比 -->
+                <div class="mb-16">
+                    <div class="max-w-5xl mx-auto">
+                        <div class="card p-8 mb-8">
+                            <h3 class="text-3xl font-bold mb-6 text-center gradient-text">從「數位完美」到「真實當下」</h3>
+                            <div class="grid md:grid-cols-2 gap-8">
+                                <div class="space-y-4">
+                                    <h4 class="text-xl font-bold text-gray-400">AI電影：數位化智能互動</h4>
+                                    <ul class="space-y-2 text-gray-300">
+                                        <li>• 技術驅動的完美化追求</li>
+                                        <li>• 基於資料庫的預測性反應</li>
+                                        <li>• 高度個人化但演算法控制</li>
+                                        <li>• 可重複的體驗模式</li>
+                                    </ul>
+                                </div>
+                                <div class="space-y-4">
+                                    <h4 class="text-xl font-bold text-accent">AI戲劇：真人情感實時創作</h4>
+                                    <ul class="space-y-2 text-gray-300">
+                                        <li>• 真人演員的當下真實情感</li>
+                                        <li>• 源於生理和心理真實狀態</li>
+                                        <li>• AI增強而非替代人類表達</li>
+                                        <li>• 獨一無二的藝術時刻</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 六重價值維度 -->
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="card p-8">
+                        <div class="text-5xl mb-6 text-accent"><i class="fas fa-heart"></i></div>
+                        <h3 class="text-xl font-bold mb-4 text-accent">存在性價值</h3>
+                        <p class="text-gray-300">
+                            在AI可以生成逼真內容的時代，真實人類的價值反而得到凸顯。
+                            每個演員攜帶的獨特生命體驗、文化記憶、情感歷史，是任何AI訓練都無法完全複製的。
+                        </p>
+                    </div>
+
+                    <div class="card p-8">
+                        <div class="text-5xl mb-6 text-primary"><i class="fas fa-clock"></i></div>
+                        <h3 class="text-xl font-bold mb-4 text-primary">時間性價值</h3>
+                        <p class="text-gray-300">
+                            創造真正意義上的「此時此地」體驗。每場演出都是永不重現的獨特時刻，
+                            這種時間性的稀缺價值在數位化時代顯得尤為珍貴。
+                        </p>
+                    </div>
+
+                    <div class="card p-8">
+                        <div class="text-5xl mb-6 text-secondary"><i class="fas fa-handshake"></i></div>
+                        <h3 class="text-xl font-bold mb-4 text-secondary">關係性價值</h3>
+                        <p class="text-gray-300">
+                            創造真正的三方關係：真人演員、AI系統、現場觀眾。
+                            這種複雜的動態相互影響的共創關係，讓觀眾成為主動的參與者和共同創作者。
+                        </p>
+                    </div>
+
+                    <div class="card p-8">
+                        <div class="text-5xl mb-6 text-gold"><i class="fas fa-university"></i></div>
+                        <h3 class="text-xl font-bold mb-4 text-gold">傳承性價值</h3>
+                        <p class="text-gray-300">
+                            提供文化的活態傳承。當崑曲大師與AI系統合作表演時，
+                            傳承的不僅是劇本和技藝，更是大師的文化理解、人生感悟、藝術修養。
+                        </p>
+                    </div>
+
+                    <div class="card p-8">
+                        <div class="text-5xl mb-6 text-purple-400"><i class="fas fa-magic"></i></div>
+                        <h3 class="text-xl font-bold mb-4 text-purple-400">創新性價值</h3>
+                        <p class="text-gray-300">
+                            突破傳統戲劇的時空限制，創造前所未有的表現可能。
+                            通過AI技術，傳統藝術形式獲得新的生命力和表現力。
+                        </p>
+                    </div>
+
+                    <div class="card p-8">
+                        <div class="text-5xl mb-6 text-pink-400"><i class="fas fa-globe"></i></div>
+                        <h3 class="text-xl font-bold mb-4 text-pink-400">連接性價值</h3>
+                        <p class="text-gray-300">
+                            成為跨文化理解的橋樑，讓不同文化背景的觀眾能夠深度體驗和理解異域文化，
+                            促進全球文化的交流與融合。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 全球戲劇形式展示 -->
+    <section id="theaters" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-6xl font-bold mb-6 gradient-text">全球戲劇藝術寶庫</h2>
+                    <p class="text-xl text-gray-300">
+                        連接3000多種傳統戲劇形式，讓古老智慧在AI時代重新綻放光彩
+                    </p>
+                </div>
+
+                <!-- 主要戲劇區域 -->
+                <div class="mb-16">
+                    <h3 class="text-3xl font-bold text-center mb-12 text-gold">
+                        <i class="fas fa-map-marked-alt mr-3"></i>五大文化圈戲劇傳統
+                    </h3>
                     
-                    <div class="ceremony-stats">
-                        <div class="stat-item">
-                            <div class="stat-number">8000+</div>
-                            <div class="stat-label">現場嘉賓</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">200+</div>
-                            <div class="stat-label">全球媒體</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">15</div>
-                            <div class="stat-label">主要獎項</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">3</div>
-                            <div class="stat-label">全息表演</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="visual-grid">
-                <div class="visual-card">
-                    <div class="w-full h-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
-                    <div class="visual-overlay">
-                        <h3 class="font-bold">全息舞台</h3>
-                        <p class="text-sm">AI生成的沉浸式舞台設計</p>
-                    </div>
-                </div>
-                
-                <div class="visual-card">
-                    <div class="w-full h-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1551818255-e6e10975bc17?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
-                    <div class="visual-overlay">
-                        <h3 class="font-bold">數字紅毯</h3>
-                        <p class="text-sm">互動式AR增強體驗</p>
-                    </div>
-                </div>
-                
-                <div class="visual-card">
-                    <div class="w-full h-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
-                    <div class="visual-overlay">
-                        <h3 class="font-bold">AI主持人</h3>
-                        <p class="text-sm">虛擬與現實完美融合</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Judges Panel Section -->
-    <section id="judges" class="py-20 bg-black bg-opacity-30">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-6xl font-bold mb-6 gradient-text">傑出評委團</h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    世界知名的電影、技術和AI創新專家，負責評審所有類別的參賽作品
-                </p>
-            </div>
-
-            <!-- Jury Categories -->
-            <div class="mb-16">
-                <div class="grid md:grid-cols-3 gap-8 mb-12">
-                    <div class="text-center">
-                        <div class="text-4xl mb-4 text-gold"><i class="fas fa-film"></i></div>
-                        <h3 class="text-xl font-bold mb-2">電影行業資深人士</h3>
-                        <p class="text-gray-400">奧斯卡獎得主、知名導演和行業先驅</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-4xl mb-4 text-accent"><i class="fas fa-brain"></i></div>
-                        <h3 class="text-xl font-bold mb-2">AI技術專家</h3>
-                        <p class="text-gray-400">領先的研究人員、工程師和AI公司高管</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-4xl mb-4 text-primary"><i class="fas fa-palette"></i></div>
-                        <h3 class="text-xl font-bold mb-2">創意遠見者</h3>
-                        <p class="text-gray-400">藝術家、故事講述者和創新倡導者</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 评委描述替换具体人物 -->
-            <div class="text-center mb-12">
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    我們的評審團由來自全球的頂尖電影製作人、AI技術專家和創意思想家組成。他們共同確保評選過程的公正性和專業性。
-                </p>
-            </div>
-
-            <!-- Evaluation Process -->
-            <div class="mt-16 card p-8">
-                <h3 class="text-2xl font-bold mb-6 text-center">評審流程</h3>
-                <div class="grid md:grid-cols-4 gap-6">
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-blue-500 bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <span class="text-2xl font-bold text-blue-400">30%</span>
-                        </div>
-                        <h4 class="font-bold mb-2">技術創新</h4>
-                        <p class="text-sm text-gray-400">AI整合、複雜性、執行質量</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-purple-500 bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <span class="text-2xl font-bold text-purple-400">30%</span>
-                        </div>
-                        <h4 class="font-bold mb-2">藝術卓越</h4>
-                        <p class="text-sm text-gray-400">敘事、美學、情感影響</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-green-500 bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <span class="text-2xl font-bold text-green-400">20%</span>
-                        </div>
-                        <h4 class="font-bold mb-2">商業可行性</h4>
-                        <p class="text-sm text-gray-400">市場潛力、觀眾吸引力</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-yellow-500 bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <span class="text-2xl font-bold text-yellow-400">20%</span>
-                        </div>
-                        <h4 class="font-bold mb-2">文化影響</h4>
-                        <p class="text-sm text-gray-400">社會意義、全球相關性</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Community Voting Section -->
-    <section id="voting" class="py-20">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-6xl font-bold mb-6 gradient-text">社區投票</h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    參與決策！全球社區可以使用HKAIF代幣投票選出觀眾選擇獎
-                </p>
-            </div>
-
-            <!-- Voting Stats -->
-            <div class="grid md:grid-cols-4 gap-6 mb-12">
-                <div class="text-center bg-black bg-opacity-50 rounded-lg p-6">
-                    <div class="text-3xl font-bold text-accent mb-2">142,567</div>
-                    <div class="text-gray-400">總投票數</div>
-                </div>
-                <div class="text-center bg-black bg-opacity-50 rounded-lg p-6">
-                    <div class="text-3xl font-bold text-accent mb-2">28,943</div>
-                    <div class="text-gray-400">參與錢包數</div>
-                </div>
-                <div class="text-center bg-black bg-opacity-50 rounded-lg p-6">
-                    <div class="text-3xl font-bold text-accent mb-2">$75K</div>
-                    <div class="text-gray-400">獎金池</div>
-                </div>
-                <div class="text-center bg-black bg-opacity-50 rounded-lg p-6">
-                    <div class="text-3xl font-bold text-accent mb-2">3 天</div>
-                    <div class="text-gray-400">剩餘時間</div>
-                </div>
-            </div>
-
-            <!-- Top Voting Candidates -->
-            <div class="max-w-4xl mx-auto">
-                <h3 class="text-2xl font-bold mb-8 text-center">領先候選 - 觀眾選擇獎</h3>
-                <div class="space-y-6">
-                    <div class="voting-card">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="flex items-center">
-                                <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="電影《神經連結》海報" class="w-20 h-28 object-cover rounded-lg mr-4">
-                                <div>
-                                    <h4 class="text-xl font-bold mb-1">《神經連結》</h4>
-                                    <p class="text-gray-400 mb-1">導演：陳艾力 | 95分鐘 | 科幻驚悚片</p>
-                                    <p class="text-sm text-gray-500">在AI時代對意識的令人費解的探索</p>
-                                </div>
+                    <div class="theater-grid">
+                        <!-- 中華戲劇圈 -->
+                        <div class="theater-card">
+                            <div class="text-4xl mb-4 text-red-400">🎭</div>
+                            <h4 class="text-xl font-bold mb-3 text-accent">中華戲劇圈</h4>
+                            <div class="space-y-2 text-sm mb-4">
+                                <div><strong>京劇：</strong>國粹藝術，生旦淨丑四大行當</div>
+                                <div><strong>崑曲：</strong>水磨調，百戲之祖</div>
+                                <div><strong>粵劇：</strong>南國紅豆，唱腔優美</div>
+                                <div><strong>川劇：</strong>變臉絕技，蜀風雅韻</div>
+                                <div><strong>黃梅戲：</strong>民間小調，樸實動人</div>
                             </div>
-                            <div class="text-right">
-                                <div class="text-2xl font-bold text-gold">34.2%</div>
-                                <div class="text-sm text-gray-400">48,672票</div>
-                            </div>
+                            <div class="text-xs text-gray-400">300+劇種 • 千年傳承</div>
                         </div>
-                        <div class="progress-bar mb-4">
-                            <div class="progress-fill" style="width: 34.2%"></div>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <div class="flex space-x-2">
-                                <span class="bg-blue-500 bg-opacity-20 text-blue-400 text-xs px-2 py-1 rounded">AI角色</span>
-                                <span class="bg-purple-500 bg-opacity-20 text-purple-400 text-xs px-2 py-1 rounded">神經網絡</span>
-                            </div>
-                            <button class="btn-gold px-4 py-2 rounded-lg text-sm font-bold">立即投票</button>
-                        </div>
-                    </div>
 
-                    <div class="voting-card">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="flex items-center">
-                                <img src="https://images.unsplash.com/photo-1535016120720-40c646be5580?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="電影《數字夢想》海報" class="w-20 h-28 object-cover rounded-lg mr-4">
-                                <div>
-                                    <h4 class="text-xl font-bold mb-1">《數字夢想》</h4>
-                                    <p class="text-gray-400 mb-1">導演：瑪麗亞·羅德里格斯 | 87分鐘 | 動畫劇情片</p>
-                                    <p class="text-sm text-gray-500">AI發現情感和創造力的暖心故事</p>
-                                </div>
+                        <!-- 歐洲古典戲劇 -->
+                        <div class="theater-card">
+                            <div class="text-4xl mb-4 text-blue-400">🏛️</div>
+                            <h4 class="text-xl font-bold mb-3 text-primary">歐洲古典戲劇</h4>
+                            <div class="space-y-2 text-sm mb-4">
+                                <div><strong>莎士比亞劇：</strong>英國戲劇之魂</div>
+                                <div><strong>意大利歌劇：</strong>美聲藝術巔峰</div>
+                                <div><strong>法國古典劇：</strong>理性主義美學</div>
+                                <div><strong>德國表現派：</strong>內心世界探索</div>
+                                <div><strong>俄國戲劇：</strong>現實主義傳統</div>
                             </div>
-                            <div class="text-right">
-                                <div class="text-2xl font-bold text-silver">28.7%</div>
-                                <div class="text-sm text-gray-400">40,891票</div>
-                            </div>
+                            <div class="text-xs text-gray-400">百年劇院 • 經典永恆</div>
                         </div>
-                        <div class="progress-bar mb-4">
-                            <div class="progress-fill" style="width: 28.7%"></div>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <div class="flex space-x-2">
-                                <span class="bg-green-500 bg-opacity-20 text-green-400 text-xs px-2 py-1 rounded">動畫</span>
-                                <span class="bg-pink-500 bg-opacity-20 text-pink-400 text-xs px-2 py-1 rounded">情感AI</span>
-                            </div>
-                            <button class="btn-primary px-4 py-2 rounded-lg text-sm font-bold">立即投票</button>
-                        </div>
-                    </div>
 
-                    <div class="voting-card">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="flex items-center">
-                                <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="電影《最後的算法》海報" class="w-20 h-28 object-cover rounded-lg mr-4">
-                                <div>
-                                    <h4 class="text-xl font-bold mb-1">《最後的算法》</h4>
-                                    <p class="text-gray-400 mb-1">導演：詹姆斯·帕克 | 102分鐘 | 動作/冒險片</p>
-                                    <p class="text-sm text-gray-500">人類對抗失控AI系統的最後一戰</p>
-                                </div>
+                        <!-- 日本傳統戲劇 -->
+                        <div class="theater-card">
+                            <div class="text-4xl mb-4 text-purple-400">⛩️</div>
+                            <h4 class="text-xl font-bold mb-3 text-secondary">日本傳統戲劇</h4>
+                            <div class="space-y-2 text-sm mb-4">
+                                <div><strong>能樂：</strong>神聖莊嚴，面具藝術</div>
+                                <div><strong>狂言：</strong>幽默詼諧，民間智慧</div>
+                                <div><strong>歌舞伎：</strong>華麗絢爛，市民文化</div>
+                                <div><strong>文樂：</strong>人偶劇藝術</div>
+                                <div><strong>雅樂：</strong>宮廷音樂劇</div>
                             </div>
-                            <div class="text-right">
-                                <div class="text-2xl font-bold text-bronze">19.4%</div>
-                                <div class="text-sm text-gray-400">27,645票</div>
-                            </div>
+                            <div class="text-xs text-gray-400">和之美學 • 禪意境界</div>
                         </div>
-                        <div class="progress-bar mb-4">
-                            <div class="progress-fill" style="width: 19.4%"></div>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <div class="flex space-x-2">
-                                <span class="bg-red-500 bg-opacity-20 text-red-400 text-xs px-2 py-1 rounded">動作</span>
-                                <span class="bg-orange-500 bg-opacity-20 text-orange-400 text-xs px-2 py-1 rounded">AI vs 人類</span>
+
+                        <!-- 印度古典藝術 -->
+                        <div class="theater-card">
+                            <div class="text-4xl mb-4 text-yellow-400">🕉️</div>
+                            <h4 class="text-xl font-bold mb-3 text-gold">印度古典藝術</h4>
+                            <div class="space-y-2 text-sm mb-4">
+                                <div><strong>婆羅多舞：</strong>古典舞蹈之母</div>
+                                <div><strong>卡塔克：</strong>北印度宮廷舞</div>
+                                <div><strong>卡塔卡利：</strong>南印度面具舞劇</div>
+                                <div><strong>奧迪西：</strong>東印度古典舞</div>
+                                <div><strong>庫奇普迪：</strong>安得拉邦群舞</div>
                             </div>
-                            <button class="btn-primary px-4 py-2 rounded-lg text-sm font-bold">立即投票</button>
+                            <div class="text-xs text-gray-400">八大古典舞 • 神聖藝術</div>
+                        </div>
+
+                        <!-- 美洲原住民戲劇 -->
+                        <div class="theater-card">
+                            <div class="text-4xl mb-4 text-green-400">🦅</div>
+                            <h4 class="text-xl font-bold mb-3 text-green-400">美洲原住民戲劇</h4>
+                            <div class="space-y-2 text-sm mb-4">
+                                <div><strong>儀式戲劇：</strong>與自然對話的神聖表演</div>
+                                <div><strong>面具舞：</strong>動物精靈的化身</div>
+                                <div><strong>說故事劇：</strong>口述傳統的視覺化</div>
+                                <div><strong>慶典戲劇：</strong>季節更替的慶祝</div>
+                                <div><strong>治療戲劇：</strong>身心靈的和諧統一</div>
+                            </div>
+                            <div class="text-xs text-gray-400">自然智慧 • 靈性傳承</div>
+                        </div>
+
+                        <!-- 非洲傳統戲劇 -->
+                        <div class="theater-card">
+                            <div class="text-4xl mb-4 text-orange-400">🥁</div>
+                            <h4 class="text-xl font-bold mb-3 text-orange-400">非洲傳統戲劇</h4>
+                            <div class="space-y-2 text-sm mb-4">
+                                <div><strong>鼓樂戲劇：</strong>節奏與故事的完美融合</div>
+                                <div><strong>面具劇：</strong>祖先精神的現身</div>
+                                <div><strong>史詩戲劇：</strong>英雄傳說的吟唱</div>
+                                <div><strong>社區戲劇：</strong>集體智慧的分享</div>
+                                <div><strong>儀式戲劇：</strong>生命禮俗的莊嚴慶典</div>
+                            </div>
+                            <div class="text-xs text-gray-400">根源文化 • 生命律動</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Voting Instructions -->
-                <div class="mt-12 card p-8">
-                    <h3 class="text-2xl font-bold mb-6 text-center">如何投票</h3>
+                <!-- 現代戲劇形式 -->
+                <div class="mb-16">
+                    <h3 class="text-3xl font-bold text-center mb-12 text-accent">現代戲劇創新形式</h3>
+                    
+                    <div class="theater-grid">
+                        <div class="theater-card">
+                            <div class="text-3xl mb-3 text-blue-400">🎪</div>
+                            <h4 class="font-bold text-primary">音樂劇</h4>
+                            <p class="text-sm text-gray-300 mt-2">百老匯、倫敦西區的璀璨明珠</p>
+                        </div>
+                        
+                        <div class="theater-card">
+                            <div class="text-3xl mb-3 text-purple-400">🎨</div>
+                            <h4 class="font-bold text-secondary">前衛戲劇</h4>
+                            <p class="text-sm text-gray-300 mt-2">打破邊界的藝術實驗</p>
+                        </div>
+                        
+                        <div class="theater-card">
+                            <div class="text-3xl mb-3 text-green-400">🌍</div>
+                            <h4 class="font-bold text-green-400">環境戲劇</h4>
+                            <p class="text-sm text-gray-300 mt-2">沉浸式空間敘事</p>
+                        </div>
+                        
+                        <div class="theater-card">
+                            <div class="text-3xl mb-3 text-yellow-400">👥</div>
+                            <h4 class="font-bold text-gold">社區戲劇</h4>
+                            <p class="text-sm text-gray-300 mt-2">民眾參與的草根藝術</p>
+                        </div>
+                        
+                        <div class="theater-card">
+                            <div class="text-3xl mb-3 text-red-400">🎭</div>
+                            <h4 class="font-bold text-red-400">實驗戲劇</h4>
+                            <p class="text-sm text-gray-300 mt-2">技術與藝術的前沿探索</p>
+                        </div>
+                        
+                        <div class="theater-card">
+                            <div class="text-3xl mb-3 text-pink-400">💫</div>
+                            <h4 class="font-bold text-pink-400">跨媒體戲劇</h4>
+                            <p class="text-sm text-gray-300 mt-2">數位時代的全新表達</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 瀕危戲劇保護計劃 -->
+                <div class="card p-8">
+                    <h3 class="text-2xl font-bold text-center mb-8 text-gold">全球瀕危戲劇搶救計劃</h3>
+                    <div class="text-center mb-6">
+                        <div class="text-6xl font-bold text-red-400 mb-2">60%</div>
+                        <div class="text-lg text-gray-300">全球戲劇形式正面臨失傳危機</div>
+                    </div>
                     <div class="grid md:grid-cols-3 gap-6">
                         <div class="text-center">
-                            <div class="w-16 h-16 bg-accent bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <i class="fas fa-wallet text-2xl text-accent"></i>
-                            </div>
-                            <h4 class="font-bold mb-2">連接錢包</h4>
-                            <p class="text-sm text-gray-400">連接包含HKAIF代幣的Web3錢包</p>
+                            <div class="text-3xl mb-4 text-accent">📚</div>
+                            <h4 class="text-lg font-bold mb-2">數位典藏</h4>
+                            <p class="text-sm text-gray-300">完整記錄傳統技藝精華</p>
                         </div>
                         <div class="text-center">
-                            <div class="w-16 h-16 bg-accent bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <i class="fas fa-vote-yea text-2xl text-accent"></i>
-                            </div>
-                            <h4 class="font-bold mb-2">投下你的票</h4>
-                            <p class="text-sm text-gray-400">使用HKAIF代幣投票 - 代幣越多，投票權越大</p>
+                            <div class="text-3xl mb-4 text-primary">👨‍🏫</div>
+                            <h4 class="text-lg font-bold mb-2">傳承培養</h4>
+                            <p class="text-sm text-gray-300">培育新一代文化傳承者</p>
                         </div>
                         <div class="text-center">
-                            <div class="w-16 h-16 bg-accent bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <i class="fas fa-trophy text-2xl text-accent"></i>
-                            </div>
-                            <h4 class="font-bold mb-2">獲得獎勵</h4>
-                            <p class="text-sm text-gray-400">參與投票可獲得獎勵和NFT證書</p>
+                            <div class="text-3xl mb-4 text-secondary">🎭</div>
+                            <h4 class="text-lg font-bold mb-2">創新演繹</h4>
+                            <p class="text-sm text-gray-300">AI技術賦能傳統藝術重生</p>
                         </div>
                     </div>
                 </div>
@@ -1369,952 +670,1134 @@
         </div>
     </section>
 
-    <!-- Live Stream Section -->
-    <section id="live" class="py-20 bg-black bg-opacity-30">
+    <!-- 演出模式與體驗 -->
+    <section id="experience" class="py-20 bg-black bg-opacity-30">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-6xl font-bold mb-6 gradient-text">全球直播</h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    通過我們的多語言互動直播，在世界任何地方體驗頒獎典禮
-                </p>
-            </div>
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-6xl font-bold mb-6 gradient-text">AI戲劇演出模式</h2>
+                    <p class="text-xl text-gray-300">
+                        四個層次的觀演體驗，滿足不同觀眾的藝術需求與參與期待
+                    </p>
+                </div>
 
-            <!-- Streaming Platforms -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-                <div class="card p-6 text-center">
-                    <div class="text-4xl mb-4 text-red-500"><i class="fab fa-youtube"></i></div>
-                    <h3 class="font-bold mb-2">YouTube</h3>
-                    <p class="text-sm text-gray-400">4K HDR 直播</p>
-                    <div class="text-accent font-bold">免費</div>
+                <!-- 演出模式演示 -->
+                <div class="experience-demo relative">
+                    <div class="relative z-10">
+                        <h3 class="text-3xl font-bold text-center mb-12 text-white">演員-AI-觀眾三方共創現場</h3>
+                        
+                        <div class="grid md:grid-cols-3 gap-8 mb-12">
+                            <!-- 演員 -->
+                            <div class="text-center">
+                                <div class="w-20 h-20 bg-gradient-to-r from-theater-purple to-theater-red rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i class="fas fa-user text-2xl text-white"></i>
+                                </div>
+                                <h4 class="text-xl font-bold mb-3 text-accent">真人演員</h4>
+                                <div class="space-y-2 text-sm text-gray-300">
+                                    <div>• 當下真實情感表達</div>
+                                    <div>• 生理心理狀態反饋</div>
+                                    <div>• 即興創作決策主導</div>
+                                    <div>• 文化底蘊深度傳遞</div>
+                                </div>
+                            </div>
+
+                            <!-- AI系統 -->
+                            <div class="text-center">
+                                <div class="w-20 h-20 bg-gradient-to-r from-accent to-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i class="fas fa-brain text-2xl text-white"></i>
+                                </div>
+                                <h4 class="text-xl font-bold mb-3 text-primary">AI協作系統</h4>
+                                <div class="space-y-2 text-sm text-gray-300">
+                                    <div>• 情感狀態實時分析</div>
+                                    <div>• 創作內容智能生成</div>
+                                    <div>• 舞台環境動態調節</div>
+                                    <div>• 表演建議即時提供</div>
+                                </div>
+                            </div>
+
+                            <!-- 觀眾 -->
+                            <div class="text-center">
+                                <div class="w-20 h-20 bg-gradient-to-r from-gold to-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i class="fas fa-users text-2xl text-black"></i>
+                                </div>
+                                <h4 class="text-xl font-bold mb-3 text-gold">現場觀眾</h4>
+                                <div class="space-y-2 text-sm text-gray-300">
+                                    <div>• 情緒反應自然表達</div>
+                                    <div>• 集體氛圍共同營造</div>
+                                    <div>• 演出進程實際影響</div>
+                                    <div>• 藝術記憶共同創造</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 互動流程圖 -->
+                        <div class="ai-interaction-demo">
+                            <h4 class="text-lg font-bold mb-4 text-center text-accent">實時互動流程</h4>
+                            <div class="flex flex-wrap justify-center items-center gap-4 text-sm">
+                                <div class="bg-theater-purple px-3 py-1 rounded-full">觀眾情緒</div>
+                                <div class="text-accent">→</div>
+                                <div class="bg-primary px-3 py-1 rounded-full">AI分析</div>
+                                <div class="text-accent">→</div>
+                                <div class="bg-secondary px-3 py-1 rounded-full">環境調節</div>
+                                <div class="text-accent">→</div>
+                                <div class="bg-theater-red px-3 py-1 rounded-full">演員感知</div>
+                                <div class="text-accent">→</div>
+                                <div class="bg-gold text-black px-3 py-1 rounded-full">表演調整</div>
+                                <div class="text-accent">→</div>
+                                <div class="bg-green-500 px-3 py-1 rounded-full">觀眾回應</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="card p-6 text-center">
-                    <div class="text-4xl mb-4 text-purple-500"><i class="fab fa-twitch"></i></div>
-                    <h3 class="font-bold mb-2">Twitch</h3>
-                    <p class="text-sm text-gray-400">互動聊天</p>
-                    <div class="text-accent font-bold">免費</div>
+
+                <!-- 四大體驗層次 -->
+                <div class="grid md:grid-cols-2 gap-8 mb-16">
+                    <!-- 基礎觀演層 -->
+                    <div class="performance-showcase">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-eye text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-green-400">基礎觀演層</h3>
+                                <div class="text-sm text-gray-400">純粹藝術欣賞體驗</div>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <i class="fas fa-ticket-alt text-green-400 mr-3"></i>
+                                <span>高品質戲劇觀賞</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-headphones text-green-400 mr-3"></i>
+                                <span>個人化音響系統</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-chair text-green-400 mr-3"></i>
+                                <span>智能座椅觸覺回饋</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-palette text-green-400 mr-3"></i>
+                                <span>可選技術增強效果</span>
+                            </div>
+                        </div>
+                        <div class="mt-4 text-lg font-bold text-green-400">適合：傳統戲劇愛好者</div>
+                    </div>
+
+                    <!-- 沉浸體驗層 -->
+                    <div class="performance-showcase">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-vr-cardboard text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-primary">沉浸體驗層</h3>
+                                <div class="text-sm text-gray-400">多感官藝術享受</div>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <i class="fas fa-glasses text-primary mr-3"></i>
+                                <span>VR/AR視覺增強</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-wind text-primary mr-3"></i>
+                                <span>嗅覺觸覺體驗</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-history text-primary mr-3"></i>
+                                <span>歷史背景場景再現</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-heart text-primary mr-3"></i>
+                                <span>角色內心獨白可視化</span>
+                            </div>
+                        </div>
+                        <div class="mt-4 text-lg font-bold text-primary">適合：科技愛好者</div>
+                    </div>
+
+                    <!-- 互動創作層 -->
+                    <div class="performance-showcase">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-hands text-black"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-accent">互動創作層</h3>
+                                <div class="text-sm text-gray-400">參與藝術創作過程</div>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <i class="fas fa-edit text-accent mr-3"></i>
+                                <span>劇本討論參與</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-microphone text-accent mr-3"></i>
+                                <span>實時意見表達</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-eye-slash text-accent mr-3"></i>
+                                <span>演員視角體驗</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-comments text-accent mr-3"></i>
+                                <span>創作過程深度討論</span>
+                            </div>
+                        </div>
+                        <div class="mt-4 text-lg font-bold text-accent">適合：藝術創作者</div>
+                    </div>
+
+                    <!-- 專業研習層 -->
+                    <div class="performance-showcase">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-gold rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-graduation-cap text-black"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gold">專業研習層</h3>
+                                <div class="text-sm text-gray-400">深度學術商業交流</div>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <i class="fas fa-user-tie text-gold mr-3"></i>
+                                <span>創作團隊深度交流</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-cog text-gold mr-3"></i>
+                                <span>技術原理詳細講解</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-handshake text-gold mr-3"></i>
+                                <span>商業合作機會探討</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-network-wired text-gold mr-3"></i>
+                                <span>專業網絡建立</span>
+                            </div>
+                        </div>
+                        <div class="mt-4 text-lg font-bold text-gold">適合：專業人士投資者</div>
+                    </div>
                 </div>
-                <div class="card p-6 text-center">
-                    <div class="text-4xl mb-4 text-blue-500"><i class="fab fa-twitter"></i></div>
-                    <h3 class="font-bold mb-2">Twitter/X</h3>
-                    <p class="text-sm text-gray-400">社交整合</p>
-                    <div class="text-accent font-bold">免費</div>
-                </div>
-                <div class="card p-6 text-center">
-                    <div class="text-4xl mb-4 text-accent"><i class="fas fa-cube"></i></div>
-                    <h3 class="font-bold mb-2">元宇宙</h3>
-                    <p class="text-sm text-gray-400">VR體驗</p>
-                    <div class="text-gold font-bold">高級</div>
+
+                <!-- 經典劇目AI演繹示例 -->
+                <div class="card p-8">
+                    <h3 class="text-2xl font-bold text-center mb-8 text-gradient">經典劇目AI創新演繹</h3>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="text-center">
+                            <div class="text-4xl mb-4">👑</div>
+                            <h4 class="text-lg font-bold mb-2 text-accent">《哈姆雷特》AI版</h4>
+                            <p class="text-sm text-gray-300 mb-3">
+                                AI實時分析觀眾情緒，調整哈姆雷特的內心掙扎表現，
+                                每場演出的「To be or not to be」都是獨一無二的詮釋
+                            </p>
+                            <div class="text-xs text-gold">莎士比亞 × AI技術</div>
+                        </div>
+                        
+                        <div class="text-center">
+                            <div class="text-4xl mb-4">🌸</div>
+                            <h4 class="text-lg font-bold mb-2 text-primary">《牡丹亭》智能版</h4>
+                            <p class="text-sm text-gray-300 mb-3">
+                                崑曲大師的表演與AI生成的三維園林景觀結合，
+                                杜麗娘的夢境在現實舞台上如詩如畫地展現
+                            </p>
+                            <div class="text-xs text-gold">湯顯祖 × 數位園林</div>
+                        </div>
+                        
+                        <div class="text-center">
+                            <div class="text-4xl mb-4">⛩️</div>
+                            <h4 class="text-lg font-bold mb-2 text-secondary">《道成寺》現代版</h4>
+                            <p class="text-sm text-gray-300 mb-3">
+                                能樂面具與AI情感識別技術結合，
+                                觀眾能感受到面具下隱藏的複雜情感變化
+                            </p>
+                            <div class="text-xs text-gold">日本能樂 × 情感AI</div>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Stream Features -->
-            <div class="max-w-4xl mx-auto">
-                <div class="grid md:grid-cols-2 gap-8">
+    <!-- 技術創新 -->
+    <section id="innovation" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-6xl font-bold mb-6 gradient-text">技術創新體系</h2>
+                    <p class="text-xl text-gray-300">
+                        技術為藝術服務，創新為人性賦能的哲學導向
+                    </p>
+                </div>
+
+                <!-- 技術創新領域 -->
+                <div class="grid md:grid-cols-2 gap-8 mb-16">
                     <div class="card p-8">
-                        <h3 class="text-2xl font-bold mb-6 text-accent">
-                            <i class="fas fa-language mr-3"></i>多語言支持
-                        </h3>
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="flex items-center">
-                                <img src="https://flagcdn.com/w40/gb.png" alt="English" class="w-6 mr-2">
-                                <span>English</span>
-                            </div>
-                            <div class="flex items-center">
-                                <img src="https://flagcdn.com/w40/cn.png" alt="Chinese" class="w-6 mr-2">
-                                <span>中文</span>
-                            </div>
-                            <div class="flex items-center">
-                                <img src="https://flagcdn.com/w40/jp.png" alt="Japanese" class="w-6 mr-2">
-                                <span>日本語</span>
-                            </div>
-                            <div class="flex items-center">
-                                <img src="https://flagcdn.com/w40/es.png" alt="Spanish" class="w-6 mr-2">
-                                <span>Español</span>
-                            </div>
-                            <div class="flex items-center">
-                                <img src="https://flagcdn.com/w40/fr.png" alt="French" class="w-6 mr-2">
-                                <span>Français</span>
-                            </div>
-                            <div class="flex items-center">
-                                <img src="https://flagcdn.com/w40/de.png" alt="German" class="w-6 mr-2">
-                                <span>Deutsch</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card p-8">
-                        <h3 class="text-2xl font-bold mb-6 text-primary">
-                            <i class="fas fa-users mr-3"></i>互動功能
-                        </h3>
-                        <div class="space-y-4">
-                            <div class="flex items-center">
-                                <div class="w-8 h-8 bg-blue-500 bg-opacity-20 rounded-lg flex items-center justify-center mr-3">
-                                    <i class="fas fa-comments text-blue-400"></i>
-                                </div>
-                                <span>與全球觀眾實時聊天</span>
-                            </div>
-                            <div class="flex items-center">
-                                <div class="w-8 h-8 bg-green-500 bg-opacity-20 rounded-lg flex items-center justify-center mr-3">
-                                    <i class="fas fa-poll text-green-400"></i>
-                                </div>
-                                <span>實時預測與投票</span>
-                            </div>
-                            <div class="flex items-center">
-                                <div class="w-8 h-8 bg-purple-500 bg-opacity-20 rounded-lg flex items-center justify-center mr-3">
-                                    <i class="fas fa-camera text-purple-400"></i>
-                                </div>
-                                <span>多機位角度</span>
-                            </div>
-                            <div class="flex items-center">
-                                <div class="w-8 h-8 bg-red-500 bg-opacity-20 rounded-lg flex items-center justify-center mr-3">
-                                    <i class="fas fa-gift text-red-400"></i>
-                                </div>
-                                <span>NFT空投</span>
-                            </div>
-                            <div class="flex items-center">
-                                <div class="w-8 h-8 bg-yellow-500 bg-opacity-20 rounded-lg flex items-center justify-center mr-3">
-                                    <i class="fas fa-star text-yellow-400"></i>
-                                </div>
-                                <span>獨家幕後花絮</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Watch Live CTA - Fixed color contrast issue -->
-                <div class="mt-12 text-center">
-                    <div class="card p-8 live-notification">
-                        <h3 class="text-3xl font-bold mb-4">
-                            <i class="fas fa-broadcast-tower mr-3"></i>正在直播 - 不要錯過！
-                        </h3>
-                        <p class="text-lg mb-6">頒獎典禮正在向全球超過200萬觀眾直播</p>
-                        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center">
-                            <a href="#" class="btn-gold px-8 py-3 rounded-full font-bold hover:bg-yellow-500 transition">
-                                <i class="fas fa-play mr-2"></i>在YouTube觀看
-                            </a>
-                            <a href="#" class="btn-primary px-8 py-3 rounded-full font-bold hover:bg-blue-600 transition">
-                                <i class="fab fa-twitch mr-2"></i>在Twitch觀看
-                            </a>
-                            <a href="#" class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-bold hover:bg-white hover:text-black transition">
-                                <i class="fas fa-vr-cardboard mr-2"></i>VR體驗
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Nominees Showcase Section -->
-    <section id="nominees" class="py-20">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-6xl font-bold mb-6 gradient-text">提名作品展示</h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    發現角逐AI原生電影最高榮譽的開創性電影
-                </p>
-            </div>
-
-            <!-- Filter Categories -->
-            <div class="flex flex-wrap justify-center gap-4 mb-12">
-                <button class="bg-gold text-black px-4 py-2 rounded-full font-medium">所有類別</button>
-                <button class="bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-full font-medium">最佳電影</button>
-                <button class="bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-full font-medium">技術創新</button>
-                <button class="bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-full font-medium">動畫</button>
-                <button class="bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-full font-medium">互動</button>
-                <button class="bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-full font-medium">實驗性</button>
-            </div>
-
-            <!-- Nominees Grid -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Nominee 1 -->
-                <div class="card overflow-hidden">
-                    <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="神經連結" class="w-full h-64 object-cover">
-                        <div class="absolute top-4 left-4">
-                            <span class="bg-gold text-black px-3 py-1 rounded-full text-sm font-bold">獨角獸金獎提名</span>
-                        </div>
-                        <div class="absolute bottom-4 right-4">
-                            <button class="bg-black bg-opacity-70 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-opacity-90 transition">
-                                <i class="fas fa-play"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">神經連結</h3>
-                        <p class="text-gray-400 mb-3">導演：陳艾力 • 95分鐘 • 科幻驚悚片</p>
-                        <p class="text-sm text-gray-300 mb-4">在AI時代對意識的令人費解的探索，展示了突破性的神經渲染技術。</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-blue-500 bg-opacity-20 text-blue-400 text-xs px-2 py-1 rounded">AI角色</span>
-                            <span class="bg-purple-500 bg-opacity-20 text-purple-400 text-xs px-2 py-1 rounded">神經網絡</span>
-                            <span class="bg-green-500 bg-opacity-20 text-green-400 text-xs px-2 py-1 rounded">VR元素</span>
-                        </div>
-                        <div class="text-sm text-gray-400">
-                            <strong>提名類別：</strong> 最佳電影、最佳AI導演、最佳技術創新
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Nominee 2 -->
-                <div class="card overflow-hidden">
-                    <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1535016120720-40c646be5580?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="數字夢想" class="w-full h-64 object-cover">
-                        <div class="absolute top-4 left-4">
-                            <span class="bg-silver text-black px-3 py-1 rounded-full text-sm font-bold">動畫卓越</span>
-                        </div>
-                        <div class="absolute bottom-4 right-4">
-                            <button class="bg-black bg-opacity-70 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-opacity-90 transition">
-                                <i class="fas fa-play"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">數字夢想</h3>
-                        <p class="text-gray-400 mb-3">導演：瑪麗亞·羅德里格斯 • 87分鐘 • 動畫劇情片</p>
-                        <p class="text-sm text-gray-300 mb-4">通過革命性的程序動畫，講述AI發現情感和創造力的暖心故事。</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-pink-500 bg-opacity-20 text-pink-400 text-xs px-2 py-1 rounded">動畫</span>
-                            <span class="bg-yellow-500 bg-opacity-20 text-yellow-400 text-xs px-2 py-1 rounded">情感AI</span>
-                            <span class="bg-teal-500 bg-opacity-20 text-teal-400 text-xs px-2 py-1 rounded">家庭</span>
-                        </div>
-                        <div class="text-sm text-gray-400">
-                            <strong>提名類別：</strong> 最佳動畫、最佳AI編劇、觀眾選擇獎
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Nominee 3 -->
-                <div class="card overflow-hidden">
-                    <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="最後的算法" class="w-full h-64 object-cover">
-                        <div class="absolute top-4 left-4">
-                            <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold">動作創新</span>
-                        </div>
-                        <div class="absolute bottom-4 right-4">
-                            <button class="bg-black bg-opacity-70 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-opacity-90 transition">
-                                <i class="fas fa-play"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">最後的算法</h3>
-                        <p class="text-gray-400 mb-3">導演：詹姆斯·帕克 • 102分鐘 • 動作/冒險片</p>
-                        <p class="text-sm text-gray-300 mb-4">人類對抗失控AI系統的最後一戰，展示了由AI設計的尖端動作編排。</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-red-500 bg-opacity-20 text-red-400 text-xs px-2 py-1 rounded">動作</span>
-                            <span class="bg-orange-500 bg-opacity-20 text-orange-400 text-xs px-2 py-1 rounded">AI vs 人類</span>
-                            <span class="bg-gray-500 bg-opacity-20 text-gray-400 text-xs px-2 py-1 rounded">反烏托邦</span>
-                        </div>
-                        <div class="text-sm text-gray-400">
-                            <strong>提名類別：</strong> 最佳視覺設計、最佳音效設計、社會影響
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Nominee 4 -->
-                <div class="card overflow-hidden">
-                    <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="量子之心" class="w-full h-64 object-cover">
-                        <div class="absolute top-4 left-4">
-                            <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-bold">浪漫革命</span>
-                        </div>
-                        <div class="absolute bottom-4 right-4">
-                            <button class="bg-black bg-opacity-70 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-opacity-90 transition">
-                                <i class="fas fa-play"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">量子之心</h3>
-                        <p class="text-gray-400 mb-3">導演：莎拉·金 • 78分鐘 • 浪漫劇情片</p>
-                        <p class="text-sm text-gray-300 mb-4">跨越多個維度的愛情故事，展示了創新的AI生成情感敘事。</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-pink-500 bg-opacity-20 text-pink-400 text-xs px-2 py-1 rounded">浪漫</span>
-                            <span class="bg-blue-500 bg-opacity-20 text-blue-400 text-xs px-2 py-1 rounded">量子</span>
-                            <span class="bg-purple-500 bg-opacity-20 text-purple-400 text-xs px-2 py-1 rounded">多元宇宙</span>
-                        </div>
-                        <div class="text-sm text-gray-400">
-                            <strong>提名類別：</strong> 最佳AI編劇、新銳電影人、實驗性視野
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Nominee 5 -->
-                <div class="card overflow-hidden">
-                    <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="代碼交響曲" class="w-full h-64 object-cover">
-                        <div class="absolute top-4 left-4">
-                            <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-bold">互動先鋒</span>
-                        </div>
-                        <div class="absolute bottom-4 right-4">
-                            <button class="bg-black bg-opacity-70 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-opacity-90 transition">
-                                <i class="fas fa-play"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">代碼交響曲</h3>
-                        <p class="text-gray-400 mb-3">導演：麥可·張 • 60分鐘 • 互動紀錄片</p>
-                        <p class="text-sm text-gray-300 mb-4">一次沉浸式的AI演變之旅，觀眾可以通過選擇塑造敘事。</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-green-500 bg-opacity-20 text-green-400 text-xs px-2 py-1 rounded">互動</span>
-                            <span class="bg-blue-500 bg-opacity-20 text-blue-400 text-xs px-2 py-1 rounded">紀錄片</span>
-                            <span class="bg-yellow-500 bg-opacity-20 text-yellow-400 text-xs px-2 py-1 rounded">教育</span>
-                        </div>
-                        <div class="text-sm text-gray-400">
-                            <strong>提名類別：</strong> 最佳互動體驗、技術創新、社會影響
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Nominee 6 -->
-                <div class="card overflow-hidden">
-                    <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1519810755548-39cd217da494?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="霓虹陰影" class="w-full h-64 object-cover">
-                        <div class="absolute top-4 left-4">
-                            <span class="bg-cyan-500 text-black px-3 py-1 rounded-full text-sm font-bold">視覺傑作</span>
-                        </div>
-                        <div class="absolute bottom-4 right-4">
-                            <button class="bg-black bg-opacity-70 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-opacity-90 transition">
-                                <i class="fas fa-play"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">霓虹陰影</h3>
-                        <p class="text-gray-400 mb-3">導演：艾琳娜·沃爾科夫 • 91分鐘 • 賽博朋克黑色電影</p>
-                        <p class="text-sm text-gray-300 mb-4">一部設定在2087年的黑色驚悚片，展示了革命性的AI生成城市景觀和燈光效果。</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-cyan-500 bg-opacity-20 text-cyan-400 text-xs px-2 py-1 rounded">賽博朋克</span>
-                            <span class="bg-gray-500 bg-opacity-20 text-gray-400 text-xs px-2 py-1 rounded">黑色電影</span>
-                            <span class="bg-purple-500 bg-opacity-20 text-purple-400 text-xs px-2 py-1 rounded">AI城市</span>
-                        </div>
-                        <div class="text-sm text-gray-400">
-                            <strong>提名類別：</strong> 最佳視覺設計、最佳數字角色、Web3創新
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- View All Nominees -->
-            <div class="text-center mt-12">
-                <a href="#" class="btn-primary px-8 py-3 rounded-full text-lg font-bold">
-                    查看全部847部提名作品
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Tickets & Venue Section -->
-    <section id="tickets" class="py-20 bg-black bg-opacity-30">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-6xl font-bold mb-6 gradient-text">香港見</h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    在香港會議展覽中心親身體驗這一神奇時刻
-                </p>
-            </div>
-
-            <!-- Venue Information -->
-            <div class="max-w-6xl mx-auto mb-16">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h3 class="text-3xl font-bold mb-6">香港會議展覽中心</h3>
-                        <div class="space-y-4 text-lg">
-                            <div class="flex items-center">
-                                <i class="fas fa-map-marker-alt text-accent mr-3 w-6"></i>
-                                <span>香港灣仔博覽道1號</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-calendar-alt text-accent mr-3 w-6"></i>
-                                <span>2026年5月1日</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-clock text-accent mr-3 w-6"></i>
-                                <span>香港時間下午6:00開門</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-users text-accent mr-3 w-6"></i>
-                                <span>容量：8,000名嘉賓</span>
-                            </div>
-                        </div>
-                        <p class="text-gray-300 mt-6">
-                            著名的香港會議展覽中心為這一歷史性活動提供了完美的背景，配備了最先進的視聽技術和世界一流的設施。
+                        <div class="text-5xl mb-6 text-accent"><i class="fas fa-heart"></i></div>
+                        <h3 class="text-2xl font-bold mb-4 text-accent">情感計算與增強系統</h3>
+                        <p class="text-gray-300 mb-4">
+                            不僅識別基本情感狀態，更能理解複雜情感層次和微妙變化。
+                            區分「悲傷」和「憂鬱」、「憤怒」和「不滿」等相似但不同的情感狀態。
                         </p>
+                        <div class="mt-4">
+                            <h4 class="font-bold text-accent mb-2">核心功能：</h4>
+                            <ul class="text-sm space-y-1">
+                                <li>• 情感預測能力</li>
+                                <li>• 微妙自然的環境調節</li>
+                                <li>• 多重因子綜合分析</li>
+                                <li>• 前瞻性建議提供</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="HKCEC" class="w-full rounded-2xl">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent rounded-2xl"></div>
+
+                    <div class="card p-8">
+                        <div class="text-5xl mb-6 text-primary"><i class="fas fa-bolt"></i></div>
+                        <h3 class="text-2xl font-bold mb-4 text-primary">實時內容生成技術</h3>
+                        <p class="text-gray-300 mb-4">
+                            在保證生成內容品質和藝術性的同時，確保生成速度能夠滿足現場演出的需求。
+                            多個子模組協同運作，考慮劇情、角色、文化、觀眾等多重因素。
+                        </p>
+                        <div class="mt-4">
+                            <h4 class="font-bold text-primary mb-2">生成模組：</h4>
+                            <ul class="text-sm space-y-1">
+                                <li>• 劇本生成：即時對話與情節</li>
+                                <li>• 音樂生成：符合氛圍的配樂</li>
+                                <li>• 視覺生成：新的舞台視覺效果</li>
+                                <li>• 動作生成：即興表演動作建議</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card p-8">
+                        <div class="text-5xl mb-6 text-secondary"><i class="fas fa-cube"></i></div>
+                        <h3 class="text-2xl font-bold mb-4 text-secondary">三維空間交互技術</h3>
+                        <p class="text-gray-300 mb-4">
+                            突破物理舞台空間約束，創造虛擬的、可交互的、動態變化的表演空間。
+                            演員可與虛擬物體真實互動，觀眾可多角度觀察體驗。
+                        </p>
+                        <div class="mt-4">
+                            <h4 class="font-bold text-secondary mb-2">技術特色：</h4>
+                            <ul class="text-sm space-y-1">
+                                <li>• 實時物理特性模擬</li>
+                                <li>• 多場景無縫切換</li>
+                                <li>• 根據劇情動態調整</li>
+                                <li>• 真實的交互體驗</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card p-8">
+                        <div class="text-5xl mb-6 text-gold"><i class="fas fa-users"></i></div>
+                        <h3 class="text-2xl font-bold mb-4 text-gold">觀眾參與技術</h3>
+                        <p class="text-gray-300 mb-4">
+                            讓觀眾自然、有效地參與到演出中，既保證參與的深度和意義，
+                            又避免對演出造成干擾。採用多模態輸入方式。
+                        </p>
+                        <div class="mt-4">
+                            <h4 class="font-bold text-gold mb-2">輸入方式：</h4>
+                            <ul class="text-sm space-y-1">
+                                <li>• 面部表情識別</li>
+                                <li>• 語音分析理解</li>
+                                <li>• 手勢識別接收</li>
+                                <li>• 行動裝置輸入</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Ticket Categories -->
-            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <!-- VIP Package -->
-                <div class="card p-8 relative overflow-hidden border-2 border-gold">
-                    <div class="absolute top-0 right-0 bg-gold text-black px-4 py-2 rounded-bl-lg font-bold">
-                        最受歡迎
+                <!-- 技術標準與開放生態 -->
+                <div class="card p-8 mb-16">
+                    <h3 class="text-2xl font-bold text-center mb-8 text-gold">行業技術標準建立</h3>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-xl font-bold mb-4 text-accent">標準制定</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-accent mr-3 mt-1"></i>
+                                    <div>
+                                        <strong>元資料格式標準</strong>
+                                        <p class="text-sm text-gray-300">確保作品資訊完整記錄和傳播</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-accent mr-3 mt-1"></i>
+                                    <div>
+                                        <strong>交互通訊協定標準</strong>
+                                        <p class="text-sm text-gray-300">確保不同技術供應商設備協同工作</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-accent mr-3 mt-1"></i>
+                                    <div>
+                                        <strong>觀眾參與接口標準</strong>
+                                        <p class="text-sm text-gray-300">確保觀眾獲得一致體驗</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-bold mb-4 text-primary">開源社群</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fas fa-code text-primary mr-3 mt-1"></i>
+                                    <div>
+                                        <strong>GitHub開源專案庫</strong>
+                                        <p class="text-sm text-gray-300">基礎工具、範例代碼、開發文檔</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-trophy text-primary mr-3 mt-1"></i>
+                                    <div>
+                                        <strong>技術會議與競賽</strong>
+                                        <p class="text-sm text-gray-300">開發馬拉松、創新競賽</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-star text-primary mr-3 mt-1"></i>
+                                    <div>
+                                        <strong>開發者激勵機制</strong>
+                                        <p class="text-sm text-gray-300">專家認證、就業機會、專案資助</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="text-center mb-6">
-                        <div class="text-4xl mb-4 text-gold"><i class="fas fa-crown"></i></div>
-                        <h3 class="text-2xl font-bold mb-2">VIP體驗</h3>
-                        <div class="text-4xl font-bold text-gold mb-2">$2,500</div>
-                        <p class="text-gray-400">美元/人</p>
-                    </div>
-                    <div class="space-y-3 mb-8">
-                        <div class="flex items-center">
-                            <i class="fas fa-check text-green-400 mr-3"></i>
-                            <span>優質前排座位</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check text-green-400 mr-3"></i>
-                            <span>紅毯行走機會</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check text-green-400 mr-3"></i>
-                            <span>與提名者見面交流</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check text-green-400 mr-3"></i>
-                            <span>獨家派對入場</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check text-green-400 mr-3"></i>
-                            <span>五道菜美食晚餐</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check text-green-400 mr-3"></i>
-                            <span>限量版NFT收藏</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check text-green-400 mr-3"></i>
-                            <span>後台參觀</span>
-                        </div>
-                    </div>
-                    <button class="btn-gold w-full py-3 rounded-lg font-bold text-lg">
-                        選擇VIP套裝
-                    </button>
-                    <p class="text-center text-sm text-gray-400 mt-3">僅剩200張門票</p>
                 </div>
 
-                <!-- Premium Package -->
+                <!-- AI倫理與責任 -->
                 <div class="card p-8">
-                    <div class="text-center mb-6">
-                        <div class="text-4xl mb-4 text-silver"><i class="fas fa-star"></i></div>
-                        <h3 class="text-2xl font-bold mb-2">高級座位</h3>
-                        <div class="text-4xl font-bold text-silver mb-2">$800</div>
-                        <p class="text-gray-400">美元/人</p>
-                    </div>
-                    <div class="space-y-3 mb-8">
-                        <div class="flex items-center">
-                            <i class="fas fa-check text-green-400 mr-3"></i>
-                            <span>預留高級座位</span>
+                    <h3 class="text-2xl font-bold text-center mb-8 text-gold">技術倫理責任框架</h3>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="text-center">
+                            <div class="text-4xl mb-4 text-accent">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h4 class="text-xl font-bold mb-2">隱私保護</h4>
+                            <p class="text-gray-300">
+                                採用業界最嚴格的隱私保護標準，
+                                確保所有參與者的個人資訊得到充分保護
+                            </p>
                         </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check text-green-400 mr-3"></i>
-                            <span>歡迎招待會入場</span>
+                        <div class="text-center">
+                            <div class="text-4xl mb-4 text-primary">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <h4 class="text-xl font-bold mb-2">演算法公正</h4>
+                            <p class="text-gray-300">
+                                確保AI系統公正、公平、不帶偏見，
+                                支持文化多樣性而非標準化
+                            </p>
                         </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check text-green-400 mr-3"></i>
-                            <span>免費飲品</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check text-green-400 mr-3"></i>
-                            <span>官方節目單與禮品袋</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check text-green-400 mr-3"></i>
-                            <span>數字證書NFT</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check text-green-400 mr-3"></i>
-                            <span>優先入場</span>
-                        </div>
-                    </div>
-                    <button class="btn-primary w-full py-3 rounded-lg font-bold text-lg">
-                        選擇高級套裝
-                    </button>
-                    <p class="text-center text-sm text-gray-400 mt-3">1,200張門票</p>
-                </div>
-
-                <!-- General Admission -->
-                <div class="card p-8">
-                    <div class="text-center mb-6">
-                        <div class="text-4xl mb-4 text-bronze"><i class="fas fa-ticket-alt"></i></div>
-                        <h3 class="text-2xl font-bold mb-2">普通入場</h3>
-                        <div class="text-4xl font-bold text-bronze mb-2">$300</div>
-                        <p class="text-gray-400">美元/人</p>
-                    </div>
-                    <div class="space-y-3 mb-8">
-                        <div class="flex items-center">
-                            <i class="fas fa-check text-green-400 mr-3"></i>
-                            <span>普通典禮座位</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check text-green-400 mr-3"></i>
-                            <span>現場典禮體驗</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check text-green-400 mr-3"></i>
-                            <span>官方節目單</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check text-green-400 mr-3"></i>
-                            <span>小食區入場</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-check text-green-400 mr-3"></i>
-                            <span>出席證書</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-times text-gray-500 mr-3"></i>
-                            <span class="text-gray-500">派對入場</span>
+                        <div class="text-center">
+                            <div class="text-4xl mb-4 text-secondary">
+                                <i class="fas fa-hand-holding-heart"></i>
+                            </div>
+                            <h4 class="text-xl font-bold mb-2">人機協作</h4>
+                            <p class="text-gray-300">
+                                AI永遠是人類創作的助手和工具，
+                                而不是替代者或主導者
+                            </p>
                         </div>
                     </div>
-                    <button class="btn-primary w-full py-3 rounded-lg font-bold text-lg">
-                        選擇普通門票
-                    </button>
-                    <p class="text-center text-sm text-gray-400 mt-3">6,600張門票</p>
-                </div>
-            </div>
-
-            <!-- Payment Methods -->
-            <div class="mt-16 text-center">
-                <h3 class="text-2xl font-bold mb-8">安全支付方式</h3>
-                <div class="flex flex-wrap justify-center items-center gap-8 mb-8">
-                    <div class="flex items-center space-x-2">
-                        <i class="fab fa-cc-visa text-3xl text-blue-500"></i>
-                        <i class="fab fa-cc-mastercard text-3xl text-red-500"></i>
-                        <i class="fab fa-cc-amex text-3xl text-green-500"></i>
-                    </div>
-                    <div class="flex items-center space-x-2">
-                        <i class="fab fa-paypal text-3xl text-blue-600"></i>
-                        <i class="fab fa-alipay text-3xl text-blue-400"></i>
-                    </div>
-                    <div class="flex items-center space-x-2">
-                        <i class="fab fa-bitcoin text-3xl text-orange-500"></i>
-                        <i class="fab fa-ethereum text-3xl text-purple-500"></i>
-                        <span class="text-accent font-bold">HKAIF</span>
-                    </div>
-                </div>
-                <p class="text-gray-400 max-w-2xl mx-auto">
-                    可使用傳統方式或加密貨幣支付。HKAIF代幣持有者可享受所有門票類別15%的折扣。
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Special Features Section -->
-    <section class="py-20">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-6xl font-bold mb-6 gradient-text">獨家功能</h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    革命性的體驗，使這成為有史以來技術最先進的頒獎典禮
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- AI Translation -->
-                <div class="card p-8 text-center">
-                    <div class="floating">
-                        <div class="text-5xl mb-6 text-accent">
-                            <i class="fas fa-language"></i>
-                        </div>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">實時AI翻譯</h3>
-                    <p class="text-gray-300 mb-4">
-                        先進的AI提供50多種語言的即時翻譯，保留文化背景和情感。
-                    </p>
-                    <div class="text-accent font-semibold">50+種語言直播</div>
-                </div>
-
-                <!-- Holographic Performances -->
-                <div class="card p-8 text-center">
-                    <div class="floating" style="animation-delay: 0.5s;">
-                        <div class="text-5xl mb-6 text-primary">
-                            <i class="fas fa-magic"></i>
-                        </div>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">全息表演</h3>
-                    <p class="text-gray-300 mb-4">
-                        世界上第一個以AI生成全息表演者和數字藝術家為特色的頒獎典禮。
-                    </p>
-                    <div class="text-primary font-semibold">新一代娛樂</div>
-                </div>
-
-                <!-- Blockchain Voting -->
-                <div class="card p-8 text-center">
-                    <div class="floating" style="animation-delay: 1s;">
-                        <div class="text-5xl mb-6 text-gold">
-                            <i class="fas fa-vote-yea"></i>
-                        </div>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">區塊鏈投票</h3>
-                    <p class="text-gray-300 mb-4">
-                        透明、不可篡改的投票系統，每一票都記錄在區塊鏈上以供後世查閱。
-                    </p>
-                    <div class="text-gold font-semibold">100%透明</div>
-                </div>
-
-                <!-- AR Experience -->
-                <div class="card p-8 text-center">
-                    <div class="floating" style="animation-delay: 1.5s;">
-                        <div class="text-5xl mb-6 text-purple-400">
-                            <i class="fas fa-eye"></i>
-                        </div>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">增強現實體驗</h3>
-                    <p class="text-gray-300 mb-4">
-                        移動AR應用提供額外內容、幕後花絮和互動體驗。
-                    </p>
-                    <div class="text-purple-400 font-semibold">沉浸式內容</div>
-                </div>
-
-                <!-- NFT Drops -->
-                <div class="card p-8 text-center">
-                    <div class="floating" style="animation-delay: 2s;">
-                        <div class="text-5xl mb-6 text-pink-400">
-                            <i class="fas fa-gem"></i>
-                        </div>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">獨家NFT空投</h3>
-                    <p class="text-gray-300 mb-4">
-                        限量版NFT紀念歷史性時刻，僅限現場參與者和直播觀眾。
-                    </p>
-                    <div class="text-pink-400 font-semibold">收藏性時刻</div>
-                </div>
-
-                <!-- AI Host -->
-                <div class="card p-8 text-center">
-                    <div class="floating" style="animation-delay: 2.5s;">
-                        <div class="text-5xl mb-6 text-cyan-400">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">AI共同主持人</h3>
-                    <p class="text-gray-300 mb-4">
-                        革命性的AI個性與人類主持人自然互動，共同主持典禮。
-                    </p>
-                    <div class="text-cyan-400 font-semibold">人機協作</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Partners & Sponsors -->
-    <section class="py-20 bg-black bg-opacity-30">
+    <!-- 參與方式 -->
+    <section id="participation" class="py-20 bg-black bg-opacity-30">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-6xl font-bold mb-6 gradient-text">全球合作夥伴</h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    支持AI原生電影未來的領先組織
-                </p>
-            </div>
-
-            <!-- Presenting Partners -->
-            <div class="mb-16">
-                <h3 class="text-2xl font-bold text-center mb-8 text-gold">主辦合作夥伴</h3>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="card p-8 text-center">
-                        <div class="text-4xl mb-4 text-blue-500"><i class="fab fa-microsoft"></i></div>
-                        <h4 class="text-xl font-bold mb-2">Microsoft AI</h4>
-                        <p class="text-gray-400">推動AI創新</p>
-                    </div>
-                    <div class="card p-8 text-center">
-                        <div class="text-4xl mb-4 text-green-500"><i class="fas fa-film"></i></div>
-                        <h4 class="text-xl font-bold mb-2">NVIDIA Omniverse</h4>
-                        <p class="text-gray-400">實時協作平台</p>
-                    </div>
-                    <div class="card p-8 text-center">
-                        <div class="text-4xl mb-4 text-purple-500"><i class="fab fa-ethereum"></i></div>
-                        <h4 class="text-xl font-bold mb-2">Ethereum Foundation</h4>
-                        <p class="text-gray-400">區塊鏈基礎設施</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Technology Partners -->
-            <div class="mb-16">
-                <h3 class="text-2xl font-bold text-center mb-8 text-accent">技術合作夥伴</h3>
-                <div class="grid md:grid-cols-4 gap-6">
-                    <div class="card p-6 text-center">
-                        <div class="text-3xl mb-3 text-red-500"><i class="fab fa-google"></i></div>
-                        <h5 class="font-bold">Google Cloud AI</h5>
-                    </div>
-                    <div class="card p-6 text-center">
-                        <div class="text-3xl mb-3 text-orange-500"><i class="fab fa-aws"></i></div>
-                        <h5 class="font-bold">Amazon Web Services</h5>
-                    </div>
-                    <div class="card p-6 text-center">
-                        <div class="text-3xl mb-3 text-blue-400"><i class="fab fa-docker"></i></div>
-                        <h5 class="font-bold">Meta Reality Labs</h5>
-                    </div>
-                    <div class="card p-6 text-center">
-                        <div class="text-3xl mb-3 text-black"><i class="fab fa-apple"></i></div>
-                        <h5 class="font-bold">Apple Vision Pro</h5>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Media Partners -->
-            <div>
-                <h3 class="text-2xl font-bold text-center mb-8 text-primary">媒體合作夥伴</h3>
-                <div class="flex flex-wrap justify-center items-center gap-8 opacity-70">
-                    <div class="text-2xl font-bold">CNN</div>
-                    <div class="text-2xl font-bold">BBC</div>
-                    <div class="text-2xl font-bold">REUTERS</div>
-                    <div class="text-2xl font-bold">VARIETY</div>
-                    <div class="text-2xl font-bold">THE HOLLYWOOD REPORTER</div>
-                    <div class="text-2xl font-bold">WIRED</div>
-                    <div class="text-2xl font-bold">TechCrunch</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Newsletter & Social - Fixed color contrast issue -->
-    <section class="py-20">
-        <div class="container mx-auto px-4">
-            <div class="card p-12 text-center newsletter-section">
-                <h2 class="text-4xl font-bold mb-6">保持聯繫</h2>
-                <p class="text-xl mb-8">
-                    獲取獨家更新、幕後內容和未來活動的早期訪問權限
-                </p>
-                <div class="max-w-md mx-auto mb-8">
-                    <div class="flex">
-                        <input type="email" placeholder="輸入您的電子郵件地址" class="flex-1 px-4 py-3 rounded-l-lg bg-white focus:outline-none">
-                        <button class="bg-black text-white px-6 py-3 rounded-r-lg font-bold hover:bg-gray-800 transition">
-                            訂閱
-                        </button>
-                    </div>
-                </div>
-                <div class="flex justify-center space-x-6">
-                    <a href="#" class="hover:text-gray-200 text-2xl"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="hover:text-gray-200 text-2xl"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="hover:text-gray-200 text-2xl"><i class="fab fa-youtube"></i></a>
-                    <a href="#" class="hover:text-gray-200 text-2xl"><i class="fab fa-tiktok"></i></a>
-                    <a href="#" class="hover:text-gray-200 text-2xl"><i class="fab fa-discord"></i></a>
-                    <a href="#" class="hover:text-gray-200 text-2xl"><i class="fab fa-telegram"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-16 bg-black">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-8 mb-12">
-                <div>
-                    <a href="#" class="flex flex-col mb-6">
-                        <div class="logo-font text-3xl">HKAIIFF</div>
-                        <div class="logo-sub text-xs">頒獎典禮</div>
-                    </a>
-                    <p class="text-gray-400 mb-6">
-                        全球首屈一指的AI原生電影卓越、創新和創造力的慶典。
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-6xl font-bold mb-6 gradient-text">參與未來AI戲劇節</h2>
+                    <p class="text-xl text-gray-300">
+                        多種參與方式，共同開啟人類藝術的新紀元
                     </p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-accent text-xl"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-accent text-xl"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-accent text-xl"><i class="fab fa-youtube"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-accent text-xl"><i class="fab fa-linkedin"></i></a>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- 創作者參與 -->
+                    <div class="card p-8">
+                        <div class="text-5xl mb-6 text-accent"><i class="fas fa-theater-masks"></i></div>
+                        <h3 class="text-2xl font-bold mb-4 text-accent">創作者參與</h3>
+                        <p class="text-gray-300 mb-4">
+                            向全球藝術創作者開放，歡迎導演、編劇、演員、技術專家參與這場藝術革命。
+                        </p>
+                        <div class="mt-4">
+                            <h4 class="font-bold text-accent mb-2">參與方式：</h4>
+                            <ul class="text-sm space-y-1">
+                                <li>• 作品投稿參賽</li>
+                                <li>• 加入創作團隊</li>
+                                <li>• 技術合作開發</li>
+                                <li>• 教育培訓專案</li>
+                            </ul>
+                        </div>
+                        <div class="mt-6">
+                            <a href="#" class="btn-primary px-6 py-3 rounded-full font-bold">
+                                立即投稿
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 合作夥伴 -->
+                    <div class="card p-8">
+                        <div class="text-5xl mb-6 text-secondary"><i class="fas fa-handshake"></i></div>
+                        <h3 class="text-2xl font-bold mb-4 text-secondary">合作夥伴</h3>
+                        <p class="text-gray-300 mb-4">
+                            尋求與全球文化機構、科技公司、教育機構建立戰略合作關係，
+                            共同推動AI戲劇產業發展。
+                        </p>
+                        <div class="mt-4">
+                            <h4 class="font-bold text-secondary mb-2">合作領域：</h4>
+                            <ul class="text-sm space-y-1">
+                                <li>• 技術研發合作</li>
+                                <li>• 內容創作合作</li>
+                                <li>• 市場推廣合作</li>
+                                <li>• 教育培訓合作</li>
+                            </ul>
+                        </div>
+                        <div class="mt-6">
+                            <a href="#" class="btn-primary px-6 py-3 rounded-full font-bold">
+                                合作洽談
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 觀眾體驗 -->
+                    <div class="card p-8">
+                        <div class="text-5xl mb-6 text-gold"><i class="fas fa-ticket-alt"></i></div>
+                        <h3 class="text-2xl font-bold mb-4 text-gold">觀眾體驗</h3>
+                        <p class="text-gray-300 mb-4">
+                            為全球觀眾提供前所未有的藝術體驗，
+                            從基礎觀賞到深度參與，滿足不同需求。
+                        </p>
+                        <div class="mt-4">
+                            <h4 class="font-bold text-gold mb-2">體驗層次：</h4>
+                            <ul class="text-sm space-y-1">
+                                <li>• 基礎觀演體驗</li>
+                                <li>• 沉浸式體驗</li>
+                                <li>• 互動創作體驗</li>
+                                <li>• 專業研習體驗</li>
+                            </ul>
+                        </div>
+                        <div class="mt-6">
+                            <a href="#" class="btn-gold px-6 py-3 rounded-full font-bold text-black">
+                                預約體驗
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 教育參與 -->
+                    <div class="card p-8">
+                        <div class="text-5xl mb-6 text-primary"><i class="fas fa-graduation-cap"></i></div>
+                        <h3 class="text-2xl font-bold mb-4 text-primary">教育參與</h3>
+                        <p class="text-gray-300 mb-4">
+                            建設全球性的AI戲劇教育體系，培養專業人才，
+                            普及相關知識，提升全社會的理解和欣賞能力。
+                        </p>
+                        <div class="mt-4">
+                            <h4 class="font-bold text-primary mb-2">教育項目：</h4>
+                            <ul class="text-sm space-y-1">
+                                <li>• 專業學位課程</li>
+                                <li>• 職業技能培訓</li>
+                                <li>• 在線學習平台</li>
+                                <li>• 青少年藝術營</li>
+                            </ul>
+                        </div>
+                        <div class="mt-6">
+                            <a href="#" class="btn-primary px-6 py-3 rounded-full font-bold">
+                                申請課程
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 技術開發者 -->
+                    <div class="card p-8">
+                        <div class="text-5xl mb-6 text-green-400"><i class="fas fa-code"></i></div>
+                        <h3 class="text-2xl font-bold mb-4 text-green-400">技術開發者</h3>
+                        <p class="text-gray-300 mb-4">
+                            邀請全球技術開發者參與AI戲劇技術平台建設，
+                            共同推進技術創新和標準制定。
+                        </p>
+                        <div class="mt-4">
+                            <h4 class="font-bold text-green-400 mb-2">參與項目：</h4>
+                            <ul class="text-sm space-y-1">
+                                <li>• 開源項目貢獻</li>
+                                <li>• 技術標準制定</li>
+                                <li>• 創新競賽參與</li>
+                                <li>• 專業認證獲取</li>
+                            </ul>
+                        </div>
+                        <div class="mt-6">
+                            <a href="#" class="btn-primary px-6 py-3 rounded-full font-bold">
+                                加入開發
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 文化機構 -->
+                    <div class="card p-8">
+                        <div class="text-5xl mb-6 text-purple-400"><i class="fas fa-landmark"></i></div>
+                        <h3 class="text-2xl font-bold mb-4 text-purple-400">文化機構</h3>
+                        <p class="text-gray-300 mb-4">
+                            與全球文化機構、博物館、劇院建立合作，
+                            推動傳統文化的現代化傳承和創新發展。
+                        </p>
+                        <div class="mt-4">
+                            <h4 class="font-bold text-purple-400 mb-2">合作內容：</h4>
+                            <ul class="text-sm space-y-1">
+                                <li>• 文化資源數位化</li>
+                                <li>• 傳統劇目創新</li>
+                                <li>• 跨文化交流項目</li>
+                                <li>• 文化遺產保護</li>
+                            </ul>
+                        </div>
+                        <div class="mt-6">
+                            <a href="#" class="btn-primary px-6 py-3 rounded-full font-bold">
+                                機構合作
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 全球佈局 -->
+                <div class="mt-16 card p-8">
+                    <h3 class="text-2xl font-bold text-center mb-8 text-gold">全球城市佈局計劃</h3>
+                    <div class="grid md:grid-cols-5 gap-6 text-center">
+                        <div>
+                            <div class="text-3xl mb-3 text-red-400">🇭🇰</div>
+                            <h4 class="font-bold text-accent">香港</h4>
+                            <p class="text-sm text-gray-300 mt-2">總部基地</p>
+                        </div>
+                        <div>
+                            <div class="text-3xl mb-3 text-blue-400">🇺🇸</div>
+                            <h4 class="font-bold text-primary">紐約</h4>
+                            <p class="text-sm text-gray-300 mt-2">北美門戶</p>
+                        </div>
+                        <div>
+                            <div class="text-3xl mb-3 text-green-400">🇬🇧</div>
+                            <h4 class="font-bold text-green-400">倫敦</h4>
+                            <p class="text-sm text-gray-300 mt-2">歐洲中心</p>
+                        </div>
+                        <div>
+                            <div class="text-3xl mb-3 text-yellow-400">🇯🇵</div>
+                            <h4 class="font-bold text-gold">東京</h4>
+                            <p class="text-sm text-gray-300 mt-2">亞太樞紐</p>
+                        </div>
+                        <div>
+                            <div class="text-3xl mb-3 text-purple-400">🇸🇬</div>
+                            <h4 class="font-bold text-secondary">新加坡</h4>
+                            <p class="text-sm text-gray-300 mt-2">東南亞基地</p>
+                        </div>
+                    </div>
+                    <div class="mt-8 text-center">
+                        <p class="text-lg text-gray-300 mb-4">未來將擴展至50個全球重要城市</p>
+                        <div class="text-sm text-gray-400">
+                            北京 • 上海 • 首爾 • 孟買 • 曼谷 • 柏林 • 巴黎 • 米蘭 • 洛杉磯 • 芝加哥 • 多倫多 • 雪梨 • 聖保羅 • 約翰內斯堡...
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 聯繫我們 -->
+    <section id="contact" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl md:text-6xl font-bold mb-8 gradient-text">聯繫我們</h2>
+                <p class="text-xl text-gray-300 mb-12">
+                    讓我們攜手開啟這個激動人心的旅程，在技術與人文的完美融合中，
+                    創造屬於我們這個時代的藝術傳奇
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <div class="card p-8">
+                        <h3 class="text-2xl font-bold mb-6 text-accent">創作者與合作夥伴</h3>
+                        <div class="space-y-4 text-left">
+                            <div class="flex items-start">
+                                <i class="fas fa-envelope text-accent mr-3 mt-1"></i>
+                                <div>
+                                    <strong>作品投稿：</strong>
+                                    <a href="mailto:submissions@theater.hkaiiff.org" class="text-accent hover:text-white transition">
+                                        submissions@theater.hkaiiff.org
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-handshake text-accent mr-3 mt-1"></i>
+                                <div>
+                                    <strong>合作洽談：</strong>
+                                    <a href="mailto:partnership@theater.hkaiiff.org" class="text-accent hover:text-white transition">
+                                        partnership@theater.hkaiiff.org
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-code text-accent mr-3 mt-1"></i>
+                                <div>
+                                    <strong>技術合作：</strong>
+                                    <a href="mailto:tech@theater.hkaiiff.org" class="text-accent hover:text-white transition">
+                                        tech@theater.hkaiiff.org
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-graduation-cap text-accent mr-3 mt-1"></i>
+                                <div>
+                                    <strong>教育合作：</strong>
+                                    <a href="mailto:education@theater.hkaiiff.org" class="text-accent hover:text-white transition">
+                                        education@theater.hkaiiff.org
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card p-8">
+                        <h3 class="text-2xl font-bold mb-6 text-primary">觀眾與媒體</h3>
+                        <div class="space-y-4 text-left">
+                            <div class="flex items-start">
+                                <i class="fas fa-ticket-alt text-primary mr-3 mt-1"></i>
+                                <div>
+                                    <strong>票務諮詢：</strong>
+                                    <a href="mailto:tickets@theater.hkaiiff.org" class="text-primary hover:text-white transition">
+                                        tickets@theater.hkaiiff.org
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-newspaper text-primary mr-3 mt-1"></i>
+                                <div>
+                                    <strong>媒體聯絡：</strong>
+                                    <a href="mailto:media@theater.hkaiiff.org" class="text-primary hover:text-white transition">
+                                        media@theater.hkaiiff.org
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-question-circle text-primary mr-3 mt-1"></i>
+                                <div>
+                                    <strong>一般諮詢：</strong>
+                                    <a href="mailto:info@theater.hkaiiff.org" class="text-primary hover:text-white transition">
+                                        info@theater.hkaiiff.org
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-globe text-primary mr-3 mt-1"></i>
+                                <div>
+                                    <strong>官方網站</strong>
+                                    <div class="text-sm text-gray-300">theater.hkaiiff.org</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 總部地址 -->
+                <div class="card p-8 mb-12">
+                    <h3 class="text-2xl font-bold mb-6 text-gold">全球總部</h3>
+                    <div class="text-center">
+                        <p class="text-lg mb-2">
+                            <i class="fas fa-map-marker-alt text-gold mr-2"></i>
+                            香港文化區未來AI戲劇中心
+                        </p>
+                        <p class="text-gray-300 mb-4">
+                            Future AI Theater Center, Hong Kong Cultural District
+                        </p>
+                        <div class="grid md:grid-cols-3 gap-6 mt-8">
+                            <div>
+                                <i class="fas fa-clock text-gold text-2xl mb-2"></i>
+                                <div class="font-bold">營業時間</div>
+                                <div class="text-sm text-gray-300">週一至週日 10:00-22:00</div>
+                            </div>
+                            <div>
+                                <i class="fas fa-globe text-gold text-2xl mb-2"></i>
+                                <div class="font-bold">官方網站</div>
+                                <div class="text-sm text-gray-300">theater.hkaiiff.org</div>
+                            </div>
+                            <div>
+                                <i class="fas fa-users text-gold text-2xl mb-2"></i>
+                                <div class="font-bold">社群媒體</div>
+                                <div class="text-sm text-gray-300">@FutureAITheater</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 行動呼籲 -->
+                <div class="text-center">
+                    <h3 class="text-3xl font-bold mb-6 gradient-text">開始您的AI戲劇之旅</h3>
+                    <p class="text-lg text-gray-300 mb-8">
+                        未來已來，讓我們用AI戲劇的方式，為人類的情感和智慧譜寫最美麗的華章
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 justify-center">
+                        <a href="#experience" class="btn-gold px-8 py-4 rounded-full text-lg font-bold">
+                            <i class="fas fa-play mr-2"></i>觀看演出
+                        </a>
+                        <a href="#participation" class="btn-primary px-8 py-4 rounded-full text-lg font-bold">
+                            <i class="fas fa-plus mr-2"></i>參與創作
+                        </a>
+                        <a href="mailto:info@theater.hkaiiff.org" class="bg-transparent border-2 border-white px-8 py-4 rounded-full text-lg font-bold hover:bg-white hover:text-black transition">
+                            <i class="fas fa-envelope mr-2"></i>立即聯繫
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 頁腳 -->
+    <footer class="py-16 bg-black bg-opacity-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-4 gap-8 mb-12">
+                    <!-- 品牌資訊 -->
+                    <div class="md:col-span-2">
+                        <div class="logo-font text-3xl mb-4">未來AI戲劇節</div>
+                        <p class="text-gray-300 mb-6">
+                            重新定義人類情感與人工智慧的藝術共創，
+                            構建新一代創意經濟基礎設施，開啟人類藝術的新紀元。
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-accent transition">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-accent transition">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-accent transition">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-accent transition">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-accent transition">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- 快速連結 -->
+                    <div>
+                        <h4 class="text-lg font-bold mb-4 text-accent">快速連結</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#essence" class="text-gray-300 hover:text-accent transition">藝術理念</a></li>
+                            <li><a href="#theaters" class="text-gray-300 hover:text-accent transition">全球劇種</a></li>
+                            <li><a href="#experience" class="text-gray-300 hover:text-accent transition">演出模式</a></li>
+                            <li><a href="#innovation" class="text-gray-300 hover:text-accent transition">技術創新</a></li>
+                            <li><a href="#participation" class="text-gray-300 hover:text-accent transition">參與方式</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- 服務項目 -->
+                    <div>
+                        <h4 class="text-lg font-bold mb-4 text-primary">服務項目</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-300 hover:text-primary transition">創作者培訓</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-primary transition">技術授權</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-primary transition">教育課程</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-primary transition">企業合作</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-primary transition">文化諮詢</a></li>
+                        </ul>
                     </div>
                 </div>
                 
-                <div>
-                    <h3 class="text-lg font-semibold mb-6">活動信息</h3>
-                    <ul class="space-y-3 text-gray-400">
-                        <li><a href="#schedule" class="hover:text-white">活動日程</a></li>
-                        <li><a href="#tickets" class="hover:text-white">門票與價格</a></li>
-                        <li><a href="#" class="hover:text-white">場地信息</a></li>
-                        <li><a href="#" class="hover:text-white">旅行與酒店</a></li>
-                        <li><a href="#" class="hover:text-white">COVID-19指南</a></li>
-                        <li><a href="#" class="hover:text-white">無障礙設施</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-semibold mb-6">獎項</h3>
-                    <ul class="space-y-3 text-gray-400">
-                        <li><a href="#awards" class="hover:text-white">獎項類別</a></li>
-                        <li><a href="#nominees" class="hover:text-white">提名作品</a></li>
-                        <li><a href="#judges" class="hover:text-white">評委團</a></li>
-                        <li><a href="#voting" class="hover:text-white">社區投票</a></li>
-                        <li><a href="#" class="hover:text-white">提交指南</a></li>
-                        <li><a href="#" class="hover:text-white">歷屆獲獎者</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-semibold mb-6">支持</h3>
-                    <ul class="space-y-3 text-gray-400">
-                        <li><a href="#" class="hover:text-white">聯繫我們</a></li>
-                        <li><a href="#" class="hover:text-white">新聞資料包</a></li>
-                        <li><a href="#" class="hover:text-white">贊助</a></li>
-                        <li><a href="#" class="hover:text-white">合作夥伴</a></li>
-                        <li><a href="#" class="hover:text-white">常見問題</a></li>
-                        <li><a href="#" class="hover:text-white">幫助中心</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="border-t border-gray-800 pt-8">
-                <div class="flex flex-col md:flex-row justify-between items-center">
-                    <div class="text-gray-500 text-sm mb-4 md:mb-0">
-                        © 2026 香港AI國際電影節。保留所有權利。
-                    </div>
-                    <div class="flex flex-wrap gap-6 text-sm">
-                        <a href="#" class="text-gray-500 hover:text-accent">隱私政策</a>
-                        <a href="#" class="text-gray-500 hover:text-accent">服務條款</a>
-                        <a href="#" class="text-gray-500 hover:text-accent">Cookie政策</a>
-                        <a href="#" class="text-gray-500 hover:text-accent">法律聲明</a>
+                <!-- 版權資訊 -->
+                <div class="border-t border-gray-700 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center">
+                        <div class="text-gray-400 mb-4 md:mb-0">
+                            © 2025 未來AI戲劇節. 版權所有. 由香港AI國際電影節協會主辦.
+                        </div>
+                        <div class="flex space-x-6">
+                            <a href="#" class="text-gray-400 hover:text-white transition text-sm">隱私政策</a>
+                            <a href="#" class="text-gray-400 hover:text-white transition text-sm">服務條款</a>
+                            <a href="#" class="text-gray-400 hover:text-white transition text-sm">Cookie政策</a>
+                            <a href="#" class="text-gray-400 hover:text-white transition text-sm">聯繫我們</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Floating Action Buttons -->
-    <div class="fixed bottom-6 right-6 z-50 flex flex-col space-y-4">
-        <!-- Watch Live Button -->
-        <a href="#live" class="bg-red-600 hover:bg-red-700 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110">
-            <i class="fas fa-play text-xl"></i>
-        </a>
-        
-        <!-- Scroll to Top -->
-        <button class="bg-accent hover:bg-green-400 text-black w-16 h-16 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110" id="scrollToTop">
-            <i class="fas fa-arrow-up text-xl"></i>
-        </button>
-    </div>
+    <!-- 返回頂部按鈕 -->
+    <button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-accent rounded-full flex items-center justify-center text-black opacity-0 transition-all duration-300 hover:bg-primary hover:text-white z-50">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
-    <!-- Loading Overlay -->
-    <div id="loadingOverlay" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50">
-        <div class="text-center">
-            <div class="text-6xl mb-4 text-accent animate-spin">
-                <i class="fas fa-cog"></i>
-            </div>
-            <div class="text-xl text-white">正在加載體驗...</div>
-        </div>
-    </div>
-
+    <!-- JavaScript -->
     <script>
-        // 倒计时功能
-        function updateCountdown() {
-            const ceremonyDate = new Date('2026-05-01T19:00:00+08:00').getTime();
-            const now = new Date().getTime();
-            const timeLeft = ceremonyDate - now;
-            
-            if (timeLeft > 0) {
-                // 计算天、小时、分钟、秒
-                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-                
-                // 更新DOM元素
-                document.getElementById('days').innerText = days.toString().padStart(2, '0');
-                document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
-                document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
-                document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
-            } else {
-                // 活动已开始
-                document.getElementById('days').innerText = '00';
-                document.getElementById('hours').innerText = '00';
-                document.getElementById('minutes').innerText = '00';
-                document.getElementById('seconds').innerText = '00';
-                
-                // 更新倒计时标题
-                document.querySelector('.countdown-card h2').innerText = "頒獎典禮已開始！";
-            }
-        }
-        
-        // 初始化倒计时
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
-        
-        // 移动菜单切换
+        // 移動菜單切換
         const menuToggle = document.getElementById('menuToggle');
+        const menuClose = document.getElementById('menuClose');
         const mobileMenu = document.getElementById('mobileMenu');
-        
+
         menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
+            mobileMenu.classList.add('open');
         });
+
+        menuClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+        });
+
+        // 點擊菜單項目後關閉菜單
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+            });
+        });
+
+        // 平滑滾動
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 返回頂部按鈕
+        const backToTop = document.getElementById('backToTop');
         
-        // 滚动到顶部功能
-        const scrollToTop = document.getElementById('scrollToTop');
-        scrollToTop.addEventListener('click', () => {
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.style.opacity = '1';
+                backToTop.style.transform = 'translateY(0)';
+            } else {
+                backToTop.style.opacity = '0';
+                backToTop.style.transform = 'translateY(20px)';
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
         });
+
+        // 導航欄滾動效果
+        let lastScrollTop = 0;
+        const navbar = document.querySelector('.navbar');
         
-        // 滚动时导航栏效果
         window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // 向下滾動，隱藏導航欄
+                navbar.style.transform = 'translateY(-100%)';
             } else {
-                navbar.classList.remove('scrolled');
+                // 向上滾動，顯示導航欄
+                navbar.style.transform = 'translateY(0)';
             }
             
-            // 显示/隐藏回到顶部按钮
-            if (window.scrollY > 500) {
-                scrollToTop.style.display = 'flex';
-            } else {
-                scrollToTop.style.display = 'none';
+            lastScrollTop = scrollTop;
+        });
+
+        // 卡片懸浮效果增強
+        document.querySelectorAll('.card, .theater-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) rotateY(5deg)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) rotateY(0deg)';
+            });
+        });
+
+        // 添加視差滾動效果
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroBackground = document.querySelector('.hero-bg');
+            if (heroBackground) {
+                heroBackground.style.transform = `translateY(${scrolled * 0.5}px)`;
             }
         });
-        
-        // 平滑滚动到锚点
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    window.scrollTo({
-                        top: target.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // 关闭移动菜单
-                    mobileMenu.classList.remove('active');
+
+        // 載入動畫
+        document.addEventListener('DOMContentLoaded', function() {
+            // 淡入動畫
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // 為所有卡片添加觀察者
+            document.querySelectorAll('.card, .theater-card, .performance-showcase').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(el);
+            });
+        });
+
+        // 數字動畫效果
+        function animateNumber(element, target, duration = 2000) {
+            const start = 0;
+            const increment = target / (duration / 16);
+            let current = start;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target.toLocaleString();
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current).toLocaleString();
+                }
+            }, 16);
+        }
+
+        // 當數字元素進入視窗時開始動畫
+        const numberObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const element = entry.target;
+                    const text = element.textContent;
+                    const number = parseInt(text.replace(/[^\d]/g, ''));
+                    if (number && !element.animated) {
+                        element.animated = true;
+                        animateNumber(element, number);
+                    }
                 }
             });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.text-4xl.font-bold').forEach(el => {
+            numberObserver.observe(el);
         });
-        
-        // 模拟加载页面效果
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('loadingOverlay').style.display = 'none';
-            }, 1500);
+
+        // 增加互動性 - 滑鼠跟隨效果
+        let mouseX = 0, mouseY = 0;
+        let xp = 0, yp = 0;
+
+        document.addEventListener('mousemove', function(e) {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
         });
-        
-        // 卡片悬停效果增强
-        const cards = document.querySelectorAll('.card, .award-card, .voting-card');
-        cards.forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                card.style.transform = 'translateY(-10px)';
-            });
+
+        function updateCursor() {
+            xp += (mouseX - xp) / 12;
+            yp += (mouseY - yp) / 12;
             
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'translateY(0)';
+            document.querySelectorAll('.sparkle').forEach((sparkle, index) => {
+                const delay = index * 100;
+                setTimeout(() => {
+                    sparkle.style.left = (xp - 2 + Math.random() * 50) + 'px';
+                    sparkle.style.top = (yp - 2 + Math.random() * 50) + 'px';
+                }, delay);
             });
-        });
+
+            requestAnimationFrame(updateCursor);
+        }
         
-        // 倒计时框悬停效果
-        const countdownBoxes = document.querySelectorAll('.countdown-box');
-        countdownBoxes.forEach(box => {
-            box.addEventListener('mouseenter', () => {
-                box.style.transform = 'scale(1.05)';
-            });
-            
-            box.addEventListener('mouseleave', () => {
-                box.style.transform = 'scale(1)';
+        updateCursor();
+
+        // 鍵盤導航支援
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+                mobileMenu.classList.remove('open');
+            }
+        });
+
+        // 表單驗證（如果有表單的話）
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // 這裡可以添加表單提交邏輯
+                alert('感謝您的關注！我們將盡快與您聯繫。');
             });
         });
+
+        // 響應式圖片載入
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+
+        // 預載入關鍵資源
+        const preloadLinks = [
+            'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap',
+            'https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap'
+        ];
+
+        preloadLinks.forEach(href => {
+            const link = document.createElement('link');
+            link.rel = 'preload';
+            link.as = 'style';
+            link.href = href;
+            document.head.appendChild(link);
+        });
+
+        // 性能監控
+        if ('performance' in window) {
+            window.addEventListener('load', () => {
+                const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+                console.log(`頁面載入時間: ${loadTime}ms`);
+            });
+        }
+
+        // 錯誤處理
+        window.addEventListener('error', function(e) {
+            console.error('頁面錯誤:', e.error);
+            // 可以在這裡添加錯誤報告邏輯
+        });
+
+        // 離線支援提示
+        window.addEventListener('online', () => {
+            console.log('網路連接已恢復');
+        });
+
+        window.addEventListener('offline', () => {
+            console.log('網路連接已斷開');
+        });
+
+        // 深度鏈接支持
+        function handleHashChange() {
+            const hash = window.location.hash;
+            if (hash) {
+                const target = document.querySelector(hash);
+                if (target) {
+                    setTimeout(() => {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 100);
+                }
+            }
+        }
+
+        window.addEventListener('hashchange', handleHashChange);
+        window.addEventListener('load', handleHashChange);
     </script>
 </body>
 </html>
